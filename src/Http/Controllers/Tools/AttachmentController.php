@@ -1,13 +1,13 @@
 <?php
 
-namespace Orchid\Http\Controllers\Tools;
+namespace Orchid\CMS\Http\Controllers\Tools;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
-use Orchid\Core\Models\Attachment;
+use Orchid\CMS\Core\Models\Attachment;
 use Orchid\Http\Controllers\Controller;
 
 class AttachmentController extends Controller

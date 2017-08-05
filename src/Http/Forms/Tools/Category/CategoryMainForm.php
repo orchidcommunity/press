@@ -1,12 +1,12 @@
 <?php
 
-namespace Orchid\Http\Forms\Tools\Category;
+namespace Orchid\CMS\Http\Forms\Tools\Category;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
-use Orchid\Core\Models\Category;
-use Orchid\Core\Models\Term;
-use Orchid\Core\Models\TermTaxonomy;
+use Orchid\CMS\Core\Models\Category;
+use Orchid\CMS\Core\Models\Term;
+use Orchid\CMS\Core\Models\TermTaxonomy;
 use Orchid\Forms\Form;
 
 class CategoryMainForm extends Form

@@ -1,10 +1,10 @@
 <?php
 
-namespace Orchid\Http\Controllers\Systems;
+namespace Orchid\CMS\Http\Controllers\Systems;
 
 use Orchid\Http\Controllers\Controller;
-use Orchid\Schema\Helpers;
-use Orchid\Schema\Schema;
+use Orchid\CMS\Schema\Helpers;
+use Orchid\CMS\Schema\Schema;
 
 class SchemaController extends Controller
 {

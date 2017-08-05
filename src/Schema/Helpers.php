@@ -1,6 +1,6 @@
 <?php
 
-namespace Orchid\Schema;
+namespace Orchid\CMS\Schema;
 
 trait Helpers
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Orchid\Http\Controllers\Systems;
+namespace Orchid\CMS\Http\Controllers\Systems;
 
 use Illuminate\Support\Facades\Storage;
 use Orchid\Http\Controllers\Controller;

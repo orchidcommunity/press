@@ -1,13 +1,13 @@
 <?php
 
-namespace Orchid\Behaviors;
+namespace Orchid\CMS\Behaviors;
 
 use Illuminate\Support\Collection;
 use Illuminate\View\View;
-use Orchid\Behaviors\Contract\ManyInterface;
-use Orchid\Http\Filters\CreatedFilter;
-use Orchid\Http\Filters\SearchFilter;
-use Orchid\Http\Filters\StatusFilter;
+use Orchid\CMS\Behaviors\Contract\ManyInterface;
+use Orchid\CMS\Http\Filters\CreatedFilter;
+use Orchid\CMS\Http\Filters\SearchFilter;
+use Orchid\CMS\Http\Filters\StatusFilter;
 
 abstract class Many implements ManyInterface
 {

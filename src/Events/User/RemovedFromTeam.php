@@ -1,9 +1,9 @@
 <?php
 
-namespace Orchid\Events\User;
+namespace Orchid\CMS\Events\User;
 
 use Illuminate\Queue\SerializesModels;
-use Orchid\Http\Forms\Systems\Roles\RoleFormGroup;
+use Orchid\CMS\Http\Forms\Systems\Roles\RoleFormGroup;
 
 class RemovedFromTeam
 {

@@ -14,7 +14,7 @@ $this->group([
     'middleware' => ['install'],
     'as'         => 'install::',
     'prefix'     => 'dashboard/install',
-    'namespace'  => 'Orchid\Http\Controllers\Install',
+    'namespace'  => 'Orchid\CMS\Http\Controllers\Install',
 ],
     function (\Illuminate\Routing\Router $router) {
         $router->get('/', [

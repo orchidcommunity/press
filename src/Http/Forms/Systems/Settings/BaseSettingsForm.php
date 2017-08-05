@@ -1,6 +1,6 @@
 <?php
 
-namespace Orchid\Http\Forms\Systems\Settings;
+namespace Orchid\CMS\Http\Forms\Systems\Settings;
 
 use Illuminate\Contracts\View\View;
 use Orchid\Forms\Form;

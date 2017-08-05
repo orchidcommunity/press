@@ -1,11 +1,11 @@
 <?php
 
-namespace Orchid\Http\Forms\Tools\Category;
+namespace Orchid\CMS\Http\Forms\Tools\Category;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
-use Orchid\Core\Models\TermTaxonomy;
+use Orchid\CMS\Core\Models\TermTaxonomy;
 use Orchid\Forms\Form;
 
 class CategoryDescForm extends Form

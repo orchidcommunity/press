@@ -1,6 +1,6 @@
 <?php
 
-namespace Orchid\Http\Forms\Systems\Settings;
+namespace Orchid\CMS\Http\Forms\Systems\Settings;
 
 use Orchid\Forms\Form;
 use Orchid\Setting\Models\Setting;

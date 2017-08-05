@@ -1,10 +1,13 @@
 <?php
 
-namespace Orchid\Providers;
+namespace Orchid\CMS\Providers;
 
 use Cartalyst\Tags\TagsServiceProvider;
 use Illuminate\Support\ServiceProvider;
 use Intervention\Image\ImageServiceProvider;
+use Orchid\CMS\Behaviors\Storage\PageStorage;
+use Orchid\CMS\Behaviors\Storage\PostStorage;
+use Orchid\Facades\Dashboard;
 use Orchid\Log\LogServiceProvider;
 use Orchid\Setting\Providers\SettingServiceProvider;
 use Orchid\Widget\Providers\WidgetServiceProvider;
@@ -14,9 +17,14 @@ class FoundationServiceProvider extends ServiceProvider
 {
     /**
      * Boot the application events.
+     *
+     * @param Dashboard $dashboard
      */
-    public function boot()
+    public function boot(Dashboard $dashboard)
     {
+        $dashboard->registerStorage('pages', new PageStorage());
+        $dashboard->registerStorage('posts', new PostStorage());
+
 
         $this->registerCode();
         $this->registerDatabase();

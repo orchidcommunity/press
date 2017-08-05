@@ -1,6 +1,6 @@
 <?php
 
-namespace Orchid\Core\Models;
+namespace Orchid\CMS\Core\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;

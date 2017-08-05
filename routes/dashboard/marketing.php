@@ -13,7 +13,7 @@
 $this->group([
     'middleware' => ['web', 'dashboard', 'access'],
     'prefix'     => 'dashboard/marketing',
-    'namespace'  => 'Orchid\Http\Controllers\Marketing',
+    'namespace'  => 'Orchid\CMS\Http\Controllers\Marketing',
 ],
     function (\Illuminate\Routing\Router $router) {
         $router->resource('comment', 'CommentController', [

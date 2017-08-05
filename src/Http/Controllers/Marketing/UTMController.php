@@ -1,6 +1,6 @@
 <?php
 
-namespace Orchid\Http\Controllers\Marketing;
+namespace Orchid\CMS\Http\Controllers\Marketing;
 
 use Orchid\Http\Controllers\Controller;
 

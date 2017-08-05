@@ -1,10 +1,10 @@
 <?php
 
-namespace Orchid\Http\Forms\Tools\Category;
+namespace Orchid\CMS\Http\Forms\Tools\Category;
 
 use Illuminate\View\View;
-use Orchid\Core\Models\Category;
-use Orchid\Events\Tools\CategoryEvent;
+use Orchid\CMS\Core\Models\Category;
+use Orchid\CMS\Events\Tools\CategoryEvent;
 use Orchid\Forms\FormGroup;
 
 class CategoryFormGroup extends FormGroup

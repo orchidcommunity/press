@@ -1,10 +1,10 @@
 <?php
 
-namespace Orchid\Schema\Wrapper;
+namespace Orchid\CMS\Schema\Wrapper;
 
 use Illuminate\Support\Facades\DB;
-use Orchid\Schema\BaseSchema;
-use Orchid\Schema\WrapperContract;
+use Orchid\CMS\Schema\BaseSchema;
+use Orchid\CMS\Schema\WrapperContract;
 
 class SqliteWrapper implements WrapperContract
 {

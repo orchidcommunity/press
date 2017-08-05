@@ -1,8 +1,8 @@
 <?php
 
-namespace Orchid\Listeners\Systems\Settings;
+namespace Orchid\CMS\Listeners\Systems\Settings;
 
-use Orchid\Http\Forms\Systems\Settings\InfoForm;
+use Orchid\CMS\Http\Forms\Systems\Settings\InfoForm;
 
 class SettingInfoListener
 {

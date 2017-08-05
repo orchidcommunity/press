@@ -1,12 +1,12 @@
 <?php
 
-namespace Orchid\Http\Forms\Marketing\Advertising;
+namespace Orchid\CMS\Http\Forms\Marketing\Advertising;
 
 use Carbon\Carbon;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Orchid\Core\Models\Post;
+use Orchid\CMS\Core\Models\Post;
 use Orchid\Forms\Form;
 
 class AdvertisingMainForm extends Form

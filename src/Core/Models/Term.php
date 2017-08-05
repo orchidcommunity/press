@@ -1,10 +1,10 @@
 <?php
 
-namespace Orchid\Core\Models;
+namespace Orchid\CMS\Core\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
-use Orchid\Core\Traits\MultiLanguage;
+use Orchid\CMS\Core\Traits\MultiLanguage;
 
 class Term extends Model
 {

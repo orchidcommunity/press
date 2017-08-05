@@ -1,10 +1,10 @@
 <?php
 
-namespace Orchid\Http\Forms\Marketing\Comment;
+namespace Orchid\CMS\Http\Forms\Marketing\Comment;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
-use Orchid\Core\Models\Comment;
+use Orchid\CMS\Core\Models\Comment;
 use Orchid\Forms\Form;
 
 class BaseCommentForm extends Form

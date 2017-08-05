@@ -1,11 +1,11 @@
 <?php
 
-namespace Orchid\Http\Controllers\Tools;
+namespace Orchid\CMS\Http\Controllers\Tools;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
-use Orchid\Core\Models\Menu;
+use Orchid\CMS\Core\Models\Menu;
 use Orchid\Http\Controllers\Controller;
 
 class MenuController extends Controller

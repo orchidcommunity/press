@@ -1,11 +1,11 @@
 <?php
 
-namespace Orchid\Schema;
+namespace Orchid\CMS\Schema;
 
-use Orchid\Schema\Wrapper\MysqlWrapper;
-use Orchid\Schema\Wrapper\PostgresWrapper;
-use Orchid\Schema\Wrapper\SqliteWrapper;
-use Orchid\Schema\Wrapper\SqlServerWrapper;
+use Orchid\CMS\Schema\Wrapper\MysqlWrapper;
+use Orchid\CMS\Schema\Wrapper\PostgresWrapper;
+use Orchid\CMS\Schema\Wrapper\SqliteWrapper;
+use Orchid\CMS\Schema\Wrapper\SqlServerWrapper;
 
 class Schema extends BaseSchema
 {

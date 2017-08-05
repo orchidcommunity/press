@@ -1,4 +1,4 @@
-<?php namespace Orchid\Filters;
+<?php namespace Orchid\CMS\Filters;
 
 use Illuminate\Database\Eloquent\Builder;
 

@@ -1,9 +1,9 @@
 <?php
 
-namespace Orchid\Events\Marketing;
+namespace Orchid\CMS\Events\Marketing;
 
 use Illuminate\Queue\SerializesModels;
-use Orchid\Http\Forms\Marketing\Advertising\AdvertisingFormGroup;
+use Orchid\CMS\Http\Forms\Marketing\Advertising\AdvertisingFormGroup;
 
 class AdvertisingEvent
 {

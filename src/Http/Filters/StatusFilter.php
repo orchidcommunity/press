@@ -1,7 +1,9 @@
-<?php namespace Orchid\Http\Filters;
+<?php
+
+namespace Orchid\CMS\Http\Filters;
 
 use Illuminate\Database\Eloquent\Builder;
-use Orchid\Filters\Filter;
+use Orchid\CMS\Filters\Filter;
 
 class StatusFilter extends Filter
 {

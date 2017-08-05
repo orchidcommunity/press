@@ -1,11 +1,11 @@
 <?php
 
-namespace Orchid\Behaviors;
+namespace Orchid\CMS\Behaviors;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
-use Orchid\Core\Models\Post;
+use Orchid\CMS\Core\Models\Post;
 use Orchid\Exceptions\TypeException;
 
 trait Structure

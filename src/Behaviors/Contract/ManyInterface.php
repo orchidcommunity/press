@@ -1,6 +1,6 @@
 <?php
 
-namespace Orchid\Behaviors\Contract;
+namespace Orchid\CMS\Behaviors\Contract;
 
 interface ManyInterface
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Orchid\Providers;
+namespace Orchid\CMS\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -18,7 +18,7 @@ class ConsoleServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    protected $namespace = 'Orchid\\Console\\';
+    protected $namespace = 'Orchid\\CMS\\Console\\';
 
     /**
      * The available command shortname.

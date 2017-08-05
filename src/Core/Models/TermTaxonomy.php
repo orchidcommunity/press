@@ -1,12 +1,12 @@
 <?php
 
-namespace Orchid\Core\Models;
+namespace Orchid\CMS\Core\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Orchid\Core\Builders\TermTaxonomyBuilder;
+use Orchid\CMS\Core\Builders\TermTaxonomyBuilder;
 
 class TermTaxonomy extends Model
 {

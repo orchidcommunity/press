@@ -12,7 +12,7 @@
 $this->group([
     'middleware' => ['web', 'dashboard', 'access'],
     'prefix'     => 'dashboard/tools',
-    'namespace'  => 'Orchid\Http\Controllers\Tools',
+    'namespace'  => 'Orchid\CMS\Http\Controllers\Tools',
 ],
     function (\Illuminate\Routing\Router $router) {
         $router->resource('category', 'CategoryController', ['names' => [

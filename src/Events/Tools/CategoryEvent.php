@@ -1,9 +1,9 @@
 <?php
 
-namespace Orchid\Events\Tools;
+namespace Orchid\CMS\Events\Tools;
 
 use Illuminate\Queue\SerializesModels;
-use Orchid\Http\Forms\Tools\Category\CategoryFormGroup;
+use Orchid\CMS\Http\Forms\Tools\Category\CategoryFormGroup;
 
 class CategoryEvent
 {

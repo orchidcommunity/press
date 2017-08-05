@@ -1,6 +1,6 @@
 <?php
 
-namespace Orchid\Core\Models;
+namespace Orchid\CMS\Core\Models;
 
 use Orchid\Exceptions\TypeException;
 use Orchid\Facades\Dashboard;
@@ -21,7 +21,7 @@ class Page extends Post
      */
     public function getBehavior($slug)
     {
-        $this->behavior = cms::getPages()->find($slug);
+        $this->behavior = Dashboard::getPages()->find($slug);
 
         if (is_null($this->behavior)) {
             throw new TypeException("{$slug} Type is not found");

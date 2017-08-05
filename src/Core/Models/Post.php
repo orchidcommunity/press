@@ -1,6 +1,6 @@
 <?php
 
-namespace Orchid\Core\Models;
+namespace Orchid\CMS\Core\Models;
 
 use Cartalyst\Tags\TaggableTrait;
 use Cviebrock\EloquentSluggable\Sluggable;
@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
-use Orchid\Core\Traits\MultiLanguage;
+use Orchid\CMS\Core\Traits\MultiLanguage;
 use Orchid\Exceptions\TypeException;
 use Orchid\Facades\Dashboard;
 
@@ -115,7 +115,7 @@ class Post extends Model
      */
     public function getBehavior($slug)
     {
-        $this->behavior = cms::getPosts()->find($slug);
+        $this->behavior = Dashboard::getPosts()->find($slug);
 
         if (is_null($this->behavior)) {
             throw new TypeException("{$slug} Type is not found");

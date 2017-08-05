@@ -1,6 +1,6 @@
 <?php
 
-namespace Orchid\Http\Controllers\Install;
+namespace Orchid\CMS\Http\Controllers\Install;
 
 use Illuminate\Support\Facades\Artisan;
 use Orchid\Http\Controllers\Controller;

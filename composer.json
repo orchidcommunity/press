@@ -33,7 +33,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Orchid\\": "src/"
+      "Orchid\\CMS\\": "src/"
     }
   },
   "extra": {

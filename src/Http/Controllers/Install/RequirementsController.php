@@ -1,10 +1,10 @@
 <?php
 
-namespace Orchid\Http\Controllers\Install;
+namespace Orchid\CMS\Http\Controllers\Install;
 
 use Illuminate\Support\Facades\DB;
 use Orchid\Http\Controllers\Controller;
-use Orchid\Http\Controllers\Install\Helpers\RequirementsChecker;
+use Orchid\CMS\Http\Controllers\Install\Helpers\RequirementsChecker;
 
 class RequirementsController extends Controller
 {

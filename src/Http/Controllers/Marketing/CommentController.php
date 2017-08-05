@@ -1,12 +1,12 @@
 <?php
 
-namespace Orchid\Http\Controllers\Marketing;
+namespace Orchid\CMS\Http\Controllers\Marketing;
 
 use Illuminate\Http\Request;
 use Orchid\Alert\Facades\Alert;
-use Orchid\Core\Models\Comment;
+use Orchid\CMS\Core\Models\Comment;
 use Orchid\Http\Controllers\Controller;
-use Orchid\Http\Forms\Marketing\Comment\CommentFormGroup;
+use Orchid\CMS\Http\Forms\Marketing\Comment\CommentFormGroup;
 
 class CommentController extends Controller
 {

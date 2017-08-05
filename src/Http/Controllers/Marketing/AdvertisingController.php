@@ -1,12 +1,12 @@
 <?php
 
-namespace Orchid\Http\Controllers\Marketing;
+namespace Orchid\CMS\Http\Controllers\Marketing;
 
 use Illuminate\Http\Request;
 use Orchid\Alert\Facades\Alert;
-use Orchid\Core\Models\Post;
+use Orchid\CMS\Core\Models\Post;
 use Orchid\Http\Controllers\Controller;
-use Orchid\Http\Forms\Marketing\Advertising\AdvertisingFormGroup;
+use Orchid\CMS\Http\Forms\Marketing\Advertising\AdvertisingFormGroup;
 
 class AdvertisingController extends Controller
 {

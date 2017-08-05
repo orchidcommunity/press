@@ -1,12 +1,12 @@
 <?php
 
-namespace Orchid\Http\Controllers\Tools;
+namespace Orchid\CMS\Http\Controllers\Tools;
 
 use Illuminate\Http\Request;
 use Orchid\Alert\Facades\Alert;
-use Orchid\Core\Models\TermTaxonomy;
+use Orchid\CMS\Core\Models\TermTaxonomy;
 use Orchid\Http\Controllers\Controller;
-use Orchid\Http\Forms\Tools\Category\CategoryFormGroup;
+use Orchid\CMS\Http\Forms\Tools\Category\CategoryFormGroup;
 
 class CategoryController extends Controller
 {

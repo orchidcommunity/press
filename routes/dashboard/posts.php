@@ -12,7 +12,7 @@
 $this->group([
     'middleware' => ['web', 'dashboard', 'access'],
     'prefix'     => 'dashboard/posts',
-    'namespace'  => 'Orchid\Http\Controllers\Posts',
+    'namespace'  => 'Orchid\CMS\Http\Controllers\Posts',
 ],
     function (\Illuminate\Routing\Router $router) {
         $router->get('{type}/create', [

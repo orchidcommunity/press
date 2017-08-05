@@ -12,7 +12,7 @@
 $this->group([
     'middleware' => ['web', 'dashboard', 'access'],
     'prefix'     => 'dashboard/systems',
-    'namespace'  => 'Orchid\Http\Controllers\Systems',
+    'namespace'  => 'Orchid\CMS\Http\Controllers\Systems',
 ],
     function (\Illuminate\Routing\Router $router) {
         $router->get('settings', [

@@ -1,6 +1,6 @@
 <?php
 
-namespace Orchid\Core\Traits;
+namespace Orchid\CMS\Core\Traits;
 
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 

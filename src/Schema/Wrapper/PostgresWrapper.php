@@ -1,9 +1,9 @@
 <?php
 
-namespace Orchid\Schema\Wrapper;
+namespace Orchid\CMS\Schema\Wrapper;
 
-use Orchid\Schema\BaseSchema;
-use Orchid\Schema\WrapperContract;
+use Orchid\CMS\Schema\BaseSchema;
+use Orchid\CMS\Schema\WrapperContract;
 
 class PostgresWrapper implements WrapperContract
 {

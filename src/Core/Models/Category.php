@@ -1,6 +1,6 @@
 <?php
 
-namespace Orchid\Core\Models;
+namespace Orchid\CMS\Core\Models;
 
 class Category extends TermTaxonomy
 {

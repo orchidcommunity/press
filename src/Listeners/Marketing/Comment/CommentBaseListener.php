@@ -1,8 +1,8 @@
 <?php
 
-namespace Orchid\Listeners\Marketing\Comment;
+namespace Orchid\CMS\Listeners\Marketing\Comment;
 
-use Orchid\Http\Forms\Marketing\Comment\BaseCommentForm;
+use Orchid\CMS\Http\Forms\Marketing\Comment\BaseCommentForm;
 
 class CommentBaseListener
 {

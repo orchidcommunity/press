@@ -1,6 +1,6 @@
 <?php
 
-namespace Orchid\Http\Controllers\Tools;
+namespace Orchid\CMS\Http\Controllers\Tools;
 
 use Exception;
 use Illuminate\Http\Request;

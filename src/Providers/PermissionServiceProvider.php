@@ -1,6 +1,6 @@
 <?php
 
-namespace Orchid\Providers;
+namespace Orchid\CMS\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Orchid\Kernel\Dashboard;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Orchid\Http\Controllers\Posts;
+namespace Orchid\CMS\Http\Controllers\Posts;
 
 use Carbon\Carbon;
 use Cviebrock\EloquentSluggable\Services\SlugService;
@@ -9,8 +9,8 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Orchid\Alert\Facades\Alert;
-use Orchid\Behaviors\Many as PostBehavior;
-use Orchid\Core\Models\Post;
+use Orchid\CMS\Behaviors\Many as PostBehavior;
+use Orchid\CMS\Core\Models\Post;
 use Orchid\Http\Controllers\Controller;
 
 class PostController extends Controller

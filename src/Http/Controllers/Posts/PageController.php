@@ -1,12 +1,12 @@
 <?php
 
-namespace Orchid\Http\Controllers\Posts;
+namespace Orchid\CMS\Http\Controllers\Posts;
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Orchid\Alert\Facades\Alert;
-use Orchid\Core\Models\Page;
+use Orchid\CMS\Core\Models\Page;
 use Orchid\Http\Controllers\Controller;
 
 class PageController extends Controller

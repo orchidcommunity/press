@@ -1,6 +1,6 @@
 <?php
 
-namespace Orchid\Http\Controllers\Install\Helpers;
+namespace Orchid\CMS\Http\Controllers\Install\Helpers;
 
 class PermissionsChecker
 {

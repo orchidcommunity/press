@@ -1,6 +1,6 @@
 <?php
 
-namespace Orchid\Behaviors\Storage;
+namespace Orchid\CMS\Behaviors\Storage;
 
 use Orchid\Kernel\Storage;
 

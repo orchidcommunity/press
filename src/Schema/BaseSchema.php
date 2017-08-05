@@ -1,6 +1,6 @@
 <?php
 
-namespace Orchid\Schema;
+namespace Orchid\CMS\Schema;
 
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\DB;

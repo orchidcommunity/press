@@ -1,8 +1,8 @@
 <?php
 
-namespace Orchid\Listeners\Marketing\Advertising;
+namespace Orchid\CMS\Listeners\Marketing\Advertising;
 
-use Orchid\Http\Forms\Marketing\Advertising\AdvertisingMainForm;
+use Orchid\CMS\Http\Forms\Marketing\Advertising\AdvertisingMainForm;
 
 class AdvertisingBaseListener
 {

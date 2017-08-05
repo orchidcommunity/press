@@ -1,6 +1,6 @@
 <?php
 
-namespace Orchid\Core\Builders;
+namespace Orchid\CMS\Core\Builders;
 
 use Illuminate\Database\Eloquent\Builder;
 
@@ -14,7 +14,7 @@ class TermTaxonomyBuilder extends Builder
     /**
      * Add posts to the relationship builder.
      *
-     * @return \Orchid\Core\Builders\TermTaxonomyBuilder
+     * @return \Orchid\CMS\Core\Builders\TermTaxonomyBuilder
      */
     public function posts(): TermTaxonomyBuilder
     {
@@ -24,7 +24,7 @@ class TermTaxonomyBuilder extends Builder
     /**
      * Set taxonomy type to category.
      *
-     * @return \Orchid\Core\Builders\TermTaxonomyBuilder
+     * @return \Orchid\CMS\Core\Builders\TermTaxonomyBuilder
      */
     public function category(): TermTaxonomyBuilder
     {
@@ -46,7 +46,7 @@ class TermTaxonomyBuilder extends Builder
      *
      * @param string
      *
-     * @return \Orchid\Core\Builders\TermTaxonomyBuilder
+     * @return \Orchid\CMS\Core\Builders\TermTaxonomyBuilder
      */
     public function slug($slug = null): TermTaxonomyBuilder
     {

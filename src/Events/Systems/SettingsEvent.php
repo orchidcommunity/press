@@ -1,9 +1,9 @@
 <?php
 
-namespace Orchid\Events\Systems;
+namespace Orchid\CMS\Events\Systems;
 
 use Illuminate\Queue\SerializesModels;
-use Orchid\Http\Forms\Systems\Settings\SettingFormGroup;
+use Orchid\CMS\Http\Forms\Systems\Settings\SettingFormGroup;
 
 class SettingsEvent
 {

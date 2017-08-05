@@ -1,8 +1,8 @@
 <?php
 
-namespace Orchid\Behaviors;
+namespace Orchid\CMS\Behaviors;
 
-use Orchid\Behaviors\Contract\SingleInterface;
+use Orchid\CMS\Behaviors\Contract\SingleInterface;
 
 abstract class Single implements SingleInterface
 {

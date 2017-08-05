@@ -1,8 +1,9 @@
 <?php
 
-namespace Orchid\Http\Requests;
+namespace Orchid\CMS\Http\Requests;
 
 use Illuminate\Support\Facades\Auth;
+use Orchid\Http\Requests\Request;
 
 class SettingsRequest extends Request
 {

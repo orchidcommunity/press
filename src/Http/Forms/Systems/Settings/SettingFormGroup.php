@@ -1,8 +1,8 @@
 <?php
 
-namespace Orchid\Http\Forms\Systems\Settings;
+namespace Orchid\CMS\Http\Forms\Systems\Settings;
 
-use Orchid\Events\Systems\SettingsEvent;
+use Orchid\CMS\Events\Systems\SettingsEvent;
 use Orchid\Forms\FormGroup;
 
 class SettingFormGroup extends FormGroup

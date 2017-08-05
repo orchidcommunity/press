@@ -1,13 +1,13 @@
 <?php
 
-namespace Orchid\Http\Forms\Posts;
+namespace Orchid\CMS\Http\Forms\Posts;
 
 use Illuminate\Support\Facades\App;
 use Illuminate\View\View;
-use Orchid\Behaviors\Many as PostBehaviors;
-use Orchid\Core\Models\Category;
-use Orchid\Core\Models\Post;
-use Orchid\Core\Models\TermTaxonomy;
+use Orchid\CMS\Behaviors\Many as PostBehaviors;
+use Orchid\CMS\Core\Models\Category;
+use Orchid\CMS\Core\Models\Post;
+use Orchid\CMS\Core\Models\TermTaxonomy;
 use Orchid\Forms\Form;
 
 class BasePostForm extends Form

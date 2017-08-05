@@ -1,10 +1,10 @@
 <?php
 
-namespace Orchid\Http\Forms\Marketing\Advertising;
+namespace Orchid\CMS\Http\Forms\Marketing\Advertising;
 
 use Illuminate\Contracts\View\View;
-use Orchid\Core\Models\Post;
-use Orchid\Events\Marketing\AdvertisingEvent;
+use Orchid\CMS\Core\Models\Post;
+use Orchid\CMS\Events\Marketing\AdvertisingEvent;
 use Orchid\Forms\FormGroup;
 
 class AdvertisingFormGroup extends FormGroup

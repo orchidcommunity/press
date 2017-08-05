@@ -1,9 +1,9 @@
 <?php
 
-namespace Orchid\Http\Controllers\Marketing;
+namespace Orchid\CMS\Http\Controllers\Marketing;
 
 use Illuminate\Http\Request;
-use Orchid\Http\Controllers\Controller;
+use Orchid\CMS\Http\Controllers\Controller;
 
 class RobotsController extends Controller
 {

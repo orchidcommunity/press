@@ -1,6 +1,6 @@
 <?php
 
-namespace Orchid\Console\Commands;
+namespace Orchid\CMS\Console\Commands;
 
 use Illuminate\Console\GeneratorCommand;
 

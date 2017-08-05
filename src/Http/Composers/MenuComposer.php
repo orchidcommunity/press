@@ -1,6 +1,6 @@
 <?php
 
-namespace Orchid\Http\Composers;
+namespace Orchid\CMS\Http\Composers;
 
 use Orchid\Kernel\Dashboard;
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace Orchid\Listeners\Tools\Category;
+namespace Orchid\CMS\Listeners\Tools\Category;
 
-use Orchid\Http\Forms\Tools\Category\CategoryDescForm;
+use Orchid\CMS\Http\Forms\Tools\Category\CategoryDescForm;
 
 class CategoryDescLister
 {
