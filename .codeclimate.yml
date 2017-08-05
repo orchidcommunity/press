@@ -1,0 +1,4 @@
+exclude_paths:
+- "resources/assets/dist/"
+- "resources/lang/"
+- "resources/stubs/"
