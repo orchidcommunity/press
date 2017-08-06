@@ -5,7 +5,7 @@ namespace Orchid\CMS\Http\Controllers\Marketing;
 use Illuminate\Http\Request;
 use Orchid\Alert\Facades\Alert;
 use Orchid\CMS\Core\Models\Comment;
-use Orchid\Http\Controllers\Controller;
+use Orchid\Platform\Http\Controllers\Controller;
 use Orchid\CMS\Http\Forms\Marketing\Comment\CommentFormGroup;
 
 class CommentController extends Controller

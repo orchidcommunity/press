@@ -3,7 +3,7 @@
 namespace Orchid\CMS\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Orchid\Kernel\Dashboard;
+use Orchid\Platform\Kernel\Dashboard;
 
 class PermissionServiceProvider extends ServiceProvider
 {

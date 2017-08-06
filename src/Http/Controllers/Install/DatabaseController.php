@@ -2,7 +2,7 @@
 
 namespace Orchid\CMS\Http\Controllers\Install;
 
-use Orchid\Http\Controllers\Controller;
+use Orchid\Platform\Http\Controllers\Controller;
 use Orchid\CMS\Http\Controllers\Install\Helpers\DatabaseManager;
 
 class DatabaseController extends Controller

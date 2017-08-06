@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Orchid\CMS\Core\Models\Post;
-use Orchid\Exceptions\TypeException;
+use Orchid\Platform\Exceptions\TypeException;
 
 trait Structure
 {

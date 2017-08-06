@@ -3,7 +3,7 @@
 namespace Orchid\CMS\Http\Controllers\Systems;
 
 use Illuminate\Support\Facades\Storage;
-use Orchid\Http\Controllers\Controller;
+use Orchid\Platform\Http\Controllers\Controller;
 
 class DefenderController extends Controller
 {

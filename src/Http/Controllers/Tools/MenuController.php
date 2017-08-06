@@ -6,7 +6,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Orchid\CMS\Core\Models\Menu;
-use Orchid\Http\Controllers\Controller;
+use Orchid\Platform\Http\Controllers\Controller;
 
 class MenuController extends Controller
 {

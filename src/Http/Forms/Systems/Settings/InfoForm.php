@@ -2,7 +2,7 @@
 
 namespace Orchid\CMS\Http\Forms\Systems\Settings;
 
-use Orchid\Forms\Form;
+use Orchid\Platform\Forms\Form;
 use Orchid\Setting\Models\Setting;
 
 class InfoForm extends Form

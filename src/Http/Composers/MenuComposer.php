@@ -2,7 +2,7 @@
 
 namespace Orchid\CMS\Http\Composers;
 
-use Orchid\Kernel\Dashboard;
+use Orchid\Platform\Kernel\Dashboard;
 
 class MenuComposer
 {

@@ -3,7 +3,7 @@
 namespace Orchid\CMS\Http\Controllers\Tools;
 
 use Orchid\CMS\Core\Models\Post;
-use Orchid\Http\Controllers\Controller;
+use Orchid\Platform\Http\Controllers\Controller;
 
 class TagsController extends Controller
 {

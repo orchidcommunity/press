@@ -3,7 +3,7 @@
 namespace Orchid\CMS\Http\Forms\Systems\Settings;
 
 use Orchid\CMS\Events\Systems\SettingsEvent;
-use Orchid\Forms\FormGroup;
+use Orchid\Platform\Forms\FormGroup;
 
 class SettingFormGroup extends FormGroup
 {

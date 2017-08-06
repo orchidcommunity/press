@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Orchid\Alert\Facades\Alert;
 use Orchid\CMS\Core\Models\Page;
-use Orchid\Http\Controllers\Controller;
+use Orchid\Platform\Http\Controllers\Controller;
 
 class PageController extends Controller
 {

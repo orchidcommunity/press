@@ -6,7 +6,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Orchid\CMS\Core\Models\TermTaxonomy;
-use Orchid\Forms\Form;
+use Orchid\Platform\Forms\Form;
 
 class CategoryDescForm extends Form
 {

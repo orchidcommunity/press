@@ -13,8 +13,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 use Orchid\CMS\Core\Traits\MultiLanguage;
-use Orchid\Exceptions\TypeException;
-use Orchid\Facades\Dashboard;
+use Orchid\Platform\Exceptions\TypeException;
+use Orchid\Platform\Facades\Dashboard;
 
 class Post extends Model
 {

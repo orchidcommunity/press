@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Orchid\CMS\Core\Models\Category;
 use Orchid\CMS\Core\Models\Term;
 use Orchid\CMS\Core\Models\TermTaxonomy;
-use Orchid\Forms\Form;
+use Orchid\Platform\Forms\Form;
 
 class CategoryMainForm extends Form
 {

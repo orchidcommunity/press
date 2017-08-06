@@ -5,7 +5,7 @@ namespace Orchid\CMS\Http\Forms\Marketing\Comment;
 use Illuminate\Contracts\View\View;
 use Orchid\CMS\Core\Models\Comment;
 use Orchid\CMS\Events\Marketing\CommentEvent;
-use Orchid\Forms\FormGroup;
+use Orchid\Platform\Forms\FormGroup;
 
 class CommentFormGroup extends FormGroup
 {

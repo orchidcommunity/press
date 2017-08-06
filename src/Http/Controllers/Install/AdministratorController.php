@@ -4,7 +4,7 @@ namespace Orchid\CMS\Http\Controllers\Install;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
-use Orchid\Http\Controllers\Controller;
+use Orchid\Platform\Http\Controllers\Controller;
 
 class AdministratorController extends Controller
 {

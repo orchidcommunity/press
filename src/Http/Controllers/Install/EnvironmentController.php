@@ -5,7 +5,7 @@ namespace Orchid\CMS\Http\Controllers\Install;
 use Dotenv\Dotenv;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
-use Orchid\Http\Controllers\Controller;
+use Orchid\Platform\Http\Controllers\Controller;
 use Orchid\CMS\Http\Controllers\Install\Helpers\EnvironmentManager;
 
 class EnvironmentController extends Controller

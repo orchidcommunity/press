@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Route;
 use Orchid\CMS\Core\Models\Page;
 use Orchid\CMS\Core\Models\Post;
 use Orchid\CMS\Core\Models\TermTaxonomy;
-use Orchid\Http\Middleware\CanInstall;
+use Orchid\Platform\Http\Middleware\CanInstall;
 
 class RouteServiceProvider extends ServiceProvider
 {

@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Orchid\CMS\Core\Builders\CommentBuilder;
+use Orchid\Platform\Core\Models\User;
 
 class Comment extends Model
 {

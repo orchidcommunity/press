@@ -2,7 +2,7 @@
 
 namespace Orchid\CMS\Behaviors\Storage;
 
-use Orchid\Kernel\Storage;
+use Orchid\Platform\Kernel\Storage;
 
 class PostStorage extends Storage
 {

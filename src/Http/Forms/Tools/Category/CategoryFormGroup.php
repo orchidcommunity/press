@@ -5,7 +5,7 @@ namespace Orchid\CMS\Http\Forms\Tools\Category;
 use Illuminate\View\View;
 use Orchid\CMS\Core\Models\Category;
 use Orchid\CMS\Events\Tools\CategoryEvent;
-use Orchid\Forms\FormGroup;
+use Orchid\Platform\Forms\FormGroup;
 
 class CategoryFormGroup extends FormGroup
 {

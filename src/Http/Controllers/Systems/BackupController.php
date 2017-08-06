@@ -5,7 +5,7 @@ namespace Orchid\CMS\Http\Controllers\Systems;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use League\Flysystem\Adapter\Local;
-use Orchid\Http\Controllers\Controller;
+use Orchid\Platform\Http\Controllers\Controller;
 
 class BackupController extends Controller
 {

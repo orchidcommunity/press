@@ -3,7 +3,7 @@
 namespace Orchid\CMS\Http\Controllers\Install;
 
 use Illuminate\Support\Facades\Artisan;
-use Orchid\Http\Controllers\Controller;
+use Orchid\Platform\Http\Controllers\Controller;
 
 class WelcomeController extends Controller
 {

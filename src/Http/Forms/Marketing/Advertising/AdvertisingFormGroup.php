@@ -5,7 +5,7 @@ namespace Orchid\CMS\Http\Forms\Marketing\Advertising;
 use Illuminate\Contracts\View\View;
 use Orchid\CMS\Core\Models\Post;
 use Orchid\CMS\Events\Marketing\AdvertisingEvent;
-use Orchid\Forms\FormGroup;
+use Orchid\Platform\Forms\FormGroup;
 
 class AdvertisingFormGroup extends FormGroup
 {

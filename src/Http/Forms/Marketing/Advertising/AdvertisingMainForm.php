@@ -7,7 +7,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Orchid\CMS\Core\Models\Post;
-use Orchid\Forms\Form;
+use Orchid\Platform\Forms\Form;
 
 class AdvertisingMainForm extends Form
 {

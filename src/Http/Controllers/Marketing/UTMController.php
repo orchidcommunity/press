@@ -2,7 +2,7 @@
 
 namespace Orchid\CMS\Http\Controllers\Marketing;
 
-use Orchid\Http\Controllers\Controller;
+use Orchid\Platform\Http\Controllers\Controller;
 
 class UTMController extends Controller
 {

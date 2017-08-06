@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use Orchid\Alert\Facades\Alert;
 use Orchid\CMS\Behaviors\Many as PostBehavior;
 use Orchid\CMS\Core\Models\Post;
-use Orchid\Http\Controllers\Controller;
+use Orchid\Platform\Http\Controllers\Controller;
 
 class PostController extends Controller
 {

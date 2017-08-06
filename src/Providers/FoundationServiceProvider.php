@@ -7,11 +7,12 @@ use Illuminate\Support\ServiceProvider;
 use Intervention\Image\ImageServiceProvider;
 use Orchid\CMS\Behaviors\Storage\PageStorage;
 use Orchid\CMS\Behaviors\Storage\PostStorage;
-use Orchid\Facades\Dashboard;
+use Orchid\Platform\Facades\Dashboard;
 use Orchid\Log\LogServiceProvider;
 use Orchid\Setting\Providers\SettingServiceProvider;
 use Orchid\Widget\Providers\WidgetServiceProvider;
 use Spatie\Backup\BackupServiceProvider;
+use Orchid\Platform\Providers\FoundationServiceProvider as PlatformServiceProvider;
 
 class FoundationServiceProvider extends ServiceProvider
 {
@@ -119,6 +120,7 @@ class FoundationServiceProvider extends ServiceProvider
     public function provides()
     {
         return [
+            PlatformServiceProvider::class,
             \Cviebrock\EloquentSluggable\ServiceProvider::class,
             SettingServiceProvider::class,
             WidgetServiceProvider::class,

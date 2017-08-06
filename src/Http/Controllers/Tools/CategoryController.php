@@ -5,7 +5,7 @@ namespace Orchid\CMS\Http\Controllers\Tools;
 use Illuminate\Http\Request;
 use Orchid\Alert\Facades\Alert;
 use Orchid\CMS\Core\Models\TermTaxonomy;
-use Orchid\Http\Controllers\Controller;
+use Orchid\Platform\Http\Controllers\Controller;
 use Orchid\CMS\Http\Forms\Tools\Category\CategoryFormGroup;
 
 class CategoryController extends Controller

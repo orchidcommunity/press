@@ -3,7 +3,7 @@
 namespace Orchid\CMS\Http\Requests;
 
 use Illuminate\Support\Facades\Auth;
-use Orchid\Http\Requests\Request;
+use Orchid\Platform\Http\Requests\Request;
 
 class UsersRequest extends Request
 {
