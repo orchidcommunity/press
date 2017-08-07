@@ -1,4 +1,4 @@
-@extends('cms::layouts.dashboard')
+@extends('dashboard::layouts.dashboard')
 
 
 @section('title',trans('cms::systems/defender.title'))

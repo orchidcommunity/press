@@ -30,8 +30,10 @@ class PermissionServiceProvider extends ServiceProvider
         $dashboard->permission->registerPermissions($this->registerPermissionsPages());
         $dashboard->permission->registerPermissions($this->registerPermissionsPost());
         $dashboard->permission->registerPermissions($this->registerPermissionsTools());
-        $dashboard->permission->registerPermissions($this->registerPermissionsSystems());
+        $test = $dashboard->permission->registerPermissions($this->registerPermissionsSystems());
         $dashboard->permission->registerPermissions($this->registerPermissionsMarketing());
+
+        //dd($test);
     }
 
     /**
@@ -58,10 +60,6 @@ class PermissionServiceProvider extends ServiceProvider
                     'description' => trans('cms::permission.main.tools'),
                 ],
                 [
-                    'slug'        => 'dashboard.systems',
-                    'description' => trans('cms::permission.main.systems'),
-                ],
-                [
                     'slug'        => 'dashboard.marketing',
                     'description' => trans('cms::permission.main.marketing'),
                 ],
@@ -75,7 +73,8 @@ class PermissionServiceProvider extends ServiceProvider
      */
     protected function registerPermissionsPages(): array
     {
-        $allPage = $this->dashboard->pages();
+
+        $allPage = $this->dashboard->getStorage('pages')->all();
 
         $showPost = collect();
         foreach ($allPage as $page) {
@@ -95,7 +94,8 @@ class PermissionServiceProvider extends ServiceProvider
      */
     protected function registerPermissionsPost(): array
     {
-        $allPost = $this->dashboard->posts();
+        $allPost = $this->dashboard->getStorage('posts')->all();
+
         $showPost = collect();
         foreach ($allPost as $page) {
             if ($page->display) {

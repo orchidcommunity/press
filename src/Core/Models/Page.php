@@ -21,7 +21,7 @@ class Page extends Post
      */
     public function getBehavior($slug)
     {
-        $this->behavior = Dashboard::getPages()->find($slug);
+        $this->behavior = Dashboard::getStorage('pages')->find($slug);
 
         if (is_null($this->behavior)) {
             throw new TypeException("{$slug} Type is not found");

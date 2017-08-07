@@ -20,7 +20,7 @@ class MenuServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        View::composer('cms::layouts.dashboard', MenuComposer::class);
+        View::composer('dashboard::layouts.dashboard', MenuComposer::class);
     }
 
     /**

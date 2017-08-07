@@ -14,8 +14,6 @@ const {mix} = require('laravel-mix');
 mix.less('./less/app.less', 'dist/css/orchid-cms.css');
 
 
-
 mix.js([
         './js/app.js',
-    ]
-    , 'dist/js/orchid-cms.js');
+    ], 'dist/js/orchid-cms.js');

@@ -1,4 +1,4 @@
-@extends('cms::layouts.dashboard')
+@extends('dashboard::layouts.dashboard')
 @section('title',$type->name)
 @section('description',$type->description)
 @section('navbar')

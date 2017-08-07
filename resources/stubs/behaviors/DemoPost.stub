@@ -2,9 +2,9 @@
 
 namespace App\Core\Behaviors\Many;
 
-use Orchid\Behaviors\Many;
-use Orchid\Http\Forms\Posts\BasePostForm;
-use Orchid\Http\Forms\Posts\UploadPostForm;
+use Orchid\CMS\Behaviors\Many;
+use Orchid\CMS\Http\Forms\Posts\BasePostForm;
+use Orchid\CMS\Http\Forms\Posts\UploadPostForm;
 
 class DemoPost extends Many
 {

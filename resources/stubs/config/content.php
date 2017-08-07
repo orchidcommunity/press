@@ -72,7 +72,7 @@ return [
         'checkbox' => Orchid\Fields\CheckBoxField::class,
         'path'     => Orchid\Fields\PathField::class,
         'code'     => Orchid\Fields\CodeField::class,
-        'wysiwyg'  => \Orchid\Fields\SummernoteField::class,
+        'wysiwyg'  => Orchid\Fields\SummernoteField::class,
     ],
 
     /*

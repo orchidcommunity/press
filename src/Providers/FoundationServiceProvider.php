@@ -7,12 +7,12 @@ use Illuminate\Support\ServiceProvider;
 use Intervention\Image\ImageServiceProvider;
 use Orchid\CMS\Behaviors\Storage\PageStorage;
 use Orchid\CMS\Behaviors\Storage\PostStorage;
-use Orchid\Platform\Facades\Dashboard;
 use Orchid\Log\LogServiceProvider;
 use Orchid\Setting\Providers\SettingServiceProvider;
 use Orchid\Widget\Providers\WidgetServiceProvider;
 use Spatie\Backup\BackupServiceProvider;
 use Orchid\Platform\Providers\FoundationServiceProvider as PlatformServiceProvider;
+use Orchid\Platform\Kernel\Dashboard;
 
 class FoundationServiceProvider extends ServiceProvider
 {
@@ -23,8 +23,12 @@ class FoundationServiceProvider extends ServiceProvider
      */
     public function boot(Dashboard $dashboard)
     {
-        $dashboard->registerStorage('pages', new PageStorage());
-        $dashboard->registerStorage('posts', new PostStorage());
+
+        $dashboard->registerResource('stylesheets','/orchid/css/orchid-cms.css');
+        $dashboard->registerResource('scripts','/orchid/js/orchid-cms.js');
+
+        $dashboard->registerStorage('pages', new PageStorage);
+        $dashboard->registerStorage('posts', new PostStorage);
 
 
         $this->registerCode();
@@ -45,7 +49,6 @@ class FoundationServiceProvider extends ServiceProvider
         $this->publishes([
             CMS_PATH . '/resources/stubs/behaviors/DemoPost.stub' => app_path('/Core/Behaviors/Many/DemoPost.php'),
             CMS_PATH . '/resources/stubs/behaviors/DemoPage.stub' => app_path('/Core/Behaviors/Single/DemoPage.php'),
-
             CMS_PATH . '/resources/stubs/widgets/AdvertisingWidget.stub' => app_path('/Http/Widgets/AdvertisingWidget.php'),
         ]);
     }
@@ -120,19 +123,18 @@ class FoundationServiceProvider extends ServiceProvider
     public function provides()
     {
         return [
-            PlatformServiceProvider::class,
-            \Cviebrock\EloquentSluggable\ServiceProvider::class,
-            SettingServiceProvider::class,
-            WidgetServiceProvider::class,
             RouteServiceProvider::class,
             ConsoleServiceProvider::class,
             PermissionServiceProvider::class,
             EventServiceProvider::class,
+            MenuServiceProvider::class,
+            \Cviebrock\EloquentSluggable\ServiceProvider::class,
+            SettingServiceProvider::class,
+            WidgetServiceProvider::class,
             ImageServiceProvider::class,
             TagsServiceProvider::class,
             BackupServiceProvider::class,
             LogServiceProvider::class,
-            MenuServiceProvider::class,
         ];
     }
 

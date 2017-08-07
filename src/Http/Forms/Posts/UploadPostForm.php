@@ -1,6 +1,6 @@
 <?php
 
-namespace Orchid\Http\Forms\Posts;
+namespace Orchid\CMS\Http\Forms\Posts;
 
 use Illuminate\Contracts\View\View;
 use Orchid\CMS\Core\Models\Attachment;

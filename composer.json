@@ -50,5 +50,5 @@
     "orchid/socket": "Laravel library for asynchronously serving WebSockets."
   },
   "minimum-stability": "dev",
-  "prefer-stable": true
+  "prefer-stable": false
 }

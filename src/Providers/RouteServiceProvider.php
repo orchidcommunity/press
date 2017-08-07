@@ -18,7 +18,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    protected $namespace = 'Orchid\Http\Controllers';
+    protected $namespace = 'Orchid\CMS\Http\Controllers';
 
     /**
      * Define your route model bindings, pattern filters, etc.

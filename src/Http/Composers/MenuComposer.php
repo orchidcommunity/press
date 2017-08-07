@@ -14,6 +14,7 @@ class MenuComposer
     public function __construct(Dashboard $dashboard)
     {
         $this->dashboard = $dashboard;
+
     }
 
     /**
@@ -33,7 +34,7 @@ class MenuComposer
      */
     protected function registerMenuPost(Dashboard $dashboard)
     {
-        $allPost = $dashboard->posts();
+        $allPost = $this->dashboard->getStorage('posts')->all();
 
         if (count($allPost) > 0) {
             $postMenu = [
@@ -80,7 +81,7 @@ class MenuComposer
      */
     protected function registerMenuPage(Dashboard $dashboard)
     {
-        $allPage = $dashboard->pages();
+        $allPage = $this->dashboard->getStorage('pages')->all();
 
         if (count($allPage) > 0) {
             $dashboard->menu->add('Main', [
@@ -175,17 +176,6 @@ class MenuComposer
      */
     protected function registerMenuSystems(Dashboard $dashboard)
     {
-        $dashboard->menu->add('Main', [
-            'slug'       => 'Systems',
-            'icon'       => 'icon-layers',
-            'route'      => '#',
-            'label'      => trans('cms::menu.systems'),
-            'childs'     => true,
-            'main'       => true,
-            'active'     => 'dashboard.systems.*',
-            'permission' => 'dashboard.systems',
-            'sort'       => 1000,
-        ]);
 
         $dashboard->menu->add('Systems', [
             'slug'       => 'settings',
