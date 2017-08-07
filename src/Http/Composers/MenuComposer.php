@@ -240,7 +240,6 @@ class MenuComposer
             'permission' => 'dashboard.systems.schema',
             'sort'       => 3,
         ]);
-
     }
 
     /**
