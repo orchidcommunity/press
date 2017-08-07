@@ -14,7 +14,6 @@ class MenuComposer
     public function __construct(Dashboard $dashboard)
     {
         $this->dashboard = $dashboard;
-
     }
 
     /**
@@ -176,7 +175,6 @@ class MenuComposer
      */
     protected function registerMenuSystems(Dashboard $dashboard)
     {
-
         $dashboard->menu->add('Systems', [
             'slug'       => 'settings',
             'icon'       => 'fa fa-cog',

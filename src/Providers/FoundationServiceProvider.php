@@ -23,9 +23,8 @@ class FoundationServiceProvider extends ServiceProvider
      */
     public function boot(Dashboard $dashboard)
     {
-
-        $dashboard->registerResource('stylesheets','/orchid/css/orchid-cms.css');
-        $dashboard->registerResource('scripts','/orchid/js/orchid-cms.js');
+        $dashboard->registerResource('stylesheets', '/orchid/css/orchid-cms.css');
+        $dashboard->registerResource('scripts', '/orchid/js/orchid-cms.js');
 
         $dashboard->registerStorage('pages', new PageStorage);
         $dashboard->registerStorage('posts', new PostStorage);
