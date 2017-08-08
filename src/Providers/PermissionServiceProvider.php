@@ -73,7 +73,6 @@ class PermissionServiceProvider extends ServiceProvider
      */
     protected function registerPermissionsPages(): array
     {
-
         $allPage = $this->dashboard->getStorage('pages')->all();
 
         $showPost = collect();
