@@ -15,6 +15,7 @@ use Illuminate\Support\Str;
 use Orchid\CMS\Core\Traits\MultiLanguage;
 use Orchid\Platform\Exceptions\TypeException;
 use Orchid\Platform\Facades\Dashboard;
+use Orchid\Platform\Core\Models\User;
 
 class Post extends Model
 {
