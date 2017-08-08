@@ -6,6 +6,9 @@
 @section('container')
 
 
+    @if(!is_null($exception))
+        <div class="alert alert-danger" role="alert">{{$exception}}</div>
+    @endif
 
     <h4 class="m-b font-thin b-b b-light-cs wrapper-xs">
         {{ trans('cms::install.welcome.message') }}

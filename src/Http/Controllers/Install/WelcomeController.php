@@ -14,14 +14,22 @@ class WelcomeController extends Controller
      */
     public function welcome()
     {
-        Artisan::call('vendor:publish');
-        Artisan::call('event:generate');
-        Artisan::call('config:clear');
-        Artisan::call('view:clear');
-        Artisan::call('route:clear');
-        Artisan::call('storage:link');
-        Artisan::call('notifications:table');
+        try {
+            Artisan::call('vendor:publish', [
+                '--force' => true,
+            ]);
+            Artisan::call('event:generate');
+            Artisan::call('config:clear');
+            Artisan::call('view:clear');
+            Artisan::call('route:clear');
+            Artisan::call('storage:link');
+            Artisan::call('notifications:table');
+        } catch (\Exception $exception) {
+            $exception = $exception->getMessage();
+        }
 
-        return view('cms::container.install.welcome');
+        return view('cms::container.install.welcome',[
+             'exception' => isset($exception) ? $exception : null,
+        ]);
     }
 }
