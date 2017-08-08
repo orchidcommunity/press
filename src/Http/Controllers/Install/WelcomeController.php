@@ -28,7 +28,7 @@ class WelcomeController extends Controller
             $exception = $exception->getMessage();
         }
 
-        return view('cms::container.install.welcome',[
+        return view('cms::container.install.welcome', [
              'exception' => isset($exception) ? $exception : null,
         ]);
     }
