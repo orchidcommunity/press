@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateTableAttachments extends Migration
+class CreateOrchidAttachmentstableTable extends Migration
 {
     /**
      * Run the migrations.
