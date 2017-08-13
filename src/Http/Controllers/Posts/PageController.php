@@ -22,7 +22,7 @@ class PageController extends Controller
     public function __construct()
     {
         $this->checkPermission('dashboard.posts');
-        $this->locales = collect(config('content.locales'));
+        $this->locales = collect(config('cms.locales'));
     }
 
     /**

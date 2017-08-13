@@ -28,8 +28,8 @@ class MenuController extends Controller
         $this->checkPermission('dashboard.tools.menu');
 
         return view('cms::container.tools.menu.listing', [
-            'menu'    => collect(config('content.menu')),
-            'locales' => collect(config('content.locales')),
+            'menu'    => collect(config('cms.menu')),
+            'locales' => collect(config('cms.locales')),
         ]);
     }
 
@@ -49,7 +49,7 @@ class MenuController extends Controller
 
         return view('cms::container.tools.menu.menu', [
             'nameMenu'      => $nameMenu,
-            'locales'       => config('content.locales'),
+            'locales'       => config('cms.locales'),
             'currentLocale' => $currentLocale,
             'menu'          => $menu,
             'staticPage'    => [],

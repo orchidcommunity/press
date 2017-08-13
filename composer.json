@@ -18,32 +18,34 @@
   "require": {
     "php": ">=7.0",
     "orchid/platform": "1.0.x-dev",
+    "orchid/settings": "^2.0",
+    "orchid/log": "^1.0",
+    "orchid/monitor": "^1.0",
     "intervention/image": "^2.3",
     "cartalyst/tags": "^4.0",
     "cviebrock/eloquent-sluggable": "^4.2",
-    "spatie/laravel-backup": "4.*",
-    "orchid/settings": "^2.0",
-    "orchid/widget": "^1.0",
-    "orchid/log": "^1.0",
-    "orchid/monitor": "^1.0"
+    "spatie/laravel-backup": "4.*"
   },
   "require-dev": {
     "mockery/mockery": "~0.9.4",
-    "phpunit/phpunit": "~5.7"
+    "phpunit/phpunit": "~6.0",
+    "orchestra/testbench": "~3.0"
   },
   "autoload": {
     "psr-4": {
       "Orchid\\CMS\\": "src/"
     }
   },
+  "autoload-dev": {
+    "psr-4": {
+      "Orchid\\CMS\\Tests\\": "tests/"
+    }
+  },
   "extra": {
     "laravel": {
       "providers": [
-        "Orchid\\Providers\\FoundationServiceProvider"
-      ],
-      "aliases": {
-        "Dashboard": "Orchid\\Facades\\Dashboard"
-      }
+        "Orchid\\CMS\\Providers\\FoundationServiceProvider"
+      ]
     }
   },
   "suggest": {

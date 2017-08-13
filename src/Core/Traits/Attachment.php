@@ -40,7 +40,7 @@ trait Attachment
         if (!is_null($type)) {
             return $this->morphToMany(static::$attachmentModel, 'attachmentable', 'attachment_relationships',
                 'attachmentable_id', 'attachment_id')
-                ->whereIn('extension', config('content.attachment.' . $type));
+                ->whereIn('extension', config('cms.attachment.' . $type));
         }
 
         return $this->morphToMany(static::$attachmentModel, 'attachmentable', 'attachment_relationships',

@@ -11,9 +11,9 @@ const {mix} = require('laravel-mix');
  |
  */
 
-mix.less('./less/app.less', 'dist/css/orchid-cms.css');
-
+mix.setPublicPath('public');
+mix.less('resources/assets/less/app.less', 'public/css/cms.css');
 
 mix.js([
-        './js/app.js',
-    ], 'dist/js/orchid-cms.js');
+    'resources/assets/js/app.js',
+], 'public/js/cms.js');

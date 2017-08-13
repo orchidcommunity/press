@@ -5,14 +5,13 @@ namespace Orchid\CMS\Providers;
 use Cartalyst\Tags\TagsServiceProvider;
 use Illuminate\Support\ServiceProvider;
 use Intervention\Image\ImageServiceProvider;
-use Orchid\CMS\Behaviors\Storage\PageStorage;
-use Orchid\CMS\Behaviors\Storage\PostStorage;
+use Orchid\CMS\Behaviors\Storage\ManyBehaviorStorage;
+use Orchid\CMS\Behaviors\Storage\SingleBehaviorStorage;
 use Orchid\Log\LogServiceProvider;
+use Orchid\Platform\Kernel\Dashboard;
 use Orchid\Setting\Providers\SettingServiceProvider;
 use Orchid\Widget\Providers\WidgetServiceProvider;
 use Spatie\Backup\BackupServiceProvider;
-use Orchid\Platform\Providers\FoundationServiceProvider as PlatformServiceProvider;
-use Orchid\Platform\Kernel\Dashboard;
 
 class FoundationServiceProvider extends ServiceProvider
 {
@@ -24,11 +23,11 @@ class FoundationServiceProvider extends ServiceProvider
     public function boot(Dashboard $dashboard)
     {
 
-        //$dashboard->registerResource('stylesheets','/orchid/css/orchid-cms.css');
-        //$dashboard->registerResource('scripts','/orchid/js/orchid-cms.js');
+        $dashboard->registerResource('stylesheets', '/orchid/css/cms.css');
+        $dashboard->registerResource('scripts', '/orchid/js/cms.js');
 
-        $dashboard->registerStorage('pages', new PageStorage);
-        $dashboard->registerStorage('posts', new PostStorage);
+        $dashboard->registerStorage('pages', new SingleBehaviorStorage);
+        $dashboard->registerStorage('posts', new ManyBehaviorStorage);
 
 
         $this->registerCode();
@@ -77,11 +76,11 @@ class FoundationServiceProvider extends ServiceProvider
     protected function registerConfig()
     {
         $this->publishes([
-            CMS_PATH . '/resources/stubs/config/content.php' => config_path('content.php'),
+            CMS_PATH . '/config/cms.php' => config_path('cms.php'),
         ]);
 
         $this->mergeConfigFrom(
-            CMS_PATH . '/resources/stubs/config/content.php', 'content'
+            CMS_PATH . '/config/cms.php', 'cms'
         );
     }
 
@@ -103,7 +102,7 @@ class FoundationServiceProvider extends ServiceProvider
     protected function registerPublic()
     {
         $this->publishes([
-            CMS_PATH . '/resources/assets/dist/' => public_path('orchid'),
+            CMS_PATH . '/public/' => public_path('orchid'),
         ], 'public');
     }
 
@@ -130,7 +129,6 @@ class FoundationServiceProvider extends ServiceProvider
             MenuServiceProvider::class,
             \Cviebrock\EloquentSluggable\ServiceProvider::class,
             SettingServiceProvider::class,
-            WidgetServiceProvider::class,
             ImageServiceProvider::class,
             TagsServiceProvider::class,
             BackupServiceProvider::class,

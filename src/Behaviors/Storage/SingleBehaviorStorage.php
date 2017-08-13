@@ -4,10 +4,10 @@ namespace Orchid\CMS\Behaviors\Storage;
 
 use Orchid\Platform\Kernel\Storage;
 
-class PageStorage extends Storage
+class SingleBehaviorStorage extends Storage
 {
     /**
      * @var string
      */
-    protected $configField = 'content.pages';
+    protected $configField = 'cms.single';
 }

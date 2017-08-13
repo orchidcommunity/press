@@ -46,7 +46,7 @@ class Attachment extends Model
      */
     public function __construct(array $attributes = [])
     {
-        $this->types = config('content.attachment', []);
+        $this->types = config('cms.attachment', []);
         parent::__construct($attributes);
     }
 
@@ -161,7 +161,7 @@ class Attachment extends Model
 
         $storage->delete($attachment->path . $attachment->name . '.' . $attachment->extension);
 
-        foreach (array_keys(config('content.images', [])) as $format) {
+        foreach (array_keys(config('cms.images', [])) as $format) {
             $storage->delete($attachment->path . $attachment->name . '_' . $format . '.' . $attachment->extension);
         }
     }

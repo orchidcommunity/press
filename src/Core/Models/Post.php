@@ -13,9 +13,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 use Orchid\CMS\Core\Traits\MultiLanguage;
+use Orchid\Platform\Core\Models\User;
 use Orchid\Platform\Exceptions\TypeException;
 use Orchid\Platform\Facades\Dashboard;
-use Orchid\Platform\Core\Models\User;
 
 class Post extends Model
 {
@@ -215,7 +215,7 @@ class Post extends Model
     {
         if (!is_null($type)) {
             return $this->hasMany(Attachment::class)->whereIn('extension',
-                config('content.attachment.' . $type))->orderBy('sort', 'asc');
+                config('cms.attachment.' . $type))->orderBy('sort', 'asc');
         }
 
         return $this->hasMany(Attachment::class)->orderBy('sort', 'asc');

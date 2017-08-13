@@ -26,7 +26,7 @@ class PostController extends Controller
     public function __construct()
     {
         $this->checkPermission('dashboard.posts');
-        $this->locales = collect(config('content.locales'));
+        $this->locales = collect(config('cms.locales'));
     }
 
     /**
@@ -70,7 +70,7 @@ class PostController extends Controller
 
         $post->fill($request->all());
 
-        $locales = collect(config('content.locales'));
+        $locales = collect(config('cms.locales'));
         $locales = $locales->map(function ($item) {
             if ($item['required'] == true) {
                 return true;

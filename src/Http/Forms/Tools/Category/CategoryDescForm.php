@@ -57,7 +57,7 @@ class CategoryDescForm extends Form
         return view('cms::container.tools.category.desc', [
             'language'     => App::getLocale(),
             'termTaxonomy' => $termTaxonomy,
-            'locales'      => config('content.locales'),
+            'locales'      => config('cms.locales'),
         ]);
     }
 

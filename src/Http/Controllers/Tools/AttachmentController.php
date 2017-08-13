@@ -62,7 +62,7 @@ class AttachmentController extends Controller
     {
         Storage::disk('public')->makeDirectory($this->date);
 
-        foreach (config('content.images', []) as $key => $value) {
+        foreach (config('cms.images', []) as $key => $value) {
             $this->saveImageProcessing(
                 $image,
                 $key,

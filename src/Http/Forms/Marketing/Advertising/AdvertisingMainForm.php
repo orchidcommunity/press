@@ -45,7 +45,7 @@ class AdvertisingMainForm extends Form
         if (is_null($post)) {
             $post = new Post();
         }
-        $adsCategory = collect(config('content.advertising'));
+        $adsCategory = collect(config('cms.advertising'));
 
         return view('cms::container.marketing.advertising.info', [
             'adv'        => $post,
