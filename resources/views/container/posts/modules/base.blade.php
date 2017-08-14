@@ -95,7 +95,7 @@
                     @else
                         <label class="i-switch bg-info m-t-xs m-r">
                             <input type="checkbox" name="options[locale][{{$key}}]"
-                                   value="true" {{isset($locale['required']) ? $locale['required'] == 1 ? 'checked' : '' : '' }}>
+                                   value="true" @if ($loop->first) checked @endif>
                             <i></i>
                         </label>
                     @endif

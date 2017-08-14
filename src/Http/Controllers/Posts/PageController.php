@@ -34,17 +34,9 @@ class PageController extends Controller
     {
         $this->checkPermission('dashboard.pages.' . $page->slug);
 
-        $locales = $this->locales->map(function ($item) {
-            if ($item['required'] == true) {
-                return true;
-            }
-
-            return false;
-        });
-
         return view('cms::container.posts.page', [
             'type'    => $page->getBehaviorObject($page->slug),
-            'locales' => $locales,
+            'locales' => $this->locales,
             'post'    => $page,
         ]);
     }
@@ -60,20 +52,7 @@ class PageController extends Controller
         $this->checkPermission('dashboard.pages.' . $page->slug);
         $type = $page->getBehaviorObject($page->slug);
 
-
         $page->fill($request->all());
-
-        $locales = $this->locales->map(function ($item) {
-            if ($item['required'] == true) {
-                return true;
-            }
-
-            return false;
-        })->toArray();
-
-        $page->options = [
-            'locale' => $request->get('options', $locales),
-        ];
 
         $page->fill([
             'user_id'    => Auth::user()->id,
@@ -86,9 +65,7 @@ class PageController extends Controller
 
         $page->save();
 
-        $modules = $type->getModules();
-
-        foreach ($modules as $module) {
+        foreach ($type->getModules() as $module) {
             $module = new $module();
             $module->save($type, $page);
         }

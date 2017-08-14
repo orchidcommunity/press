@@ -52,7 +52,7 @@ class PostController extends Controller
 
         return view('cms::container.posts.create', [
             'type'    => $type,
-            'locales' => $this->locales->where('required', true),
+            'locales' => $this->locales,
         ]);
     }
 
@@ -69,19 +69,6 @@ class PostController extends Controller
         $this->validate($request, $type->rules());
 
         $post->fill($request->all());
-
-        $locales = collect(config('cms.locales'));
-        $locales = $locales->map(function ($item) {
-            if ($item['required'] == true) {
-                return true;
-            }
-
-            return false;
-        })->toArray();
-
-        $post->options = [
-            'locale' => $request->get('options', $locales),
-        ];
 
         $post->fill([
             'type'       => $type->slug,
@@ -102,9 +89,7 @@ class PostController extends Controller
 
         $post->save();
 
-        $modules = $type->getModules();
-
-        foreach ($modules as $module) {
+        foreach ($type->getModules() as $module) {
             $module = new $module();
             $module->save($type, $post);
         }
@@ -128,17 +113,10 @@ class PostController extends Controller
     public function edit(PostBehavior $type, Post $post): View
     {
         $this->checkPermission('dashboard.posts.' . $type->slug);
-        $locales = $this->locales->map(function ($item) {
-            if ($item['required'] == true) {
-                return true;
-            }
-
-            return false;
-        });
 
         return view('cms::container.posts.edit', [
             'type'    => $type,
-            'locales' => $locales,
+            'locales' => $this->locales,
             'post'    => $post,
         ]);
     }
@@ -173,9 +151,7 @@ class PostController extends Controller
 
         $post->save();
 
-        $modules = $type->getModules();
-
-        foreach ($modules as $module) {
+        foreach ($type->getModules() as $module) {
             $module = new $module();
             $module->save($type, $post);
         }

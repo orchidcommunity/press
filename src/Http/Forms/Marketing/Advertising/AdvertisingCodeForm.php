@@ -47,7 +47,7 @@ class AdvertisingCodeForm extends Form
             $adv = new Post();
         }
 
-        $config = collect(config('content'));
+        $config = collect(config('cms'));
 
         return view('cms::container.marketing.advertising.code', [
             'adv'        => $adv,

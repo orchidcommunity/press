@@ -3,7 +3,7 @@
 namespace Orchid\CMS\Http\Controllers\Marketing;
 
 use Illuminate\Http\Request;
-use Orchid\CMS\Http\Controllers\Controller;
+use Orchid\Platform\Http\Controllers\Controller;
 
 class RobotsController extends Controller
 {

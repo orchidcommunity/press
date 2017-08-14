@@ -7,7 +7,7 @@ use Orchid\Platform\Http\Controllers\Controller;
 class UTMController extends Controller
 {
     /**
-     * UTMController constructor.
+     * UTM Controller constructor.
      */
     public function __construct()
     {
