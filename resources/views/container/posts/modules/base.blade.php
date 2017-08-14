@@ -112,8 +112,7 @@
 
 
 <script>
-
-window.addEventListener("load", function(){
+$(function () {
     $('.select2-tags').select2({
         theme: "classic",
         templateResult: function formatState (state) {
@@ -148,6 +147,4 @@ window.addEventListener("load", function(){
         }
     });
 });
-
-
 </script>
