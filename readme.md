@@ -4,7 +4,7 @@
 </p>
 
 
-# [Draft] ORCHID CMS
+# ORCHID CMS
 
 <p align="center">
 <a href="https://www.paypal.me/tabuna/10usd"><img src="https://img.shields.io/badge/Donate-PayPal-green.svg"></a>
