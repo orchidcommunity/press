@@ -3,9 +3,6 @@
 </a>
 </p>
 
-
-# ORCHID CMS
-
 <p align="center">
 <a href="https://www.paypal.me/tabuna/10usd"><img src="https://img.shields.io/badge/Donate-PayPal-green.svg"></a>
 <a href="https://github.com/chiraggude/awesome-laravel#starter-projects"><img src="https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg"></a>
