@@ -17,7 +17,7 @@
   ],
   "require": {
     "php": ">=7.0",
-    "orchid/platform": "1.0.x-dev",
+    "orchid/platform": "^1.0",
     "orchid/settings": "^2.0",
     "orchid/log": "^1.0",
     "orchid/monitor": "^1.0",
