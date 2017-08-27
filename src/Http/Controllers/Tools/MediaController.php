@@ -51,12 +51,14 @@ class MediaController extends Controller
 
         $dir = $this->directory . $folder;
 
+        $extensions = $request->get('mime', null);
+
         return response()->json([
             'name'          => 'files',
             'type'          => 'folder',
             'path'          => $dir,
             'folder'        => $folder,
-            'items'         => $this->getFiles($dir),
+            'items'         => $this->getFiles($dir, $extensions),
             'last_modified' => 'asdf',
         ]);
     }
@@ -66,17 +68,22 @@ class MediaController extends Controller
      *
      * @return array
      */
-    private function getFiles($dir)
+    private function getFiles($dir, $mime = null)
     {
         $files = [];
         $storageFiles = Storage::disk($this->filesystem)->files($dir);
         $storageFolders = Storage::disk($this->filesystem)->directories($dir);
 
         foreach ($storageFiles as $file) {
+            $mimetype = Storage::disk($this->filesystem)->mimeType($file);
+            if ($mime && strpos($mimetype, $mime) === false) {
+                continue;
+            }
+
             $files[] = [
                 'name'          => strpos($file, DIRECTORY_SEPARATOR) > 1 ? str_replace(DIRECTORY_SEPARATOR, '',
                     strrchr($file, DIRECTORY_SEPARATOR)) : $file,
-                'type'          => Storage::disk($this->filesystem)->mimeType($file),
+                'type'          => $mimetype,
                 'path'          => Storage::disk($this->filesystem)->url($file),
                 'size'          => Storage::disk($this->filesystem)->size($file),
                 'last_modified' => Storage::disk($this->filesystem)->lastModified($file),
