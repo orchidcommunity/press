@@ -30,10 +30,8 @@ class PermissionServiceProvider extends ServiceProvider
         $dashboard->permission->registerPermissions($this->registerPermissionsPages());
         $dashboard->permission->registerPermissions($this->registerPermissionsPost());
         $dashboard->permission->registerPermissions($this->registerPermissionsTools());
-        $test = $dashboard->permission->registerPermissions($this->registerPermissionsSystems());
+        $dashboard->permission->registerPermissions($this->registerPermissionsSystems());
         $dashboard->permission->registerPermissions($this->registerPermissionsMarketing());
-
-        //dd($test);
     }
 
     /**
@@ -143,8 +141,11 @@ class PermissionServiceProvider extends ServiceProvider
     protected function registerPermissionsSystems(): array
     {
         return [
-
             'Systems' => [
+                [
+                    'slug'        => 'superuser',
+                    'description' => trans('cms::permission.systems.superuser'),
+                ],
                 [
                     'slug'        => 'dashboard.systems.backup',
                     'description' => trans('cms::permission.systems.backup'),

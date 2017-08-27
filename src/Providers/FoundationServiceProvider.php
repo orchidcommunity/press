@@ -10,7 +10,6 @@ use Orchid\CMS\Behaviors\Storage\SingleBehaviorStorage;
 use Orchid\Log\LogServiceProvider;
 use Orchid\Platform\Kernel\Dashboard;
 use Orchid\Setting\Providers\SettingServiceProvider;
-use Orchid\Widget\Providers\WidgetServiceProvider;
 use Spatie\Backup\BackupServiceProvider;
 
 class FoundationServiceProvider extends ServiceProvider
@@ -27,7 +26,6 @@ class FoundationServiceProvider extends ServiceProvider
 
         $dashboard->registerStorage('pages', new SingleBehaviorStorage);
         $dashboard->registerStorage('posts', new ManyBehaviorStorage);
-
 
         $this->registerCode();
         $this->registerDatabase();
@@ -78,9 +76,7 @@ class FoundationServiceProvider extends ServiceProvider
             CMS_PATH . '/config/cms.php' => config_path('cms.php'),
         ]);
 
-        $this->mergeConfigFrom(
-            CMS_PATH . '/config/cms.php', 'cms'
-        );
+        $this->mergeConfigFrom(CMS_PATH . '/config/cms.php', 'cms');
     }
 
     /**
@@ -104,7 +100,6 @@ class FoundationServiceProvider extends ServiceProvider
             CMS_PATH . '/public/' => public_path('orchid'),
         ], 'public');
     }
-
 
     public function registerProviders()
     {

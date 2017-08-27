@@ -20,6 +20,7 @@ return [
     ],
 
     'systems' => [
+        'superuser' => 'Superusuario',
         'backup'   => 'Copias de seguridad',
         'logs'     => 'Registros',
         'settings' => 'Ajustes',
