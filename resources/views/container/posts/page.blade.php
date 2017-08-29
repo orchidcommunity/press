@@ -13,7 +13,6 @@
         <!-- hbox layout  -->
         <form class="hbox hbox-auto-xs bg-light" id="post-form" method="post" action="{{route('dashboard.pages.update',[
         'type' => $type->slug,
-        'slug' => $post->id,
         ])}}" enctype="multipart/form-data">
         @if(count($type->fields()) > 0)
             <!-- column  -->
