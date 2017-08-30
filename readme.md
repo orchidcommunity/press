@@ -14,9 +14,9 @@
 
 ## Official Documentation
 
-Documentation can be found at [Orchid website](https://theorchid.github.io/en/docs/).
+Documentation can be found at [Orchid website](http://orchid.software).
 
-You can watch [live](http://demo-orchid.tk)
+You can watch [live](http://demo.orchid.software)
 
 **Login**: admin@admin.com **Password**: password
 
