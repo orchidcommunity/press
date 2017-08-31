@@ -1,5 +1,5 @@
 <p align="center">
-<a href="https://github.com/TheOrchid/Platform"><img width="250"  src="https://theorchid.github.io/assets/img/orchid.svg">
+<a href="https://github.com/TheOrchid/Platform"><img width="250"  src="https://orchid.software/img/orchid.svg">
 </a>
 </p>
 
@@ -36,40 +36,6 @@ Going your project directory on shell and run this command:
 ```php
 $ composer require orchid/cms
 ```
-
-####  Provider and Facades
-
-Add to `config/app.php`:
-
-Service provider to the 'providers' array:
-```php
-'providers' => [
-  // Laravel Framework Service Providers...
-  //...
-
-  // Package Service Providers
-  Orchid\Platform\Providers\FoundationServiceProvider::class,
-  Orchid\CMS\Providers\FoundationServiceProvider::class,
-
-  // ...
-
-  // Application Service Providers
-  // ...
-];
-```
-
-Facades aliases to the 'aliases' array:
-```php
-'aliases' => [
-  // ...
-  'Dashboard' =>  Orchid\Platform\Facades\Dashboard::class,
-  'Alert' =>  Orchid\Alert\Facades\Alert::class,
-  'Active' => Watson\Active\Facades\Active::class,
-  'Setting' =>  Orchid\Setting\Facades\Setting::class,
-  'Image' => Intervention\Image\Facades\Image::class,
-];
-```
-
 
 #### User
 
