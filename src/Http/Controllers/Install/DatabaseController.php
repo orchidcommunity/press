@@ -2,6 +2,7 @@
 
 namespace Orchid\CMS\Http\Controllers\Install;
 
+use Illuminate\Support\Facades\Artisan;
 use Orchid\Platform\Http\Controllers\Controller;
 use Orchid\CMS\Http\Controllers\Install\Helpers\DatabaseManager;
 
@@ -27,6 +28,9 @@ class DatabaseController extends Controller
      */
     public function database()
     {
+
+        Artisan::call('notifications:table');
+
         $response = $this->databaseManager->migrateAndSeed();
 
         return redirect()->route('install::administrator')

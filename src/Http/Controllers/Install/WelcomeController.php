@@ -24,8 +24,9 @@ class WelcomeController extends Controller
             Artisan::call('view:clear');
             Artisan::call('route:clear');
             Artisan::call('storage:link');
-            Artisan::call('notifications:table');
-            Artisan::call('make:auth');
+            Artisan::call('make:auth',[
+                '--force' => true,
+            ]);
         } catch (\Exception $exception) {
             $exception = $exception->getMessage();
         }
