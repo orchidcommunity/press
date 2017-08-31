@@ -22,9 +22,9 @@
     "orchid/log": "^1.0",
     "orchid/monitor": "^1.0",
     "intervention/image": "^2.3",
-    "cartalyst/tags": "^4.0",
+    "cartalyst/tags": "^5.0",
     "cviebrock/eloquent-sluggable": "^4.2",
-    "spatie/laravel-backup": "4.*"
+    "spatie/laravel-backup": "^5.0"
   },
   "require-dev": {
     "mockery/mockery": "~0.9.4",
