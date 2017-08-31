@@ -36,7 +36,7 @@ return [
     'create_warning_title'           => 'Unknown error',
     'create_warning_message'         => 'Your backup may NOT have been created. Please check log files for details.',
     'location'                       => 'Location',
-    'no_disks_configured'            => 'No backup disks configured in config/laravel-backup.php',
+    'no_disks_configured'            => 'No backup disks configured in config/backup.php',
     'backup_doesnt_exist'            => "The backup file doesn't exist.",
     'only_local_downloads_supported' => 'Only downloads from the Local filesystem are supported.',
 ];

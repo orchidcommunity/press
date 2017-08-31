@@ -36,7 +36,7 @@ return [
     'create_warning_title'           => 'Неизвестная ошибка',
     'create_warning_message'         => 'Возможно, ваша резервная копия НЕ создана. Пожалуйста, проверьте файлы журналов для деталей.',
     'location'                       => 'Место нахождения',
-    'no_disks_configured'            => 'Нет резервных дисков, настроенных в config/laravel-backup.php',
+    'no_disks_configured'            => 'Нет резервных дисков, настроенных в config/backup.php',
     'backup_doesnt_exist'            => 'Файл резервной копии не существует.',
     'only_local_downloads_supported' => 'Поддерживаются только загрузки из локальной файловой системы.',
 ];

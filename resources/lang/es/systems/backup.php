@@ -36,7 +36,7 @@ return [
     'create_warning_title'           => 'Error desconocido',
     'create_warning_message'         => 'Es posible que su copia de seguridad no se haya creado. Compruebe los archivos de registro para obtener más detalles.',
     'location'                       => 'Ubicación',
-    'no_disks_configured'            => 'No hay discos de copia de seguridad configurados en config/laravel-backup.php',
+    'no_disks_configured'            => 'No hay discos de copia de seguridad configurados en config/backup.php',
     'backup_doesnt_exist'            => "El archivo de copia de seguridad no existe.",
     'only_local_downloads_supported' => 'Sólo se admiten las descargas del sistema de archivos local.',
 ];

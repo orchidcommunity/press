@@ -36,7 +36,7 @@ return [
     'create_warning_title'           => '未知错误',
     'create_warning_message'         => '您的备份可能尚未创建。 请检查日志文件的详细信息。',
     'location'                       => '位置',
-    'no_disks_configured'            => 'config/laravel-backup.php中没有配置备份磁盘',
+    'no_disks_configured'            => 'config/backup.php中没有配置备份磁盘',
     'backup_doesnt_exist'            => "备份文件不存在。",
     'only_local_downloads_supported' => '只支持从本地文件系统下载。',
 ];
