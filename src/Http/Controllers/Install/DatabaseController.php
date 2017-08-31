@@ -28,7 +28,6 @@ class DatabaseController extends Controller
      */
     public function database()
     {
-
         Artisan::call('notifications:table');
 
         $response = $this->databaseManager->migrateAndSeed();
