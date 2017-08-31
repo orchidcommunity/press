@@ -121,12 +121,12 @@ class FoundationServiceProvider extends ServiceProvider
             PermissionServiceProvider::class,
             EventServiceProvider::class,
             MenuServiceProvider::class,
-            \Cviebrock\EloquentSluggable\ServiceProvider::class,
-            SettingServiceProvider::class,
-            ImageServiceProvider::class,
-            TagsServiceProvider::class,
-            BackupServiceProvider::class,
-            LogServiceProvider::class,
+            //\Cviebrock\EloquentSluggable\ServiceProvider::class,
+            //SettingServiceProvider::class,
+            //ImageServiceProvider::class,
+            //TagsServiceProvider::class,
+            //BackupServiceProvider::class,
+            //LogServiceProvider::class,
         ];
     }
 

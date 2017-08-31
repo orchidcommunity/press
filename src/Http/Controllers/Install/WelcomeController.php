@@ -16,6 +16,7 @@ class WelcomeController extends Controller
     {
         try {
             Artisan::call('vendor:publish', [
+                '--all' => true,
                 '--force' => true,
             ]);
             Artisan::call('event:generate');
@@ -24,6 +25,7 @@ class WelcomeController extends Controller
             Artisan::call('route:clear');
             Artisan::call('storage:link');
             Artisan::call('notifications:table');
+            Artisan::call('make:auth');
         } catch (\Exception $exception) {
             $exception = $exception->getMessage();
         }

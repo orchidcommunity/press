@@ -29,7 +29,7 @@ class BackupController extends Controller
     {
         $this->data['backups'] = [];
 
-        foreach (config('laravel-backup.backup.destination.disks') as $diskName) {
+        foreach (config('backup.backup.destination.disks') as $diskName) {
             $disk = Storage::disk($diskName);
             $adapter = $disk->getDriver()->getAdapter();
             $files = $disk->allFiles();
