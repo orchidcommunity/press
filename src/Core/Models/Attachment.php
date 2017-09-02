@@ -14,7 +14,7 @@ class Attachment extends Model
      *
      * @var string
      */
-    protected static $relationshipsModel = 'Orchid\Core\Models\AttachmentRelationships';
+    protected static $relationshipsModel = 'Orchid\CMS\Core\Models\AttachmentRelationships';
 
     /**
      * Attachment types.
