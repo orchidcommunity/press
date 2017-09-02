@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Orchid\CMS\Core\Builders\CommentBuilder;
 use Orchid\Platform\Core\Models\User;
+use Illuminate\Database\Eloquent\Builder;
 
 class Comment extends Model
 {
@@ -121,20 +122,11 @@ class Comment extends Model
     }
 
     /**
-     * Override the parent newQuery() to the custom CommentBuilder class.
-     *
-     * @param bool $excludeDeleted
-     *
+     * @param \Illuminate\Database\Query\Builder $query
      * @return CommentBuilder
      */
-    public function newQuery($excludeDeleted = true): CommentBuilder
+    public function newEloquentBuilder($query)
     {
-        $builder = new CommentBuilder($this->newBaseQueryBuilder());
-        $builder->setModel($this)->with($this->with);
-        if ($excludeDeleted && $this->softDelete) {
-            $builder->whereNull($this->getQualifiedDeletedAtColumn());
-        }
-
-        return $builder;
+        return new CommentBuilder($query);
     }
 }

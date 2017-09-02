@@ -78,7 +78,7 @@ class PostController extends Controller
         ]);
 
 
-        if ($request->has('slug')) {
+        if ($request->has('slug') && !is_null($request->get('slug'))) {
             $slug = $request->get('slug');
         } else {
             $content = $request->get('content');

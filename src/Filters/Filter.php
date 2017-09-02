@@ -59,7 +59,7 @@ abstract class Filter implements FilterInterface
      */
     public function filter(Builder $builder) : Builder
     {
-        if (!is_null($this->parameters) && $this->request->has($this->parameters)) {
+        if (!is_null($this->parameters) && $this->request->has($this->parameters) && !is_null($this->request->get($this->parameters))) {
             return $this->run($builder);
         } elseif (is_null($this->parameters)) {
             return $this->run($builder);

@@ -104,18 +104,14 @@ class TermTaxonomy extends Model
     }
 
     /**
-     * Overriding newQuery() to the custom TermTaxonomyBuilder with some interesting methods.
-     *
+     * @param \Illuminate\Database\Query\Builder $query
      * @return TermTaxonomyBuilder
      */
-    public function newQuery(): TermTaxonomyBuilder
+    public function newEloquentBuilder($query)
     {
-        $builder = new TermTaxonomyBuilder($this->newBaseQueryBuilder());
-        $builder->setModel($this)->with($this->with);
-        if (isset($this->taxonomy) && !empty($this->taxonomy) && !is_null($this->taxonomy)) {
-            $builder->where('taxonomy', $this->taxonomy);
-        }
-
-        return $builder;
+        $builder = new TermTaxonomyBuilder($query);
+        return isset($this->taxonomy) && $this->taxonomy ?
+            $builder->where('taxonomy', $this->taxonomy) :
+            $builder;
     }
 }
