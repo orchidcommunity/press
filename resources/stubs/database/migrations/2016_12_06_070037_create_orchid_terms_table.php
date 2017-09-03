@@ -19,7 +19,7 @@ class CreateOrchidTermsTable extends Migration
                 $table->integer('term_group')->default(0);
                 $table->timestamps();
             });
-        }catch (\Exception $exception){
+        } catch (\Exception $exception) {
             Schema::create('terms', function (Blueprint $table) {
                 $table->increments('id');
                 $table->string('slug')->unique();
