@@ -11,13 +11,23 @@ class CreateOrchidTermsTable extends Migration
      */
     public function up()
     {
-        Schema::create('terms', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('slug')->unique();
-            $table->jsonb('content');
-            $table->integer('term_group')->default(0);
-            $table->timestamps();
-        });
+        try {
+            Schema::create('terms', function (Blueprint $table) {
+                $table->increments('id');
+                $table->string('slug')->unique();
+                $table->jsonb('content');
+                $table->integer('term_group')->default(0);
+                $table->timestamps();
+            });
+        }catch (\Exception $exception){
+            Schema::create('terms', function (Blueprint $table) {
+                $table->increments('id');
+                $table->string('slug')->unique();
+                $table->text('content');
+                $table->integer('term_group')->default(0);
+                $table->timestamps();
+            });
+        }
     }
 
     /**
