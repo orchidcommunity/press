@@ -24,7 +24,7 @@ class CreateOrchidPostTable extends Migration
                 $table->softDeletes();
                 $table->index(['status', 'type']);
             });
-        }catch (\Exception $exception){
+        } catch (\Exception $exception) {
             Schema::create('posts', function (Blueprint $table) {
                 $table->increments('id');
                 $table->integer('user_id');
