@@ -78,7 +78,7 @@ class PostController extends Controller
         ]);
 
 
-        if ($request->has('slug') && !is_null($request->get('slug'))) {
+        if ($request->filled('slug')) {
             $slug = $request->get('slug');
         } else {
             $content = $request->get('content');
@@ -138,14 +138,14 @@ class PostController extends Controller
         $post->options = $post->getOptions();
 
 
-        if ($request->has('slug')) {
+        if ($request->filled('slug')) {
             $slug = $request->get('slug');
         } else {
             $content = $request->get('content');
             $slug = reset($content)[$post->getBehaviorObject()->slugFields];
         }
 
-        if ($request->has('slug') && $request->get('slug') !== $post->slug) {
+        if ($request->filled('slug') && $request->get('slug') !== $post->slug) {
             $post->slug = SlugService::createSlug(Post::class, 'slug', $slug);
         }
 

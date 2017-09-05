@@ -34,7 +34,7 @@ class UploadPostForm extends Form
      */
     public function persist($type = null, $post = null)
     {
-        if ($this->request->has('files')) {
+        if ($this->request->filled('files')) {
             $files = $this->request->input('files');
             foreach ($files as $file) {
                 $uploadFile = Attachment::find($file);
