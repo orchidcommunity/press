@@ -88,7 +88,7 @@ class FoundationServiceProvider extends ServiceProvider
             CMS_PATH . '/resources/views',
         ]), 'cms');
 
-        if(!config('platform.install')) {
+        if (!config('platform.install')) {
             $this->publishes([
                 CMS_PATH . '/resources/stubs/views/welcome.blade.php' => base_path('resources/views/welcome.blade.php'),
             ]);
