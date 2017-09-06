@@ -7,10 +7,8 @@ use Illuminate\Support\ServiceProvider;
 use Intervention\Image\ImageServiceProvider;
 use Orchid\CMS\Behaviors\Storage\ManyBehaviorStorage;
 use Orchid\CMS\Behaviors\Storage\SingleBehaviorStorage;
-use Orchid\Log\LogServiceProvider;
 use Orchid\Platform\Kernel\Dashboard;
 use Orchid\Setting\Providers\SettingServiceProvider;
-use Spatie\Backup\BackupServiceProvider;
 
 class FoundationServiceProvider extends ServiceProvider
 {
@@ -89,6 +87,12 @@ class FoundationServiceProvider extends ServiceProvider
         }, config('view.paths')), [
             CMS_PATH . '/resources/views',
         ]), 'cms');
+
+        if(!config('platform.install')) {
+            $this->publishes([
+                CMS_PATH . '/resources/stubs/views/welcome.blade.php' => base_path('resources/views/welcome.blade.php'),
+            ]);
+        }
     }
 
     /**
@@ -121,12 +125,6 @@ class FoundationServiceProvider extends ServiceProvider
             PermissionServiceProvider::class,
             EventServiceProvider::class,
             MenuServiceProvider::class,
-            //\Cviebrock\EloquentSluggable\ServiceProvider::class,
-            //SettingServiceProvider::class,
-            //ImageServiceProvider::class,
-            //TagsServiceProvider::class,
-            //BackupServiceProvider::class,
-            //LogServiceProvider::class,
         ];
     }
 

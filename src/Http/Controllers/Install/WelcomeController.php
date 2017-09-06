@@ -15,14 +15,14 @@ class WelcomeController extends Controller
     public function welcome()
     {
         try {
+            Artisan::call('config:clear');
+            Artisan::call('view:clear');
+            Artisan::call('route:clear');
             Artisan::call('vendor:publish', [
                 '--all' => true,
                 '--force' => true,
             ]);
             Artisan::call('event:generate');
-            Artisan::call('config:clear');
-            Artisan::call('view:clear');
-            Artisan::call('route:clear');
             Artisan::call('storage:link');
             Artisan::call('make:auth', [
                 '--force' => true,
