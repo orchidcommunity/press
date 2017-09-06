@@ -1,6 +1,7 @@
 <?php namespace DummyNamespace;
 
-use Orchid\Behaviors\Single;
+use Orchid\CMS\Behaviors\Single;
+use Orchid\CMS\Http\Forms\Posts\UploadPostForm;
 
 class DummyClass extends Single
 {
@@ -13,11 +14,6 @@ class DummyClass extends Single
      * @var string
      */
     public $description = '';
-
-    /**
-     * @var string
-     */
-    public $icon = '';
 
     /**
      * @var string
@@ -54,6 +50,8 @@ class DummyClass extends Single
      */
     public function modules() : array
     {
-        return [];
+        return [
+            UploadPostForm::class,
+        ];
     }
 }

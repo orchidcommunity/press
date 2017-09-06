@@ -1,6 +1,8 @@
 <?php namespace DummyNamespace;
 
-use Orchid\Behaviors\Many;
+use Orchid\CMS\Behaviors\Many;
+use Orchid\CMS\Http\Forms\Posts\BasePostForm;
+use Orchid\CMS\Http\Forms\Posts\UploadPostForm;
 
 class DummyClass extends Many
 {
@@ -14,11 +16,6 @@ class DummyClass extends Many
      * @var string
      */
     public $slug = '';
-
-    /**
-     * @var string
-     */
-    public $icon = '';
 
     /**
      * Slug url /news/{name}.
@@ -56,6 +53,9 @@ class DummyClass extends Many
      */
     public function modules() : array
     {
-        return [];
+        return [
+            BasePostForm::class,
+            UploadPostForm::class,
+        ];
     }
 }
