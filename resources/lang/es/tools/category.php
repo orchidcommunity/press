@@ -6,10 +6,10 @@ return [
     'description' => 'Secciones del sitio web',
 
     'information' => 'Información',
-    'display'     => 'Monitor',
+    'display'     => 'Monitoreo',
 
-    'parent'       => 'Categoría de Padres',
-    'slug'         => 'Enlazar',
+    'parent'       => 'Categoría madre',
+    'slug'         => 'Cadena enlazada',
     'name'         => 'Nombre',
     'descriptions' => 'Descripción',
     'not_found'    => 'Todavía no has creado secciones',

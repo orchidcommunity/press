@@ -3,7 +3,7 @@
 return [
 
     'title'       => 'Base de datos',
-    'description' => 'Mesas',
+    'description' => 'Tablas',
     'show'        => 'Mostrar atributos',
 
 ];

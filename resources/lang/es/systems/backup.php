@@ -14,7 +14,7 @@ return [
 
     'title'                          => 'Copias de seguridad',
     'description'                    => 'Copias de seguridad del sistema',
-    'backup'                         => 'Apoyo',
+    'backup'                         => 'Respaldo',
     'create_a_new_backup'            => 'Crear una nueva copia de seguridad',
     'existing_backups'               => 'Copias de seguridad existentes',
     'date'                           => 'Fecha',

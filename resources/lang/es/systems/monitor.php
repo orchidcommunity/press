@@ -2,9 +2,9 @@
 
 return [
 
-    'Monitor'     => 'Monitor',
+    'Monitor'     => 'Monitoreo',
     'description' => 'Información del estado del servidor',
-    'disabled'    => 'El sistema operativo o la configuración de PHP no son compatibles con el monitor',
+    'disabled'    => 'El sistema operativo o la configuración de PHP no son compatibles con el monitoreo',
 
     'Hardware'         => [
         'Title'             => 'Hardware',
@@ -17,14 +17,14 @@ return [
         'Up'    => 'Arriba',
     ],
     'CPU Load Average' => [
-        'Title' => 'CPU carga promedio',
+        'Title' => 'Carga promedio del CPU',
         'min'   => 'Min',
     ],
     'Memory'           => [
         'Title'   => 'Memoria',
         'Used'    => 'Usado',
         'Cache'   => 'Cache',
-        'Buffers' => 'Amortiguadores',
+        'Buffers' => 'Reguladores',
         'Free'    => 'Gratis',
     ],
     'Storage'          => [
