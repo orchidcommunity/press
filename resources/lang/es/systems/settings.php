@@ -2,7 +2,7 @@
 
 return [
     'Settings'               => 'Ajustes',
-    'Global system settings' => 'Configuración del sistema global',
+    'Global system settings' => 'Configuración global del sistema',
 
     'Name of the site'     => 'Nombre del sitio',
     'Environment'          => 'Ambiente',
@@ -12,7 +12,7 @@ return [
     'Default Language'     => 'Idioma predeterminado',
     'Replacement language' => 'Idioma de reemplazo',
     'The event log'        => 'El registro de eventos',
-    'Level Event Log'      => 'Registro de eventos de nivel',
+    'Level Event Log'      => 'Registro de nivel de eventos',
 
     'title'            => 'Título',
     'keywords'         => 'Palabras claves',

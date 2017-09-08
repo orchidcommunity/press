@@ -7,15 +7,15 @@ return [
 
     'Create'       => 'Crear',
     'Delete'       => 'Borrar',
-    'Find'         => 'Encontrar',
+    'Find'         => 'Buscar',
     'Apply'        => 'Aplicar',
     'Manage'       => 'Gestionar',
     'Last edit'    => 'Última edición',
     'Created'      => 'Creado',
     'elements'     => 'elementos',
-    'show'         => 'espectáculo',
+    'show'         => 'Mostrar',
     'of'           => 'de',
-    'search_posts' => 'Buscar publicación ...',
+    'search_posts' => 'Buscar entrada ...',
 
     'website' => 'Sitio web',
     'profile' => 'Perfil',

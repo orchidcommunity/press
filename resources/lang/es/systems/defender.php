@@ -3,7 +3,7 @@
 return [
 
     'title'       => 'Defensor',
-    'description' => 'Archivos del sistema sospechosos',
-    'path'        => 'La ruta al archivo',
+    'description' => 'Archivos sospechosos en el sistema',
+    'path'        => 'La ruta del archivo',
     'not_found'   => 'No se encontraron archivos peligrosos o aún no hay validación',
 ];
