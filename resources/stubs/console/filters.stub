@@ -1,6 +1,6 @@
 <?php namespace DummyNamespace;
 
-use Orchid\Filters\Filter;
+use Orchid\CMS\Filters\Filter;
 use Illuminate\Database\Eloquent\Builder;
 
 class DummyClass extends Filter
