@@ -1,4 +1,5 @@
 @php
+    //You can delete this piece of code after installation
     if(!config('platform.install')){
         header("Location: /dashboard");
         die();
@@ -55,6 +56,10 @@
                 font-size: 84px;
             }
 
+            .links{
+                margin-top: 15px;
+            }
+
             .links > a {
                 color: #636b6f;
                 padding: 0 25px;
@@ -72,14 +77,14 @@
     </head>
     <body>
         <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
+            @if (Route::has('register'))
                 <div class="top-right links">
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
-                        @else
-                            <a href="{{ url('login') }}">Login</a>
-                            <a href="{{ url('register') }}">Register</a>
-                            @endauth
+                    @else
+                        <a href="{{ url('login') }}">Login</a>
+                        <a href="{{ url('register') }}">Register</a>
+                    @endauth
                 </div>
             @endif
 
@@ -89,12 +94,15 @@
                 </div>
 
                 <div class="links">
-                    <a href="https://orchid.software">CMS Documentation</a>
-                    <a href="https://laravel.com/docs">Framework Documentation</a>
+                    <a href="https://laravel.com/docs">Documentation</a>
                     <a href="https://laracasts.com">Laracasts</a>
                     <a href="https://laravel-news.com">News</a>
                     <a href="https://forge.laravel.com">Forge</a>
                     <a href="https://github.com/laravel/laravel">GitHub</a>
+                </div>
+                <div class="links">
+                    <a href="https://orchid.software">CMS Documentation</a>
+                    <a href="https://github.com/TheOrchid">GitHub</a>
                 </div>
             </div>
         </div>
