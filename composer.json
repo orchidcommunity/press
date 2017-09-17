@@ -24,7 +24,8 @@
     "intervention/image": "^2.3",
     "cartalyst/tags": "^5.0",
     "cviebrock/eloquent-sluggable": "^4.2",
-    "spatie/laravel-backup": "^5.0"
+    "spatie/laravel-backup": "^5.0",
+    "teamtnt/laravel-scout-tntsearch-driver": "^3.0"
   },
   "require-dev": {
     "mockery/mockery": "~0.9.4",

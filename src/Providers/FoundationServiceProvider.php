@@ -2,13 +2,11 @@
 
 namespace Orchid\CMS\Providers;
 
-use Cartalyst\Tags\TagsServiceProvider;
 use Illuminate\Support\ServiceProvider;
-use Intervention\Image\ImageServiceProvider;
 use Orchid\CMS\Behaviors\Storage\ManyBehaviorStorage;
 use Orchid\CMS\Behaviors\Storage\SingleBehaviorStorage;
+use Orchid\CMS\Field\FieldStorage;
 use Orchid\Platform\Kernel\Dashboard;
-use Orchid\Setting\Providers\SettingServiceProvider;
 
 class FoundationServiceProvider extends ServiceProvider
 {
@@ -22,6 +20,7 @@ class FoundationServiceProvider extends ServiceProvider
         $dashboard->registerResource('stylesheets', '/orchid/css/cms.css');
         $dashboard->registerResource('scripts', '/orchid/js/cms.js');
 
+        $dashboard->registerStorage('fields', new FieldStorage);
         $dashboard->registerStorage('pages', new SingleBehaviorStorage);
         $dashboard->registerStorage('posts', new ManyBehaviorStorage);
 
@@ -72,6 +71,7 @@ class FoundationServiceProvider extends ServiceProvider
     {
         $this->publishes([
             CMS_PATH . '/config/cms.php' => config_path('cms.php'),
+            CMS_PATH . '/config/scout.php' => config_path('scout.php'),
         ]);
 
         $this->mergeConfigFrom(CMS_PATH . '/config/cms.php', 'cms');

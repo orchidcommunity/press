@@ -4,6 +4,28 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Available fields to form templates
+    |--------------------------------------------------------------------------
+    |
+    | Declared fields for user filling.
+    | Be shy and add to what you need
+    |
+    */
+
+    'fields' => [
+        'textarea' => Orchid\CMS\Fields\TextAreaField::class,
+        'input'    => Orchid\CMS\Fields\InputField::class,
+        'tags'     => Orchid\CMS\Fields\TagsField::class,
+        'robot'    => Orchid\CMS\Fields\RobotField::class,
+        'place'    => Orchid\CMS\Fields\PlaceField::class,
+        'datetime' => Orchid\CMS\Fields\DateTimerField::class,
+        'checkbox' => Orchid\CMS\Fields\CheckBoxField::class,
+        'code'     => Orchid\CMS\Fields\CodeField::class,
+        'wysiwyg'  => Orchid\CMS\Fields\SummernoteField::class,
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
     | Single Behaviors
     |--------------------------------------------------------------------------
     |
@@ -89,7 +111,6 @@ return [
             'dir'      => 'ltr',
             'native'   => 'English',
             'regional' => 'en_GB',
-            'required' => true,
         ],
     ],
 
