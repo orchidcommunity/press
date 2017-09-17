@@ -13,6 +13,7 @@ const {mix} = require('laravel-mix');
 
 mix.setPublicPath('public');
 mix.less('resources/assets/less/app.less', 'public/css/cms.css');
+mix.copy('./node_modules/summernote/dist/', 'public/summernote');
 
 mix.js([
     'resources/assets/js/app.js',
