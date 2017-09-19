@@ -99,7 +99,7 @@ trait Structure
 
         $form = '';
         foreach ($this->fields as $field => $config) {
-            $field = config('platform.fields.' . $config['tag']);
+            $field = config('cms.fields.' . $config['tag']);
 
             if (is_null($field)) {
                 throw new TypeException('Field ' . $config['tag'] . ' does not exist');
