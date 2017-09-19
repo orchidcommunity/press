@@ -62,7 +62,7 @@
                                     -{{$data->perPage()}} {{trans('cms::common.of')}} {!! $data->count() !!} {{trans('cms::common.elements')}}</small>
                             </div>
                             <div class="col-sm-4 text-right text-center-xs">
-                                {!! $data->appends('search')->render() !!}
+                                {!! $data->appends('search')->links('dashboard::partials.pagination') !!}
                             </div>
                         </div>
                     </footer>

@@ -21,7 +21,7 @@ return [
         'datetime' => Orchid\CMS\Fields\DateTimerField::class,
         'checkbox' => Orchid\CMS\Fields\CheckBoxField::class,
         'code'     => Orchid\CMS\Fields\CodeField::class,
-        'wysiwyg'  => Orchid\CMS\Fields\SummernoteField::class,
+        'wysiwyg'  => Orchid\CMS\Fields\MediumField::class,
     ],
 
     /*

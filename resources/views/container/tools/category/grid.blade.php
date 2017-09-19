@@ -73,7 +73,7 @@
                                     -{{$category->perPage()}} {{trans('cms::common.of')}} {!! $category->count() !!} {{trans('cms::common.elements')}}</small>
                             </div>
                             <div class="col-sm-4 text-right text-center-xs">
-                                {!! $category->render() !!}
+                                {!! $category->links('dashboard::partials.pagination') !!}
                             </div>
                         </div>
                     </footer>

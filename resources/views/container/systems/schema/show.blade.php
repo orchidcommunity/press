@@ -51,7 +51,7 @@
                                 -{{$rows->perPage()}} {{trans('cms::common.of')}} {!! $rows->count() !!} {{trans('cms::common.elements')}}</small>
                         </div>
                         <div class="col-sm-4 text-right text-center-xs">
-                            {!! $rows->render() !!}
+                            {!! $rows->links('dashboard::partials.pagination') !!}
                         </div>
                     </div>
                 </footer>
