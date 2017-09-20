@@ -96,16 +96,17 @@ trait Structure
     {
         $this->fields = (array)$this->fields();
         $this->parseFields();
+        $availableFormFields = [];
 
         $form = '';
         foreach ($this->fields as $field => $config) {
-            $field = config('cms.fields.' . $config['tag']);
+            $fieldClass = config('cms.fields.' . $config['tag']);
 
-            if (is_null($field)) {
+            if (is_null($fieldClass)) {
                 throw new TypeException('Field ' . $config['tag'] . ' does not exist');
             }
 
-            $field = new $field();
+            $field = new $fieldClass();
             $config['lang'] = $language;
 
             if (isset($config['prefix'])) {
@@ -144,7 +145,13 @@ trait Structure
                 }
             }
 
-            $field = $field->create($config);
+            $firstTimeRender = false;
+            if (!in_array($fieldClass, $availableFormFields)) {
+                array_push($availableFormFields, $fieldClass);
+                $firstTimeRender = true;
+            }
+
+            $field = $field->create($config, $firstTimeRender);
             $form .= $field->render();
         }
 
