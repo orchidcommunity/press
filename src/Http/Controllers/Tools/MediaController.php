@@ -296,7 +296,7 @@ class MediaController extends Controller
         try {
             if (isset($request->data)) {
                 return $this->saveData($request);
-             }
+            }
 
 
             $path = $request->file->store($request->upload_path, $this->filesystem);
