@@ -15,9 +15,11 @@ return [
     'fields' => [
         'textarea' => Orchid\CMS\Fields\TextAreaField::class,
         'input'    => Orchid\CMS\Fields\InputField::class,
+        'list'     => Orchid\CMS\Fields\ListField::class,
         'tags'     => Orchid\CMS\Fields\TagsField::class,
         'robot'    => Orchid\CMS\Fields\RobotField::class,
         'place'    => Orchid\CMS\Fields\PlaceField::class,
+        'picture'  => Orchid\CMS\Fields\PictureField::class,
         'datetime' => Orchid\CMS\Fields\DateTimerField::class,
         'checkbox' => Orchid\CMS\Fields\CheckBoxField::class,
         'code'     => Orchid\CMS\Fields\CodeField::class,
@@ -104,7 +106,7 @@ return [
     |
     */
 
-    'locales'      => [
+    'locales'     => [
         'en' => [
             'name'     => 'English',
             'script'   => 'Latn',
@@ -123,7 +125,7 @@ return [
     | Starred areas for ad units
     |
     */
-    'advertising'  => [
+    'advertising' => [
         'top'    => 'Top banner',
         'side'   => 'Side banner',
         'footer' => 'Banner cellar',
@@ -138,7 +140,7 @@ return [
     | ...
     |
     */
-    'attachment'   => [
+    'attachment'  => [
         'image' => [
             'png',
             'jpg',
