@@ -212,23 +212,7 @@ class Post extends Model
         return $first ? $first->url($size) : null;
     }
 
-    /**
-     * Get attachment.
-     *
-     * @param null $type
-     *
-     * @return mixed
-     */
-/*    public function attachment($type = null) : HasMany
-    {
-        if (!is_null($type)) {
-            return $this->hasMany(Attachment::class)->whereIn('extension',
-                config('cms.attachment.' . $type))->orderBy('sort', 'asc');
-        }
 
-        return $this->hasMany(Attachment::class)->orderBy('sort', 'asc');
-    }
-*/
     /**
      * Comments relationship.
      *
