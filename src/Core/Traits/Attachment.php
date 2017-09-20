@@ -12,12 +12,12 @@ trait Attachment
      *
      * @var string
      */
-    protected static $attachmentModel = 'Orchid\Core\Models\Attachment';
+    protected static $attachmentModel = 'Orchid\CMS\Core\Models\Attachment';
 
     /**
      * @return string
      */
-    public static function getTagsModel(): string
+    public static function getAttachmentModel(): string
     {
         return static::$attachmentModel;
     }
@@ -25,7 +25,7 @@ trait Attachment
     /**
      * @param $model
      */
-    public static function setTagsModel($model): void
+    public static function setAttachmentModel($model): void
     {
         static::$attachmentModel = $model;
     }

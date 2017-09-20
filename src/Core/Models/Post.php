@@ -17,10 +17,11 @@ use Orchid\CMS\Core\Traits\MultiLanguage;
 use Orchid\Platform\Core\Models\User;
 use Orchid\Platform\Exceptions\TypeException;
 use Orchid\Platform\Facades\Dashboard;
+use Orchid\CMS\Core\Traits\Attachment;
 
 class Post extends Model
 {
-    use SoftDeletes, TaggableTrait, Sluggable, MultiLanguage, Searchable;
+    use SoftDeletes, TaggableTrait, Sluggable, MultiLanguage, Searchable, Attachment;
 
     /**
      * @var string
@@ -211,22 +212,6 @@ class Post extends Model
         return $first ? $first->url($size) : null;
     }
 
-    /**
-     * Get attachment.
-     *
-     * @param null $type
-     *
-     * @return mixed
-     */
-    public function attachment($type = null) : HasMany
-    {
-        if (!is_null($type)) {
-            return $this->hasMany(Attachment::class)->whereIn('extension',
-                config('cms.attachment.' . $type))->orderBy('sort', 'asc');
-        }
-
-        return $this->hasMany(Attachment::class)->orderBy('sort', 'asc');
-    }
 
     /**
      * Comments relationship.
