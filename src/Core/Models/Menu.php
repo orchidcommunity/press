@@ -6,9 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Support\Collection;
+use Orchid\CMS\Core\Traits\Attachment;
 
 class Menu extends Model
 {
+    use Attachment;
+    
     /**
      * @var string
      */
