@@ -1,19 +1,33 @@
 <div class="form-group input-sort">
     <label>{{$title}}</label>
    <ul id="sortable-{{$slug}}" class="container-fluid">
-       @foreach($data as $key => $val)
-        <li class="ui-state-default form-group row">
-            <span onclick="return false;" class="btn btn-link col-xs-1 pull"><i class="fa-bars fa"></i></span>
-            <input type="text" class="form-control col-xs-10" name="{{$prefix}}[{{$lang}}][{{$tag}}][{{$slug}}][{{$key}}]" value="{{$val}}">
-            <button class="btn btn-link col-xs-1 remove" onclick="removeitem{{$slug}}(this)"><i class="icon-trash fa"></i></button>
-        </li>
-       @endforeach
-       @if($data === [])
+
+       @if(!isset($value) || is_null($value))
                <li class="ui-state-default form-group row">
                    <span onclick="return false;" class="btn btn-link col-xs-1 pull"><i class="fa-bars fa"></i></span>
-                   <input type="text" class="form-control col-xs-10" name="{{$prefix}}[{{$lang}}][{{$tag}}][{{$slug}}][0]">
+                   <input type="text" class="form-control col-xs-10"
+                          @if(isset($prefix))
+                          name="{{$prefix}}[{{$lang}}]{{$name}}[0]"
+                          @else
+                          name="{{$lang}}{{$name}}[0]"
+                          @endif
+                   >
                    <button class="btn btn-link col-xs-1 remove" onclick="removeitem{{$slug}}(this)"><i class="icon-trash fa"></i></button>
                </li>
+       @else
+           @foreach($value as $key => $val)
+               <li class="ui-state-default form-group row">
+                    <span onclick="return false;" class="btn btn-link col-xs-1 pull"><i class="fa-bars fa"></i></span>
+                    <input type="text" class="form-control col-xs-10"
+                           @if(isset($prefix))
+                           name="{{$prefix}}[{{$lang}}]{{$name}}[0]"
+                           @else
+                           name="{{$lang}}{{$name}}[{{$key}}]"
+                           @endif
+                           value="{{$val}}">
+                    <button class="btn btn-link col-xs-1 remove" onclick="removeitem{{$slug}}(this)"><i class="icon-trash fa"></i></button>
+                </li>
+           @endforeach
        @endif
     </ul>
     <div class="button-group text-center">
@@ -40,7 +54,7 @@
             '        </li>';
         $('#sortable-{{$slug}}').append(item);
         $("#sortable-{{$slug}} li").each(function (li) {
-            $(this).find('input').attr({'name': '{{$prefix}}[{{$lang}}][{{$tag}}][{{$slug}}]['+li+']'})
+            $(this).find('input').attr({'name': '{{$prefix}}[{{$lang}}][{{$slug}}]['+li+']'})
         })
     }
     function removeitem{{$slug}}(item) {
@@ -48,7 +62,7 @@
         $(item).parent().remove();
 
         $("#sortable-{{$slug}} li").each(function (li) {
-            $(this).find('input').attr({'name': '{{$prefix}}[{{$lang}}][{{$tag}}][{{$slug}}]['+li+']'})
+            $(this).find('input').attr({'name': '{{$prefix}}[{{$lang}}][{{$slug}}]['+li+']'})
         })
     }
     $(function() {
@@ -57,7 +71,7 @@
             axis: "y",
             update:function(event,ui){
                 $("#sortable-{{$slug}} li").each(function (li) {
-                    $(this).find('input').attr({'name': '{{$prefix}}[{{$lang}}][{{$tag}}][{{$slug}}]['+li+']'})
+                    $(this).find('input').attr({'name': '{{$prefix}}[{{$lang}}][{{$slug}}]['+li+']'})
                 })
             }
         });
