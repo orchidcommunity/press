@@ -34,12 +34,16 @@ class UploadPostForm extends Form
      */
     public function persist($type = null, $post = null)
     {
+        $classModel = $type->model;
+        $entity = $classModel::find($post->id);
+        
         if ($this->request->filled('files')) {
             $files = $this->request->input('files');
             foreach ($files as $file) {
                 $uploadFile = Attachment::find($file);
-                $uploadFile->post_id = $post->id;
                 $uploadFile->save();
+                $entity->attachment()->attach($file);
+
             }
         }
     }
