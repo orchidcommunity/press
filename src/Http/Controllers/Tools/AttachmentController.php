@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 use Orchid\CMS\Core\Models\Attachment;
 use Orchid\Platform\Http\Controllers\Controller;
+use Orchid\CMS\Core\Models\Post;
 
 class AttachmentController extends Controller
 {
@@ -183,7 +184,7 @@ class AttachmentController extends Controller
      */
     public function getFilesPost($id)
     {
-        $files = Attachment::where('post_id', $id)->orderBy('sort', 'asc')->get();
+        $files = Post::find($id)->attachment()->orderBy('sort', 'asc')->get();
 
         return response()->json($files);
     }
