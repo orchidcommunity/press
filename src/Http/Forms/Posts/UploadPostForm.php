@@ -43,7 +43,6 @@ class UploadPostForm extends Form
                 $uploadFile = Attachment::find($file);
                 $uploadFile->save();
                 $entity->attachment()->attach($file);
-
             }
         }
     }
