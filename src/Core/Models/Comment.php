@@ -8,9 +8,11 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Orchid\CMS\Core\Builders\CommentBuilder;
 use Orchid\Platform\Core\Models\User;
 use Illuminate\Database\Eloquent\Builder;
+use Orchid\CMS\Core\Traits\Attachment;
 
 class Comment extends Model
 {
+    use Attachment;
     /**
      * @var string
      */
