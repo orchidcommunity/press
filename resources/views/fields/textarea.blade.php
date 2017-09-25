@@ -10,6 +10,8 @@
               name="{{$lang}}{{$name}}"
               @endif
               placeholder="{{$placeholder or ''}}"
+              maxlength="{{$maxlength or ''}}"
+              minlength="{{$minlength or ''}}"
     >{!! $value or old($name) !!}</textarea>
     @if(isset($help))
         <p class="help-block">{{$help}}</p>

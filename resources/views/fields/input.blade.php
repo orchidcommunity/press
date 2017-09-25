@@ -9,7 +9,12 @@
            name="{{$lang}}{{$name}}"
            @endif
            value="{{$value or old($name)}}"
-           placeholder="{{$placeholder or ''}}">
+           placeholder="{{$placeholder or ''}}"
+           max="{{$max or ''}}"
+           maxlength="{{$maxlength or ''}}"
+           min="{{$min or ''}}"
+           minlength="{{$minlength or ''}}"
+    >
     @if(isset($help))
         <p class="help-block">{{$help}}</p>
     @endif

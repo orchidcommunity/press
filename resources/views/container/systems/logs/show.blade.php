@@ -205,8 +205,6 @@
 
 
 
-
-
     <script>
         $(function () {
             var deleteLogModal = $('div#delete-log-modal'),

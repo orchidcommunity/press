@@ -5,82 +5,45 @@
 @section('description',$nameMenu)
 
 @if(count($locales) > 1)
-@section('navbar')
-    <div class="col-sm-6 col-xs-12 text-right">
+    @section('navbar')
+        <div class="col-sm-6 col-xs-12 text-right">
 
 
-        <ul class="nav navbar-nav navbar-right">
+            <ul class="nav navbar-nav navbar-right">
 
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                   aria-expanded="false">{{$locales[$currentLocale]['native']}} <span class="caret"></span></a>
-                <ul class="dropdown-menu">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">{{$locales[$currentLocale]['native']}} <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
 
-                    @foreach($locales as $code => $locale)
-                        @if($currentLocale == $code)
-                            <li class="disabled">
-                                <a>{{$locale['native']}}</a>
-                            </li>
-                        @else
-                            <li>
-                                <a href="?lang={{$code}}">{{$locale['native']}}</a>
-                            </li>
-                        @endif
-                    @endforeach
-                </ul>
-            </li>
-        </ul>
+                        @foreach($locales as $code => $locale)
+                            @if($currentLocale == $code)
+                                <li class="disabled">
+                                    <a>{{$locale['native']}}</a>
+                                </li>
+                            @else
+                                <li>
+                                    <a href="?lang={{$code}}">{{$locale['native']}}</a>
+                                </li>
+                            @endif
+                        @endforeach
+                    </ul>
+                </li>
+            </ul>
 
-    </div>
-@stop
+        </div>
+    @stop
 @endif
 
 
 @section('content')
 
+
     <div class="hbox hbox-auto-xs hbox-auto-sm" id="menu-vue">
 
         <div class="col w-xxl bg-white-only b-r bg-auto no-border-xs">
-            <div class="nav-tabs-alt hidden">
-                <ul class="nav nav-tabs nav-justified" role="tablist">
-                    <li>
-                        <a data-target="#static-pages" role="tab" data-toggle="tab" aria-expanded="false">
-                            <i class="icon-note text-md text-muted wrapper-sm"></i>
-                            Pages
-                        </a>
-                    </li>
-                    <li class="active">
-                        <a id="ahref-custom-pages" data-target="#custom-pages" role="tab" data-toggle="tab"
-                           aria-expanded="true">
-                            <i class="icon-wrench text-md text-muted wrapper-sm"></i>
-                            Custom
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <div class="tab-content">
-                <div role="tabpanel" class="tab-pane" id="static-pages">
 
-                    <div class="wrapper-md">
-                        <label class="small">Search</label>
-                        <input class="form-control form-control-grey input-sm" placeholder="Not Work">
-                    </div>
-
-
-                    <div class="list-group">
-                        @foreach($staticPage as $slug => $name)
-                            <button v-on:click="addStatic('{{$name}}','{{$slug}}')" type="button"
-                                    class="list-group-item text-ellipsis" title="{{$name}}">
-                                <span class="block">{{$name}}</span>
-                                <small>{{$url}}/<span>{{$slug}}</span></small>
-                            </button>
-                        @endforeach
-                    </div>
-
-                </div>
-
-                <div role="tabpanel" class="tab-pane tab-3 active" id="custom-pages">
-                    <div class="wrapper-md">
+               <div class="wrapper-md">
 
 
                         <div class="form">
@@ -195,14 +158,12 @@
 
 
                     </div>
-                </div>
-            </div>
+
         </div>
 
 
         <div class="col">
             <div class="wrapper-md">
-
 
                 <div class="row">
                     <div class="col-sm-12">
@@ -329,7 +290,7 @@
                         'data': $('.dd').nestable('serialize')
                     };
 
-                    this.$http.put('/dashboard/tools/menu/' + name, data).then(function (response) {
+                    axios.put('/dashboard/tools/menu/' + name, data).then(function (response) {
                     });
                 },
                 exist: function () {

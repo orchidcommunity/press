@@ -1,13 +1,7 @@
 @extends('dashboard::layouts.dashboard')
 
-
 @section('title',trans('cms::tools/menu.title'))
 @section('description',trans('cms::tools/menu.description'))
-
-
-
-
-
 
 @section('content')
 
@@ -20,7 +14,6 @@
                 <div class="panel">
 
                     <div class="panel-body row">
-
 
                         <div class="table-responsive">
                             <table class="table table-striped">
@@ -35,13 +28,11 @@
                                 @foreach ($menu as $key => $value)
                                     <tr>
                                         <td class="text-center">
-                                            <a href="{{ route('dashboard.tools.menu.show',$key) }}"><i
-                                                        class="fa fa-bars"></i></a>
+                                            <a href="{{ route('dashboard.tools.menu.show',$key) }}"><i class="fa fa-bars"></i></a>
                                         </td>
                                         <td>{{ $value }}</td>
 
                                     </tr>
-
                                 @endforeach
                                 </tbody>
                             </table>
@@ -68,7 +59,3 @@
 
 
 @stop
-
-
-
-

@@ -22,7 +22,6 @@ class CreateOrchidAttachmentstableTable extends Migration
             $table->text('description')->nullable();
             $table->text('alt')->nullable();
             $table->integer('user_id')->nullable();
-            $table->integer('post_id')->nullable();
             $table->timestamps();
 
             $table->index([ 'post_id', 'user_id']);

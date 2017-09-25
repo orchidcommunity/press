@@ -60,6 +60,7 @@
                     var editor{{$code}} = ace.edit('ace-code-block-{{$code}}');
                     editor{{$code}}.getSession().setMode('ace/mode/javascript');
                     editor{{$code}}.setTheme('ace/theme/monokai');
+                    editor{{$code}}.getSession().setUseWorker(false);
 
                     var input{{$code}} = $('#hidden-code-{{$code}}');
                     editor{{$code}}.getSession().setValue(input{{$code}}.val());

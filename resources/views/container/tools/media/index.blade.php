@@ -149,21 +149,31 @@
 
 
                                     </div>
-                                    <div class="detail_info" v-bind:class="selected_file.type">
-							<span><h4>Title:</h4>
-                                       <p>@{{selected_file.name}}</p></span>
-                                        <span><h4>Type:</h4>
-                                            <p>@{{selected_file.type}}</p></span>
-                                        <div v-if="selected_file.type != 'folder'">
-								<span><h4>Size:</h4>
-								<p><span class="selected_file_count">@{{ selected_file.items }} item(s)</span><span
-                                            class="selected_file_size">@{{selected_file.size}}</span></p>
-                                    <span><h4>Public URL:</h4></span>
-								<p><a v-bind:href="selected_file.path" target="_blank">Click Here</a></p></span>
-                                            <span><h4>Last Modified:</h4>
-								<p>@{{selected_file.last_modified}}</p></span>
+                                        <div class="detail_info" v-bind:class="selected_file.type">
+                                           <span>
+                                              <h4>Title:</h4>
+                                              <p>@{{selected_file.name}}</p>
+                                           </span>
+                                           <span>
+                                              <h4>Type:</h4>
+                                              <p>@{{selected_file.type}}</p>
+                                           </span>
+                                           <div v-if="selected_file.type != 'folder'">
+                                              <span>
+                                                 <h4>Size:</h4>
+                                                 <p><span class="selected_file_count">@{{ selected_file.items }} item(s)</span><span
+                                                             class="selected_file_size">@{{selected_file.size}}</span></p>
+                                                 <span>
+                                                    <h4>Public URL:</h4>
+                                                 </span>
+                                                 <p><a v-bind:href="selected_file.path" target="_blank">Click Here</a></p>
+                                              </span>
+                                              <span>
+                                                 <h4>Last Modified:</h4>
+                                                 <p>@{{selected_file.last_modified}}</p>
+                                              </span>
+                                           </div>
                                         </div>
-                                    </div>
                                 </div>
 
                             </div>

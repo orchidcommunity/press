@@ -3,11 +3,34 @@
 @section('description',$type->description)
 @section('navbar')
     <div class="col-md-6 text-right">
+
+
+        <ul class="nav navbar-nav navbar-right">
+
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                   aria-expanded="false"><i class="icon-globe m-r-xs"></i> EN<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+
+                    @foreach($locales as $code => $lang)
+                        <li>
+                            <a data-target="#local-{{$code}}"
+                               role="tab"
+                               data-toggle="tab"
+                               aria-controls="local-{{$code}}"
+                               aria-expanded="@if ($loop->first)true @else false @endif">{{$lang['native']}}
+                            </a>
+                        </li>
+                    @endforeach
+                </ul>
+
+        </ul>
+
         <div class="btn-group btn-group-sm" role="group" aria-label="...">
             <button type="submit" form="post-form" class="btn btn-link"><i class="icon-check fa fa-2x"></i></button>
-            <button type="submit" form="form-post-remove" class="btn btn-link"><i class="icon-trash  fa fa-2x"></i>
-            </button>
+            <button type="submit" form="form-post-remove" class="btn btn-link"><i class="icon-trash  fa fa-2x"></i></button>
         </div>
+
     </div>
 @stop
 @section('content')
@@ -21,6 +44,8 @@
             <!-- column  -->
                 <div class="col  lter b-r">
                     <div class="vbox">
+                        {{--  Language Tabs
+
                         @if($locales->count() > 1)
                             <div class="nav-tabs-alt">
                                 <ul class="nav nav-tabs nav-justified">
@@ -34,8 +59,9 @@
                                 </ul>
                             </div>
                         @endif
+                        --}}
                         <div class="bg-white">
-                            <div class="tab-content">
+                            <div class="tab-content @if(!$type->checkModules()) container @endif">
                                 @foreach($locales as $code => $lang)
                                     <div class="tab-pane @if ($loop->first) active  @endif" id="local-{{$code}}">
                                         <div class="wrapper-xl  bg-white">

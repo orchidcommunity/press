@@ -4,16 +4,20 @@
     @endif
     <div class="picture-container m-b-md">
         @if(isset($value) && strlen($value) || strlen(old($name)))
-            <img src="{{$value or old($name)}}" class="img-responsive img-thumbnail" alt="" />
+            <img src="{{$value or old($name)}}" class="img-responsive img-thumbnail" alt=""/>
         @endif
     </div>
-    <input class="picture-path" type="hidden" data-width="{{$width}}" data-height="{{$height}}" data-upload-path="{{$uploadPath or "pictures"}}"
+    <input class="picture-path"
+           type="hidden"
+           data-width="{{$width}}"
+           data-height="{{$height}}"
+           data-upload-path="{{$uploadPath or "pictures"}}"
            @if(isset($prefix))
            name="{{$prefix}}[{{$lang}}]{{$name}}"
            @else
            name="{{$lang}}{{$name}}"
            @endif
-           value="{{$value or old($name)}}" />
+           value="{{$value or old($name)}}"/>
 
            <div class="picture-actions">
         <label class="btn btn-info">
@@ -24,30 +28,31 @@
 </div>
 
 
+<div id="picture-crop-modal" class="modal" role="dialog">
+   <div class="modal-dialog modal-lg">
+      <div class="modal-content-wrapper">
+         <div class="modal-content">
+            <div class="modal-header clearfix text-left">
+               <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+               <i class="fa fa-times"></i>
+               </button>
+               <h5>Crop image</h5>
+            </div>
+            <div class="modal-body">
+               <div class="upload-panel"></div>
+            </div>
+            <div class="modal-footer">
+               <button type="button" class="btn btn-success crop">Crop</button>
+               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+
 @push('scripts')
-<script>
+    <script>
 $(function () {
-    $('body').append('<div id="picture-crop-modal" class="modal" role="dialog">' +
-        '<div class="modal-dialog modal-lg">' +
-        '<div class="modal-content-wrapper">' +
-        '<div class="modal-content">' +
-        '<div class="modal-header clearfix text-left">' +
-        '<button type="button" class="close" data-dismiss="modal" aria-hidden="true">' +
-        '<i class="fa fa-times"></i>' +
-        '</button>' +
-        '<h5>Crop image</h5>' +
-        '</div>' +
-        '<div class="modal-body">' +
-        '<div class="upload-panel"></div>' +
-        '</div>' +
-        '<div class="modal-footer">' +
-        '<button type="button" class="btn btn-success crop">Crop</button>' +
-        '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>' +
-        '</div>' +
-        '</div>' +
-        '</div>' +
-        '</div>' +
-        '</div>');
 
     var $cropPanel = $('#picture-crop-modal .upload-panel');
     var $formGroup;
@@ -81,7 +86,7 @@ $(function () {
         }
     });
 
-    $('.picture-action-remove').click(function() {
+    $('.picture-action-remove').click(function () {
         var $group = $(this).parents('.form-group');
 
         $group.find('.picture-path').val('');

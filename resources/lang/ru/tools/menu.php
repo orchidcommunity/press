@@ -55,8 +55,8 @@ return [
         'target'            => [
             'name'      => 'Открыть',
             'variables' => [
-                'answer'  => 'В текущим окне',
-                'chapter' => 'В новом окне',
+                'self'  => 'В текущим окне',
+                'blank' => 'В новом окне',
             ],
         ],
         'control'           => [

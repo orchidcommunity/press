@@ -30,8 +30,8 @@ class CategoryMainForm extends Form
      */
     public function __construct($request = null)
     {
-        parent::__construct($request);
         $this->name = trans('cms::tools/category.information');
+        parent::__construct($request);
     }
 
     /**

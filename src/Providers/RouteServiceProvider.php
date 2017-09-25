@@ -89,10 +89,12 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function map()
     {
-        if (config('platform.enable', true)) {
-            foreach (glob(CMS_PATH . '/routes/*/*.php') as $file) {
-                $this->loadRoutesFrom($file);
-            }
+        if (config('platform.headless')) {
+            return null;
+        }
+
+        foreach (glob(CMS_PATH . '/routes/*/*.php') as $file) {
+            $this->loadRoutesFrom($file);
         }
     }
 }

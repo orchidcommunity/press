@@ -4,10 +4,10 @@ namespace Orchid\CMS\Fields;
 
 use Orchid\CMS\Field\Field;
 
-class MediumField extends Field
+class SummernoteField extends Field
 {
     /**
      * @var string
      */
-    public $view = 'cms::fields.medium';
+    public $view = 'cms::fields.summernote';
 }

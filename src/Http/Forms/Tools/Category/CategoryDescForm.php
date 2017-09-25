@@ -29,8 +29,8 @@ class CategoryDescForm extends Form
      */
     public function __construct($request = null)
     {
-        parent::__construct($request);
         $this->name = trans('cms::tools/category.display');
+        parent::__construct($request);
     }
 
     /**
