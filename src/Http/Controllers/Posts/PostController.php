@@ -50,7 +50,7 @@ class PostController extends Controller
     {
         $this->checkPermission('dashboard.posts.' . $type->slug);
 
-        $locales = (method_exists($type,'locale')) ? collect($type->locale()) : $this->locales;
+        $locales = (method_exists($type, 'locale')) ? collect($type->locale()) : $this->locales;
 
         return view('cms::container.posts.create', [
             'type'    => $type,
@@ -116,7 +116,7 @@ class PostController extends Controller
     {
         $this->checkPermission('dashboard.posts.' . $type->slug);
 
-        $locales = (method_exists($type,'locale')) ? collect($type->locale()) : $this->locales;
+        $locales = (method_exists($type, 'locale')) ? collect($type->locale()) : $this->locales;
 
         return view('cms::container.posts.edit', [
             'type'    => $type,
