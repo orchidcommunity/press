@@ -15,7 +15,6 @@ $this->group([
     'namespace'  => 'Orchid\CMS\Http\Controllers\Marketing',
 ],
     function (\Illuminate\Routing\Router $router) {
-
         $router->get('utm', 'UTMController@index')->name('dashboard.marketing.utm.index');
 
         $router->resource('robots', 'RobotsController', [
