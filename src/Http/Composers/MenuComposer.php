@@ -254,7 +254,6 @@ class MenuComposer
      */
     protected function registerMenuMarketing(Dashboard $dashboard)
     {
-
         $dashboard->menu->add('Main', [
             'slug'       => 'Marketing',
             'icon'       => 'icon-chart',
