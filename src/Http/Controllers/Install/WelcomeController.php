@@ -19,7 +19,7 @@ class WelcomeController extends Controller
             Artisan::call('view:clear');
             Artisan::call('route:clear');
             Artisan::call('vendor:publish', [
-                '--all' => true,
+                '--all'   => true,
                 '--force' => true,
             ]);
             Artisan::call('event:generate');
@@ -32,7 +32,7 @@ class WelcomeController extends Controller
         }
 
         return view('cms::container.install.welcome', [
-             'exception' => isset($exception) ? $exception : null,
+            'exception' => isset($exception) ? $exception : null,
         ]);
     }
 }

@@ -21,7 +21,7 @@ class UploadPostForm extends Form
      * @internal param null $type
      * @internal param null|Post $post
      */
-    public function get(): View
+    public function get() : View
     {
         return view('cms::container.posts.modules.upload');
     }
@@ -36,7 +36,7 @@ class UploadPostForm extends Form
     {
         $classModel = $type->model;
         $entity = $classModel::find($post->id);
-        
+
         if ($this->request->filled('files')) {
             $files = $this->request->input('files');
             foreach ($files as $file) {

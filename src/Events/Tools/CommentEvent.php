@@ -1,14 +1,11 @@
 <?php
 
-namespace Orchid\CMS\Events\Marketing;
+namespace Orchid\CMS\Events\Tools;
 
-use Illuminate\Queue\SerializesModels;
-use Orchid\CMS\Http\Forms\Marketing\Comment\CommentFormGroup;
+use Orchid\CMS\Http\Forms\Tools\Comment\CommentFormGroup;
 
 class CommentEvent
 {
-    use SerializesModels;
-
     /**
      * @var
      */

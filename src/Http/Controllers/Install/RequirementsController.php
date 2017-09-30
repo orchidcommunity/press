@@ -3,8 +3,8 @@
 namespace Orchid\CMS\Http\Controllers\Install;
 
 use Illuminate\Support\Facades\DB;
-use Orchid\Platform\Http\Controllers\Controller;
 use Orchid\CMS\Http\Controllers\Install\Helpers\RequirementsChecker;
+use Orchid\Platform\Http\Controllers\Controller;
 
 class RequirementsController extends Controller
 {

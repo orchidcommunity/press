@@ -37,7 +37,7 @@ class PermissionServiceProvider extends ServiceProvider
     /**
      * @return array
      */
-    protected function registerPermissionsMain(): array
+    protected function registerPermissionsMain() : array
     {
         return [
             'Main' => [
@@ -69,7 +69,7 @@ class PermissionServiceProvider extends ServiceProvider
     /**
      * @return array
      */
-    protected function registerPermissionsPages(): array
+    protected function registerPermissionsPages() : array
     {
         $allPage = $this->dashboard->getStorage('pages')->all();
 
@@ -89,7 +89,7 @@ class PermissionServiceProvider extends ServiceProvider
     /**
      * @return array
      */
-    protected function registerPermissionsPost(): array
+    protected function registerPermissionsPost() : array
     {
         $allPost = $this->dashboard->getStorage('posts')->all();
 
@@ -111,7 +111,7 @@ class PermissionServiceProvider extends ServiceProvider
     /**
      * @return array
      */
-    protected function registerPermissionsTools(): array
+    protected function registerPermissionsTools() : array
     {
         return [
             'Tools' => [
@@ -122,6 +122,10 @@ class PermissionServiceProvider extends ServiceProvider
                 [
                     'slug'        => 'dashboard.tools.category',
                     'description' => trans('cms::permission.tools.category'),
+                ],
+                [
+                    'slug'        => 'dashboard.tools.comment',
+                    'description' => trans('cms::permission.tools.comment'),
                 ],
                 [
                     'slug'        => 'dashboard.tools.attachment',
@@ -138,7 +142,7 @@ class PermissionServiceProvider extends ServiceProvider
     /**
      * @return array
      */
-    protected function registerPermissionsSystems(): array
+    protected function registerPermissionsSystems() : array
     {
         return [
             'Systems' => [
@@ -177,19 +181,11 @@ class PermissionServiceProvider extends ServiceProvider
     /**
      * @return array
      */
-    protected function registerPermissionsMarketing(): array
+    protected function registerPermissionsMarketing() : array
     {
         return [
 
             'Marketing' => [
-                [
-                    'slug'        => 'dashboard.marketing.comment',
-                    'description' => trans('cms::permission.marketing.comment'),
-                ],
-                [
-                    'slug'        => 'dashboard.marketing.advertising',
-                    'description' => trans('cms::permission.marketing.advertising'),
-                ],
                 [
                     'slug'        => 'dashboard.marketing.utm',
                     'description' => trans('cms::permission.marketing.utm'),

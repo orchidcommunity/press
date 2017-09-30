@@ -11,7 +11,7 @@ use Orchid\CMS\Core\Traits\Attachment;
 class Menu extends Model
 {
     use Attachment;
-    
+
     /**
      * @var string
      */
@@ -43,7 +43,7 @@ class Menu extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function children(): HasMany
+    public function children() : HasMany
     {
         return $this->hasMany(self::class, 'parent');
     }
@@ -51,7 +51,7 @@ class Menu extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function parent(): HasOne
+    public function parent() : HasOne
     {
         return $this->hasOne(self::class);
     }
@@ -61,7 +61,7 @@ class Menu extends Model
      *
      * @return mixed
      */
-    public function getSons($id): Collection
+    public function getSons($id) : Collection
     {
         return $this->where('parent', $id)->get();
     }
@@ -71,7 +71,7 @@ class Menu extends Model
      *
      * @return mixed
      */
-    public function getAll($id): Collection
+    public function getAll($id) : Collection
     {
         return $this->where('type', $id)->orderBy('id', 'asc')->get();
     }

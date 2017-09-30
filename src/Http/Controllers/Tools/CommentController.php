@@ -1,12 +1,12 @@
 <?php
 
-namespace Orchid\CMS\Http\Controllers\Marketing;
+namespace Orchid\CMS\Http\Controllers\Tools;
 
 use Illuminate\Http\Request;
 use Orchid\Alert\Facades\Alert;
 use Orchid\CMS\Core\Models\Comment;
+use Orchid\CMS\Http\Forms\Tools\Comment\CommentFormGroup;
 use Orchid\Platform\Http\Controllers\Controller;
-use Orchid\CMS\Http\Forms\Marketing\Comment\CommentFormGroup;
 
 class CommentController extends Controller
 {
@@ -22,7 +22,7 @@ class CommentController extends Controller
      */
     public function __construct(CommentFormGroup $form)
     {
-        $this->checkPermission('dashboard.marketing.comment');
+        $this->checkPermission('dashboard.tools.comment');
         $this->form = $form;
     }
 
@@ -46,7 +46,7 @@ class CommentController extends Controller
 
         Alert::success(trans('cms::common.alert.success'));
 
-        return redirect()->route('dashboard.marketing.comment.edit', $comment->id);
+        return redirect()->route('dashboard.tools.comment.edit', $comment->id);
     }
 
     /**
@@ -57,7 +57,7 @@ class CommentController extends Controller
     public function edit(Comment $comment)
     {
         return $this->form
-            ->route('dashboard.marketing.comment.update')
+            ->route('dashboard.tools.comment.update')
             ->slug($comment->id)
             ->method('PUT')
             ->render($comment);
@@ -74,6 +74,6 @@ class CommentController extends Controller
 
         Alert::success(trans('cms::common.alert.success'));
 
-        return redirect()->route('dashboard.marketing.comment');
+        return redirect()->route('dashboard.tools.comment');
     }
 }

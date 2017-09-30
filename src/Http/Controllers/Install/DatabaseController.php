@@ -2,9 +2,8 @@
 
 namespace Orchid\CMS\Http\Controllers\Install;
 
-use Illuminate\Support\Facades\Artisan;
-use Orchid\Platform\Http\Controllers\Controller;
 use Orchid\CMS\Http\Controllers\Install\Helpers\DatabaseManager;
+use Orchid\Platform\Http\Controllers\Controller;
 
 class DatabaseController extends Controller
 {

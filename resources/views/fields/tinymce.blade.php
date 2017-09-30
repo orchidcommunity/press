@@ -1,20 +1,22 @@
-<div class="tinymce-{{$lang}}-{{$slug}} b wrapper" style="min-height: 500px">
-  {!! $value or old($name) !!}
-</div>
-
 <div class="form-group{{ $errors->has($name) ? ' has-error' : '' }}">
-    @if(isset($title))
-    <label for="field-{{$name}}">{{$title}}</label>
-  @endif
-    <input class="form-control no-resize hidden {{$class or ''}}" id="field-{{$lang}}-{{$slug}}"
-              @if(isset($prefix))
-                      name="{{$prefix}}[{{$lang}}]{{$name}}"
-              @else
-              name="{{$lang}}{{$name}}"
-              @endif
-              placeholder="{{$placeholder or ''}}"
-              value="{!! $value or old($name) !!}"
-    >
+
+     @if(isset($title))
+        <label for="field-{{$name}}">{{$title}}</label>
+    @endif
+
+    <div class="tinymce-{{$lang}}-{{$slug}} b wrapper" style="min-height: 500px">
+      {!! $value or old($name) !!}
+    </div>
+
+             <input id="field-{{$lang}}-{{$slug}}" type="hidden"
+                    @if(isset($prefix))
+                    name="{{$prefix}}[{{$lang}}]{{$name}}"
+                    @else
+                    name="{{$lang}}{{$name}}"
+                    @endif
+                    placeholder="{{$placeholder or ''}}"
+                    value="{{ $value or old($name) }}">
+
   @if(isset($help))
     <p class="help-block">{{$help}}</p>
   @endif

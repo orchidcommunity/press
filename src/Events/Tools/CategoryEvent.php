@@ -2,13 +2,10 @@
 
 namespace Orchid\CMS\Events\Tools;
 
-use Illuminate\Queue\SerializesModels;
 use Orchid\CMS\Http\Forms\Tools\Category\CategoryFormGroup;
 
 class CategoryEvent
 {
-    use SerializesModels;
-
     /**
      * @var
      */

@@ -57,7 +57,7 @@ abstract class Many implements ManyInterface
      *
      * @return array
      */
-    public function generateGrid(): array
+    public function generateGrid() : array
     {
         $fields = $this->grid();
 
@@ -86,7 +86,7 @@ abstract class Many implements ManyInterface
      *
      * @return View
      */
-    public function showFilterDashboard(): View
+    public function showFilterDashboard() : View
     {
         $dashboardFilter = $this->getFilters(true);
         $chunk = ceil($dashboardFilter->count() / 4);
@@ -104,7 +104,7 @@ abstract class Many implements ManyInterface
      *
      * @return Collection
      */
-    public function getFilters($dashboard = false): Collection
+    public function getFilters($dashboard = false) : Collection
     {
         $filters = collect();
         foreach ($this->filters as $filter) {

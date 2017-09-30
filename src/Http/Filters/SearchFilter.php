@@ -11,7 +11,9 @@ class SearchFilter extends Filter
     /**
      * @var array
      */
-    public $parameters = ['search'];
+    public $parameters = [
+        'search',
+    ];
 
     /**
      * @var bool
@@ -28,7 +30,7 @@ class SearchFilter extends Filter
      *
      * @return Builder
      */
-    public function run(Builder $builder): Builder
+    public function run(Builder $builder) : Builder
     {
         return $builder->where('content', 'LIKE', '%' . $this->request->get('search') . '%');
     }

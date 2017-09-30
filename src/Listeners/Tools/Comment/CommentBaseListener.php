@@ -1,18 +1,11 @@
 <?php
 
-namespace Orchid\CMS\Listeners\Marketing\Comment;
+namespace Orchid\CMS\Listeners\Tools\Comment;
 
-use Orchid\CMS\Http\Forms\Marketing\Comment\BaseCommentForm;
+use Orchid\CMS\Http\Forms\Tools\Comment\BaseCommentForm;
 
 class CommentBaseListener
 {
-    /**
-     * Create the event listener.
-     */
-    public function __construct()
-    {
-    }
-
     /**
      * Handle the event.
      *

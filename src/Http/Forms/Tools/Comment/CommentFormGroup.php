@@ -1,10 +1,10 @@
 <?php
 
-namespace Orchid\CMS\Http\Forms\Marketing\Comment;
+namespace Orchid\CMS\Http\Forms\Tools\Comment;
 
 use Illuminate\Contracts\View\View;
 use Orchid\CMS\Core\Models\Comment;
-use Orchid\CMS\Events\Marketing\CommentEvent;
+use Orchid\CMS\Events\Tools\CommentEvent;
 use Orchid\Platform\Forms\FormGroup;
 
 class CommentFormGroup extends FormGroup
@@ -19,7 +19,7 @@ class CommentFormGroup extends FormGroup
      *
      * @return array
      */
-    public function attributes(): array
+    public function attributes() : array
     {
         return [
             'name'        => trans('cms::marketing/comment.title'),
@@ -30,7 +30,7 @@ class CommentFormGroup extends FormGroup
     /**
      * @return \Illuminate\Contracts\View\Factory|View|\Illuminate\View\View
      */
-    public function main(): View
+    public function main() : View
     {
         $comments = (new Comment())->with([
             'post' => function ($query) {

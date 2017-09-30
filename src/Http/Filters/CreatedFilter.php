@@ -32,7 +32,7 @@ class CreatedFilter extends Filter
      *
      * @return Builder
      */
-    public function run(Builder $builder): Builder
+    public function run(Builder $builder) : Builder
     {
         return $builder->where('created_at', '>', $this->request->get('start_created_at'))
             ->where('created_at', '<', $this->request->get('end_created_at'));

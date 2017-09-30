@@ -106,7 +106,7 @@ return [
     |
     */
 
-    'locales'     => [
+    'locales'    => [
         'en' => [
             'name'     => 'English',
             'script'   => 'Latn',
@@ -119,18 +119,18 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Advertising areas
+    | Category
     |--------------------------------------------------------------------------
-    |
-    | Starred areas for ad units
-    |
     */
-    'advertising' => [
-        'top'    => 'Top banner',
-        'side'   => 'Side banner',
-        'footer' => 'Banner cellar',
+    'category'   => [
+        'grid'   => [
+            'name',
+        ],
+        'fields' => [
+            'name' => 'tag:input|type:text|name:name|max:255|required|title:Name Articles|help:Article title',
+            'body' => 'tag:wysiwyg|name:body|max:255|required|title:Name Articles',
+        ],
     ],
-
 
     /*
     |--------------------------------------------------------------------------
@@ -140,7 +140,7 @@ return [
     | ...
     |
     */
-    'attachment'  => [
+    'attachment' => [
         'image' => [
             'png',
             'jpg',

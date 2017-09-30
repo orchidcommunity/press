@@ -17,7 +17,7 @@ trait Attachment
     /**
      * @return string
      */
-    public static function getAttachmentModel(): string
+    public static function getAttachmentModel() : string
     {
         return static::$attachmentModel;
     }
@@ -25,7 +25,7 @@ trait Attachment
     /**
      * @param $model
      */
-    public static function setAttachmentModel($model): void
+    public static function setAttachmentModel($model) : void
     {
         static::$attachmentModel = $model;
     }
@@ -35,7 +35,7 @@ trait Attachment
      *
      * @return MorphToMany
      */
-    public function attachment($type = null): MorphToMany
+    public function attachment($type = null) : MorphToMany
     {
         if (!is_null($type)) {
             return $this->morphToMany(static::$attachmentModel, 'attachmentable', 'attachment_relationships',

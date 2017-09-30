@@ -24,6 +24,17 @@ $this->group([
             'destroy' => 'dashboard.tools.category.destroy',
         ]]);
 
+        $router->resource('comment', 'CommentController', [
+            'names' => [
+                'index'   => 'dashboard.tools.comment',
+                'create'  => 'dashboard.tools.comment.create',
+                'edit'    => 'dashboard.tools.comment.edit',
+                'update'  => 'dashboard.tools.comment.update',
+                'store'   => 'dashboard.tools.comment.store',
+                'destroy' => 'dashboard.tools.comment.destroy',
+            ],
+        ]);
+
         $router->post('files', [
             'as'   => 'dashboard.tools.files.upload',
             'uses' => 'AttachmentController@upload',

@@ -40,8 +40,8 @@ class FoundationServiceProvider extends ServiceProvider
     protected function registerCode()
     {
         $this->publishes([
-            CMS_PATH . '/resources/stubs/behaviors/DemoPost.stub' => app_path('/Core/Behaviors/Many/DemoPost.php'),
-            CMS_PATH . '/resources/stubs/behaviors/DemoPage.stub' => app_path('/Core/Behaviors/Single/DemoPage.php'),
+            CMS_PATH . '/resources/stubs/behaviors/DemoPost.stub'        => app_path('/Core/Behaviors/Many/DemoPost.php'),
+            CMS_PATH . '/resources/stubs/behaviors/DemoPage.stub'        => app_path('/Core/Behaviors/Single/DemoPage.php'),
             CMS_PATH . '/resources/stubs/widgets/AdvertisingWidget.stub' => app_path('/Http/Widgets/AdvertisingWidget.php'),
         ]);
     }
@@ -70,7 +70,7 @@ class FoundationServiceProvider extends ServiceProvider
     protected function registerConfig()
     {
         $this->publishes([
-            CMS_PATH . '/config/cms.php' => config_path('cms.php'),
+            CMS_PATH . '/config/cms.php'   => config_path('cms.php'),
             CMS_PATH . '/config/scout.php' => config_path('scout.php'),
         ]);
 

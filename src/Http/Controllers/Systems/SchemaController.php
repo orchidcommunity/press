@@ -2,9 +2,9 @@
 
 namespace Orchid\CMS\Http\Controllers\Systems;
 
-use Orchid\Platform\Http\Controllers\Controller;
 use Orchid\CMS\Schema\Helpers;
 use Orchid\CMS\Schema\Schema;
+use Orchid\Platform\Http\Controllers\Controller;
 
 class SchemaController extends Controller
 {

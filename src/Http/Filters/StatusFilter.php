@@ -12,7 +12,9 @@ class StatusFilter extends Filter
      *
      * @var array
      */
-    public $parameters = ['status'];
+    public $parameters = [
+        'status',
+    ];
 
     /**
      * @var bool
@@ -29,7 +31,7 @@ class StatusFilter extends Filter
      *
      * @return Builder
      */
-    public function run(Builder $builder): Builder
+    public function run(Builder $builder) : Builder
     {
         return $builder->status($this->request->get('status'));
     }

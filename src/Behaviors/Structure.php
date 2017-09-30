@@ -94,7 +94,7 @@ trait Structure
      */
     public function generateForm(string $language = 'en', $post = null) : string
     {
-        $this->fields = (array)$this->fields();
+        $this->fields = (array) $this->fields();
         $this->parseFields();
         $availableFormFields = [];
 

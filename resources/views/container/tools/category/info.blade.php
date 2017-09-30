@@ -11,9 +11,7 @@
 
                 <option value="0">{{trans('cms::tools/category.not_parrent')}}</option>
 
-
                 @foreach($category as  $value)
-
                     <option value="{{$value->id}}"
                             @if($termTaxonomy->exists && $termTaxonomy->parent_id == $value->id) selected @endif >
                             {{$value->term->getContent('name')}}
@@ -28,7 +26,7 @@
         <label class="col-sm-2 control-label">{{trans('cms::tools/category.slug')}}</label>
         <div class="col-sm-10">
             <input type="text" name="slug"
-                   @if($termTaxonomy->exists) value="{{$termTaxonomy->term->slug}}" @endif
+                   value="{{optional($termTaxonomy->term)->slug}}"
                    required class="form-control" placeholder="news">
         </div>
     </div>

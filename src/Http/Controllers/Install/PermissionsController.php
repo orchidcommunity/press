@@ -2,8 +2,8 @@
 
 namespace Orchid\CMS\Http\Controllers\Install;
 
-use Orchid\Platform\Http\Controllers\Controller;
 use Orchid\CMS\Http\Controllers\Install\Helpers\PermissionsChecker;
+use Orchid\Platform\Http\Controllers\Controller;
 
 class PermissionsController extends Controller
 {

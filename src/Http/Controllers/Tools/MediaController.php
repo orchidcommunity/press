@@ -248,6 +248,34 @@ class MediaController extends Controller
         return compact('success', 'error');
     }
 
+    /**
+     * @param Request $request
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function upload(Request $request)
+    {
+        try {
+            if (isset($request->data)) {
+                return $this->saveData($request);
+            }
+
+
+            $path = $request->file->store($request->upload_path, $this->filesystem);
+            $success = true;
+            $message = 'Successfully uploaded new file!';
+        } catch (Exception $e) {
+            $success = false;
+            $message = $e->getMessage();
+        }
+
+        $realPath = Storage::disk($this->filesystem)->getDriver()->getAdapter()->getPathPrefix() . $path;
+        Image::make($realPath)->orientate()->save();
+
+        $path = preg_replace('/^public\//', '', $path);
+
+        return response()->json(compact('success', 'message', 'path'));
+    }
 
     /**
      * @param Request $request
@@ -283,36 +311,6 @@ class MediaController extends Controller
             'message' => 'File saved!',
             'path'    => '/storage/' . $request->upload_path . DIRECTORY_SEPARATOR . $name . '.' . $extension,
         ]);
-    }
-
-
-    /**
-     * @param Request $request
-     *
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function upload(Request $request)
-    {
-        try {
-            if (isset($request->data)) {
-                return $this->saveData($request);
-            }
-
-
-            $path = $request->file->store($request->upload_path, $this->filesystem);
-            $success = true;
-            $message = 'Successfully uploaded new file!';
-        } catch (Exception $e) {
-            $success = false;
-            $message = $e->getMessage();
-        }
-
-        $realPath = Storage::disk($this->filesystem)->getDriver()->getAdapter()->getPathPrefix() . $path;
-        Image::make($realPath)->orientate()->save();
-
-        $path = preg_replace('/^public\//', '', $path);
-
-        return response()->json(compact('success', 'message', 'path'));
     }
 
     /**

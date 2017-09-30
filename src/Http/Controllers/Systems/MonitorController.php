@@ -2,8 +2,8 @@
 
 namespace Orchid\CMS\Http\Controllers\Systems;
 
-use Orchid\Platform\Http\Controllers\Controller;
 use Orchid\Monitor\Monitor;
+use Orchid\Platform\Http\Controllers\Controller;
 
 class MonitorController extends Controller
 {
@@ -39,7 +39,7 @@ class MonitorController extends Controller
     /**
      * @return bool
      */
-    private function shellExecEnabled(): bool
+    private function shellExecEnabled() : bool
     {
         $disabled = explode(',', ini_get('disable_functions'));
 

@@ -25,7 +25,7 @@
                         <label class="col-sm-2 control-label">{{trans('cms::tools/category.name')}}</label>
                         <div class="col-sm-10">
                             <input name="content[{{$code}}][name]"
-                                   value="@if($termTaxonomy->exists) {{$termTaxonomy->term->getContent('name',$code)}}@endif"
+                                   value="{{optional($termTaxonomy->term)->getContent('name',$code)}}"
                                    required class="form-control"
                                    placeholder="{{trans('cms::tools/category.name')}}">
                         </div>
@@ -40,7 +40,7 @@
                             <textarea name="content[{{$code}}][body]"
                                       required class="form-control summernote"
                                       placeholder="{{trans('cms::tools/category.descriptions')}}">
-                                   @if($termTaxonomy->exists) {{$termTaxonomy->term->getContent('body',$code)}}@endif
+                                   {{optional($termTaxonomy->term)->getContent('body',$code)}}
                             </textarea>
                         </div>
                     </div>
@@ -53,14 +53,3 @@
     </div>
 
 </div>
-
-
-<script src="/orchid/summernote/summernote.min.js"></script>
-<script>
-    $(document).ready(function () {
-        $('.summernote').summernote({
-            minHeight: 300
-        });
-
-    });
-</script>

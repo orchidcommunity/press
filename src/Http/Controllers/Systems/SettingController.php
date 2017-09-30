@@ -5,8 +5,8 @@ namespace Orchid\CMS\Http\Controllers\Systems;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Orchid\Alert\Facades\Alert;
-use Orchid\Platform\Http\Controllers\Controller;
 use Orchid\CMS\Http\Forms\Systems\Settings\SettingFormGroup;
+use Orchid\Platform\Http\Controllers\Controller;
 
 class SettingController extends Controller
 {

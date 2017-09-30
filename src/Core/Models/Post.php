@@ -13,11 +13,11 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 use Laravel\Scout\Searchable;
+use Orchid\CMS\Core\Traits\Attachment;
 use Orchid\CMS\Core\Traits\MultiLanguage;
 use Orchid\Platform\Core\Models\User;
 use Orchid\Platform\Exceptions\TypeException;
 use Orchid\Platform\Facades\Dashboard;
-use Orchid\CMS\Core\Traits\Attachment;
 
 class Post extends Model
 {
@@ -87,6 +87,20 @@ class Post extends Model
     }
 
     /**
+     * Get the indexable data array for the model.
+     *
+     * @return array
+     */
+    public function toSearchableArray()
+    {
+        $behavior = $this->getBehaviorObject();
+
+        if (method_exists($behavior, 'toSearchableArray')) {
+            return $behavior->toSearchableArray($this->toArray());
+        }
+    }
+
+    /**
      * Get Behavior Class
      *
      * @param null $slug
@@ -117,20 +131,6 @@ class Post extends Model
         }
 
         return $this;
-    }
-
-    /**
-     * Get the indexable data array for the model.
-     *
-     * @return array
-     */
-    public function toSearchableArray()
-    {
-        $behavior = $this->getBehaviorObject();
-
-        if (method_exists($behavior, 'toSearchableArray')) {
-            return $behavior->toSearchableArray($this->toArray());
-        }
     }
 
     /**

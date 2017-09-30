@@ -136,17 +136,6 @@ class MenuComposer
         ]);
 
         $dashboard->menu->add('Tools', [
-            'slug'       => 'section',
-            'icon'       => 'icon-briefcase',
-            'route'      => route('dashboard.tools.category'),
-            'label'      => trans('cms::menu.sections'),
-            'childs'     => false,
-            'divider'    => true,
-            'permission' => 'dashboard.tools.category',
-            'sort'       => 2,
-        ]);
-
-        $dashboard->menu->add('Tools', [
             'slug'       => 'menu',
             'icon'       => 'icon-menu',
             'route'      => route('dashboard.tools.menu.index'),
@@ -159,6 +148,26 @@ class MenuComposer
         ]);
 
         $dashboard->menu->add('Tools', [
+            'slug'       => 'section',
+            'icon'       => 'icon-briefcase',
+            'route'      => route('dashboard.tools.category'),
+            'label'      => trans('cms::menu.sections'),
+            'childs'     => false,
+            'divider'    => true,
+            'permission' => 'dashboard.tools.category',
+            'sort'       => 2,
+        ]);
+
+        $dashboard->menu->add('Tools', [
+            'slug'       => 'comment',
+            'icon'       => 'fa fa-comments-o',
+            'route'      => route('dashboard.tools.comment'),
+            'label'      => trans('cms::menu.comments'),
+            'permission' => 'dashboard.tools.comment',
+            'sort'       => 3,
+        ]);
+
+        $dashboard->menu->add('Tools', [
             'slug'       => 'media',
             'icon'       => 'icon-folder-alt',
             'route'      => route('dashboard.tools.media.index'),
@@ -166,7 +175,7 @@ class MenuComposer
             'childs'     => false,
             'divider'    => false,
             'permission' => 'dashboard.tools.media',
-            'sort'       => 3,
+            'sort'       => 4,
         ]);
     }
 
@@ -245,6 +254,7 @@ class MenuComposer
      */
     protected function registerMenuMarketing(Dashboard $dashboard)
     {
+
         $dashboard->menu->add('Main', [
             'slug'       => 'Marketing',
             'icon'       => 'icon-chart',
@@ -255,25 +265,6 @@ class MenuComposer
             'active'     => 'dashboard.marketing.*',
             'permission' => 'dashboard.marketing',
             'sort'       => 1500,
-        ]);
-
-        $dashboard->menu->add('Marketing', [
-            'slug'       => 'comment',
-            'icon'       => 'fa fa-comments-o',
-            'route'      => route('dashboard.marketing.comment'),
-            'label'      => trans('cms::menu.comments'),
-            'groupname'  => trans('cms::menu.marketing'),
-            'permission' => 'dashboard.marketing.comment',
-            'sort'       => 1,
-        ]);
-
-        $dashboard->menu->add('Marketing', [
-            'slug'       => 'advertising',
-            'icon'       => 'icon-target',
-            'route'      => route('dashboard.marketing.advertising.index'),
-            'label'      => trans('cms::menu.advertising'),
-            'permission' => 'dashboard.marketing.advertising',
-            'sort'       => 5,
         ]);
 
         $dashboard->menu->add('Marketing', [

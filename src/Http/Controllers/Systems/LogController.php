@@ -5,10 +5,10 @@ namespace Orchid\CMS\Http\Controllers\Systems;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Arr;
-use Orchid\Platform\Http\Controllers\Controller;
 use Orchid\Log\Exceptions\LogNotFoundException;
 use Orchid\Log\Log;
 use Orchid\Log\Tables\StatsTable;
+use Orchid\Platform\Http\Controllers\Controller;
 
 class LogController extends Controller
 {

@@ -11,7 +11,9 @@
         <div class='input-group date datetimepicker'>
             <input type='text' class="form-control"
                    value="{{$post->publish_at or ''}}"
-                   name="publish">
+                   name="publish"
+                   data-date-format="YYYY-MM-DD HH:mm:ss"
+            >
             <span class="input-group-addon">
             <span class="icon-calendar"></span>
             </span>
