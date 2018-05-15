@@ -1,3 +1,8 @@
+# [Project moved]
+
+https://github.com/orchidsoftware/platform
+
+
 <p align="center">
 <a href="https://github.com/TheOrchid/Platform"><img width="250"  src="https://orchid.software/img/orchid.svg">
 </a>
