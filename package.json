@@ -1,0 +1,31 @@
+{
+  "private": true,
+  "scripts": {
+    "dev": "NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch": "NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "hot": "NODE_ENV=development webpack-dev-server --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "production": "NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "eslint": "./node_modules/.bin/eslint resources/js/ --fix"
+  },
+  "dependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.4.0",
+    "@babel/plugin-transform-block-scoping": "^7.4.0",
+    "@babel/preset-env": "^7.4.3",
+    "axios": "^0.18",
+    "babel-preset-env": "^1.7.0",
+    "bootstrap": "^4.3.1",
+    "cross-env": "^5.2.0",
+    "jquery": "^3.4.0",
+    "laravel-mix": "4.0.14",
+    "popper.js": "^1.15.0",
+    "startbootstrap-clean-blog": "^5.0.5",
+    "turbolinks": "^5.2.0",
+    "vue": "^2.5.7"
+  },
+  "devDependencies": {
+    "resolve-url-loader": "2.3.1",
+    "sass": "^1.18.0",
+    "sass-loader": "7.*",
+    "vue-template-compiler": "^2.6.10"
+  }
+}

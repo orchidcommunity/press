@@ -1,0 +1,49 @@
+{
+  "name": "orchid/press",
+  "description": "Press package for Orchid Platform",
+  "type": "library",
+  "keywords": [
+    "press",
+    "cms",
+    "blog",
+    "orchid",
+    "platform",
+    "laravel"
+  ],
+  "license": "MIT",
+  "type": "library",
+  "homepage": "https://orchid.software",
+  "authors": [
+    {
+      "name": "Pavel Salador",
+      "email": "Salador2005@yandex.ru"
+    }
+  ],
+  "require": {
+    "php": "^7.1",
+	"orchid/platform": "*",
+    "orchids/xsetting": "dev-master"
+  },
+  "autoload": {
+    "psr-4": {
+        "Orchid\\Database\\Press\\Seeds\\": "database/seeds/",
+        "Orchid\\Press\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "classmap": [
+      "database/seeds",
+      "database/factories"
+    ]
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Orchid\\Press\\Providers\\PressServiceProvider"
+      ]
+    }
+  },
+  "config": {
+    "sort-packages": true
+  }
+}
