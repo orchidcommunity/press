@@ -1,92 +1,81 @@
 <?php
 
-namespace Orchid\CMS\Providers;
+namespace Orchid\Press\Providers;
 
-use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Route;
-use Orchid\CMS\Core\Models\Page;
-use Orchid\CMS\Core\Models\Post;
-use Orchid\CMS\Core\Models\TermTaxonomy;
-use Orchid\Platform\Http\Middleware\CanInstall;
+use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+
+use Orchid\Press\Models\Post;
+use Orchid\Press\Models\Category;
+
+
 
 class RouteServiceProvider extends ServiceProvider
 {
     /**
-     * This namespace is applied to the controller routes in your routes file.
-     *
-     * In addition, it is set as the URL generator's root namespace.
-     *
-     * @var string
-     */
-    protected $namespace = 'Orchid\CMS\Http\Controllers';
-
-    /**
      * Define your route model bindings, pattern filters, etc.
      *
-     * @internal param Router $router
+     * @return void
      */
     public function boot()
     {
-        Route::middlewareGroup('install', [
-            CanInstall::class,
-        ]);
-
-        $this->binding();
-
+        //
+		$this->binding();
+		//$this->filters();
+		
         parent::boot();
     }
 
-    /**
-     * Route binding.
-     */
-    public function binding()
+	
+	public function binding()
     {
-        Route::bind('category', function ($value) {
-            return TermTaxonomy::findOrFail($value);
+		
+		Route::bind('post', function ($value) {
+            return Post::where('slug', $value)
+                ->type('blog')
+                ->with(['attachment'])
+                ->firstOrFail();
         });
-
-        Route::bind('type', function ($value) {
-            $post = new Post();
-            $type = $post->getBehavior($value)->getBehaviorObject();
-
-            return $type;
+/*
+        Route::bind('term', function ($value) {
+            return Category::where('slug', $value)
+                ->firstOrFail();
         });
-
-        Route::bind('slug', function ($value) {
-            if (is_numeric($value)) {
-                return Post::where('id', $value)->firstOrFail();
-            }
-
-            return Post::findOrFail($value);
-        });
-
-        Route::bind('page', function ($value) {
-            if (is_numeric($value)) {
-                $page = Page::where('id', $value)->first();
-            } else {
-                $page = Page::where('slug', $value)->first();
-            }
-            if (is_null($page)) {
-                return new Page([
-                    'slug' => $value,
-                ]);
-            }
-
-            return $page;
-        });
+*/
     }
+    
+    public function filters()
+    {
+		$category = Category::with('allChildrenTerm')
+		 ->with('term')
+		 ->get()         
+          ->map(function ($item,$key) {
+            return $item->term->slug;
+        })
+        ->toArray();
 
+        Route::pattern('category', implode('|',$category));
+	}
+	
+	
     /**
      * Define the routes for the application.
+     *
+     * @return void
      */
     public function map()
     {
-        if (config('platform.headless')) {
-            return null;
+        if ($this->app->routesAreCached()) {
+            return;
         }
 
-        foreach (glob(CMS_PATH . '/routes/*/*.php') as $file) {
-            $this->loadRoutesFrom($file);
-        }
+
+        Route::domain((string) config('press.domain'))
+            ->prefix(config('press.prefix'))
+            ->as('press.')
+            ->middleware(config('press.middleware.public'))
+            ->group(realpath(PRESS_PATH.'/routes/web.php'));
     }
+
+
 }

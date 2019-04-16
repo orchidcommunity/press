@@ -1,15 +1,17 @@
 <?php
 
-namespace Orchid\CMS\Http\Filters;
+declare(strict_types=1);
 
+namespace Orchid\Press\Http\Filters;
+
+use Orchid\Screen\Field;
+use Orchid\Platform\Filters\Filter;
+use Orchid\Screen\Fields\RadioButtons;
 use Illuminate\Database\Eloquent\Builder;
-use Orchid\CMS\Filters\Filter;
 
 class StatusFilter extends Filter
 {
-
     /**
-     *
      * @var array
      */
     public $parameters = [
@@ -17,33 +19,27 @@ class StatusFilter extends Filter
     ];
 
     /**
-     * @var bool
-     */
-    public $display = true;
-
-    /**
-     * @var bool
-     */
-    public $dashboard = true;
-
-    /**
      * @param Builder $builder
      *
      * @return Builder
      */
-    public function run(Builder $builder) : Builder
+    public function run(Builder $builder): Builder
     {
         return $builder->status($this->request->get('status'));
     }
 
     /**
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return Field
      */
-    public function display()
+    public function display(): Field
     {
-        return view('cms::container.posts.filters.status', [
-            'request'  => $this->request,
-            'behavior' => $this->behavior,
-        ]);
+        return RadioButtons::make('status')
+            ->value($this->request->get('status'))
+            ->options([
+                'publish' => __('Published'),
+                'draft'   => __('Draft'),
+            ])
+            ->title(__('Status'))
+            ->autocomplete('off');
     }
 }

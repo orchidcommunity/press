@@ -1,50 +1,44 @@
 <?php
 
-namespace Orchid\CMS\Http\Filters;
+declare(strict_types=1);
 
+namespace Orchid\Press\Http\Filters;
+
+use Orchid\Screen\Field;
+use Orchid\Platform\Filters\Filter;
+use Orchid\Screen\Fields\DateRange;
 use Illuminate\Database\Eloquent\Builder;
-use Orchid\CMS\Filters\Filter;
 
 class CreatedFilter extends Filter
 {
-
     /**
-     *
      * @var array
      */
     public $parameters = [
-        'start_created_at',
-        'end_created_at',
+        'created_at',
     ];
-
-    /**
-     * @var bool
-     */
-    public $display = true;
-
-    /**
-     * @var bool
-     */
-    public $dashboard = true;
 
     /**
      * @param Builder $builder
      *
      * @return Builder
      */
-    public function run(Builder $builder) : Builder
+    public function run(Builder $builder): Builder
     {
-        return $builder->where('created_at', '>', $this->request->get('start_created_at'))
-            ->where('created_at', '<', $this->request->get('end_created_at'));
+        return $builder->where('created_at', '>', $this->request->input('created_at.start'))
+            ->where('created_at', '<', $this->request->input('created_at.end'));
     }
 
     /**
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return Field
      */
-    public function display()
+    public function display() : Field
     {
-        return view('cms::container.posts.filters.created', [
-            'request' => $this->request,
-        ]);
+        return DateRange::make('created_at')
+            ->title(__('Date of creation'))
+            ->value([
+                'start' => $this->request->input('created_at.start'),
+                'end'   => $this->request->input('created_at.end'),
+            ]);
     }
 }

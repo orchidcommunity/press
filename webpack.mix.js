@@ -1,4 +1,4 @@
-const {mix} = require('laravel-mix');
+let mix = require('laravel-mix');
 
 /*
  |--------------------------------------------------------------------------
@@ -11,9 +11,14 @@ const {mix} = require('laravel-mix');
  |
  */
 
-mix.setPublicPath('public');
-mix.less('resources/assets/less/app.less', 'public/css/cms.css');
+let theme = process.env.PRESS_THEME || 'clean-blog';
+mix.setPublicPath('public/' + theme);
 
-mix.js([
-    'resources/assets/js/app.js',
-], 'public/js/cms.js');
+mix
+	//.copy('./node_modules/font-awesome/fonts/', 'public/fonts')
+	//.copy('./resources/assets/fonts/', 'public/fonts')
+	//.js('resources/assets/js/bsblog/app.js', 'js/bsblog')
+	//.sass('resources/assets/sass/bsblog/app.scss', 'css/bsblog')
+    .copyDirectory('./node_modules/startbootstrap-clean-blog/img', 'public/' + theme + '/img')
+    .js('resources/assets/'+ theme + '/js/app.js', 'js')
+	.sass('resources/assets/'+ theme + '/sass/app.scss', 'css');

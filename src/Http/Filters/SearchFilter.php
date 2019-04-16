@@ -1,13 +1,17 @@
 <?php
 
-namespace Orchid\CMS\Http\Filters;
+declare(strict_types=1);
 
+namespace Orchid\Press\Http\Filters;
+
+use Orchid\Screen\Field;
+use Orchid\Screen\Fields\Input;
+use Orchid\Platform\Filters\Filter;
 use Illuminate\Database\Eloquent\Builder;
-use Orchid\CMS\Filters\Filter;
+use Illuminate\Database\PostgresConnection;
 
 class SearchFilter extends Filter
 {
-
     /**
      * @var array
      */
@@ -16,32 +20,30 @@ class SearchFilter extends Filter
     ];
 
     /**
-     * @var bool
-     */
-    public $display = true;
-
-    /**
-     * @var bool
-     */
-    public $dashboard = true;
-
-    /**
      * @param Builder $builder
      *
      * @return Builder
      */
-    public function run(Builder $builder) : Builder
+    public function run(Builder $builder): Builder
     {
-        return $builder->where('content', 'LIKE', '%' . $this->request->get('search') . '%');
+        if ($builder->getQuery()->getConnection() instanceof PostgresConnection) {
+            return $builder->whereRaw('content::TEXT ILIKE ?', '%'.$this->request->get('search').'%');
+        }
+
+        return $builder->where('content', 'LIKE', '%'.$this->request->get('search').'%');
     }
 
     /**
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return Field
      */
-    public function display()
+    public function display(): Field
     {
-        return view('cms::container.posts.filters.search', [
-            'request' => $this->request,
-        ]);
+        return Input::make('search')
+            ->type('text')
+            ->value($this->request->get('search'))
+            ->placeholder(__('Search...'))
+            ->title(__('Search'))
+            ->maxlength(200)
+            ->autocomplete('off');
     }
 }

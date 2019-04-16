@@ -1,57 +1,49 @@
 {
-  "name": "orchid/cms",
-  "description": "Laravel CMS for website.",
-  "keywords": ["framework", "laravel", "orchid", "crud", "cms", "log", "menu", "scaffold", "settings", "website", "platform"],
+  "name": "orchid/press",
+  "description": "Press package for Orchid Platform",
   "type": "library",
+  "keywords": [
+    "press",
+    "cms",
+    "blog",
+    "orchid",
+    "platform",
+    "laravel"
+  ],
   "license": "MIT",
-  "homepage": "http://orchid.software",
-  "support": {
-    "issues": "https://github.com/theOrchid/Platform/issues",
-    "source": "https://github.com/theOrchid/Platform"
-  },
+  "type": "library",
+  "homepage": "https://orchid.software",
   "authors": [
     {
-      "name": "Alexandr Chernyaev",
-      "email": "bliz48rus@gmail.com"
+      "name": "Pavel Salador",
+      "email": "Salador2005@yandex.ru"
     }
   ],
   "require": {
-    "php": ">=7.0",
-    "orchid/platform": "^1.0",
-    "orchid/settings": "^2.0",
-    "orchid/log": "^1.0",
-    "orchid/monitor": "^1.0",
-    "intervention/image": "^2.3",
-    "cartalyst/tags": "^5.0",
-    "cviebrock/eloquent-sluggable": "^4.2",
-    "spatie/laravel-backup": "^5.0",
-    "teamtnt/laravel-scout-tntsearch-driver": "^3.0"
-  },
-  "require-dev": {
-    "mockery/mockery": "~0.9.4",
-    "phpunit/phpunit": "~6.0",
-    "orchestra/testbench": "~3.0"
+    "php": "^7.1",
+	"orchid/platform": "*",
+    "orchids/xsetting": "dev-master"
   },
   "autoload": {
     "psr-4": {
-      "Orchid\\CMS\\": "src/"
+        "Orchid\\Database\\Press\\Seeds\\": "database/seeds/",
+        "Orchid\\Press\\": "src/"
     }
   },
   "autoload-dev": {
-    "psr-4": {
-      "Orchid\\CMS\\Tests\\": "tests/"
-    }
+    "classmap": [
+      "database/seeds",
+      "database/factories"
+    ]
   },
   "extra": {
     "laravel": {
       "providers": [
-        "Orchid\\CMS\\Providers\\FoundationServiceProvider"
+        "Orchid\\Press\\Providers\\PressServiceProvider"
       ]
     }
   },
-  "suggest": {
-    "orchid/socket": "Laravel library for asynchronously serving WebSockets."
-  },
-  "minimum-stability": "dev",
-  "prefer-stable": false
+  "config": {
+    "sort-packages": true
+  }
 }

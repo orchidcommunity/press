@@ -1,6 +1,4 @@
 .idea
-node_modules
-npm-debug.log
 .phpstorm.meta.php
 _ide_helper.php
 composer.lock
@@ -8,3 +6,6 @@ build
 vendor
 .DS_Store
 .lock
+node_modules
+package-lock.json
+logs

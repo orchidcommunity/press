@@ -1,4 +1,0 @@
-/**
- * JavaScript libraries
- */
-
