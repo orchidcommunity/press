@@ -63,7 +63,7 @@ class MenuController extends Controller
             ->with('children')
             ->get();
 
-        return view('platform::container.systems.menu', [
+        return view('press::container.systems.menu', [
             'name'           => $name,
             'locales'        => config('press.locales'),
             'currentLocale'  => $currentLocale,

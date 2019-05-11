@@ -4,7 +4,7 @@
 	   role="button" aria-haspopup="true" aria-expanded="false">{{__('Categories')}}</a>
 	<div class="dropdown-menu">
 		@foreach($category as $item)
-			<a class="dropdown-item" href="{{route('category.posts',$item->term->slug)}}">{{$item->term->getContent('name')}}</a>
+			<a class="dropdown-item" href="{{route('press.posts',$item->term->slug)}}">{{$item->term->getContent('name')}}</a>
 		@endforeach
 	</div>
 </li>

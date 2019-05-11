@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Orchid\Press\Http\Filters;
 
 use Orchid\Screen\Field;
+use Orchid\Filters\Filter;
 use Orchid\Screen\Fields\Input;
-use Orchid\Platform\Filters\Filter;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\PostgresConnection;
 
@@ -18,6 +18,14 @@ class SearchFilter extends Filter
     public $parameters = [
         'search',
     ];
+
+    /**
+     * @return string
+     */
+    public function name(): string
+    {
+        return __('Search');
+    }
 
     /**
      * @param Builder $builder
@@ -34,16 +42,18 @@ class SearchFilter extends Filter
     }
 
     /**
-     * @return Field
+     * @return Field[]
      */
-    public function display(): Field
+    public function display(): array
     {
-        return Input::make('search')
-            ->type('text')
-            ->value($this->request->get('search'))
-            ->placeholder(__('Search...'))
-            ->title(__('Search'))
-            ->maxlength(200)
-            ->autocomplete('off');
+        return [
+            Input::make('search')
+                ->type('text')
+                ->value($this->request->get('search'))
+                ->placeholder(__('Search...'))
+                ->title($this->name())
+                ->maxlength(200)
+                ->autocomplete('off'),
+        ];
     }
 }

@@ -16,8 +16,8 @@ use Illuminate\Support\Facades\View;
 use Symfony\Component\Finder\Finder;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
-use Orchid\Press\Commands\MakeManyBehavior;
-use Orchid\Press\Commands\MakeSingleBehavior;
+use Orchid\Press\Commands\MakeEntityMany;
+use Orchid\Press\Commands\MakeEntitySingle;
 use Orchid\Press\Http\Composers\PressMenuComposer;
 use Orchid\Press\Http\Composers\SystemMenuComposer;
 
@@ -34,8 +34,8 @@ class PressServiceProvider extends ServiceProvider
      * @var array
      */
     protected $commands = [
-        MakeManyBehavior::class,
-        MakeSingleBehavior::class,
+        MakeEntityMany::class,
+        MakeEntitySingle::class,
     ];
 
     /**
@@ -46,27 +46,35 @@ class PressServiceProvider extends ServiceProvider
     public function boot(Dashboard $dashboard)
     {
         $this->dashboard = $dashboard;
+
         $this->app->booted(function () {
             $this->registerDashboardRoutes();
             $this->registerBinding();
+            $this->dashboard
+                ->registerEntities($this->findEntities())
+                ->registerPermissions($this->registerPermissionsEntities())
+                ->registerPermissions($this->registerPermissions());
+        });
+
+        $this->dashboard
+            ->addPublicDirectory('press',PRESS_PATH.'/public/');
+        \View::composer('platform::layouts.app', function () {
+            \Dashboard::registerResource('scripts', orchid_mix('/js/press.js', 'press'));
+            //->registerResource('stylesheets', orchid_mix('/css/press.css', 'press'));
         });
 
         $this->app->register(WebServiceProvider::class);
 
         $this->registerDatabase()
+            ->registerOrchid()
             ->registerConfig()
             ->registerViews()
             ->registerCommands();
 
-        $this->dashboard
-            ->registerEntities($this->findEntities())
-            ->registerPermissions($this->registerPermissionsEntities())
-            ->registerPermissions($this->registerPermissions());
+        $this->registerTranslations();
 
         View::composer('platform::layouts.dashboard', PressMenuComposer::class);
         View::composer('platform::container.systems.index', SystemMenuComposer::class);
-
-
     }
 
     /**
@@ -201,7 +209,9 @@ class PressServiceProvider extends ServiceProvider
     protected function registerPermissions(): ItemPermission
     {
         return ItemPermission::group(__('Systems'))
-            ->addPermission('platform.systems.menu', __('Menu'));
+            ->addPermission('platform.systems.menu', __('Menu'))
+            ->addPermission('platform.systems.comments', __('Comments'))
+            ->addPermission('platform.systems.category', __('Category'));
     }
 
     /**
@@ -214,9 +224,8 @@ class PressServiceProvider extends ServiceProvider
         Route::bind('category', function ($value) {
             $category = Dashboard::modelClass(Category::class);
 
-            return is_numeric($value)
-                ? $category->where('id', $value)->firstOrFail()
-                : $category->firstOrFail($value);
+            return $category->where('id', $value)
+                ->firstOrFail();
         });
 
         Route::bind('type', function ($value) {
@@ -228,9 +237,9 @@ class PressServiceProvider extends ServiceProvider
         Route::bind('page', function ($value) {
             $model = Dashboard::modelClass(Page::class);
 
-            $page = is_numeric($value)
-                ? $model->where('id', $value)->first()
-                : $model->where('slug', $value)->first();
+            $page = $model->where('id', $value)
+                ->orWhere('slug', $value)
+                ->first();
 
             if (is_null($page)) {
                 $model->slug = $value;
@@ -243,9 +252,9 @@ class PressServiceProvider extends ServiceProvider
         Route::bind('post', function ($value) {
             $post = Dashboard::modelClass(Post::class);
 
-            return is_numeric($value)
-                ? $post->where('id', $value)->firstOrFail()
-                : $post->where('slug', $value)->firstOrFail();
+            return $post->where('id', $value)
+                ->orWhere('slug', $value)
+                ->firstOrFail();
         });
 
         return $this;
@@ -267,4 +276,29 @@ class PressServiceProvider extends ServiceProvider
         }
     }
 
+    /**
+     * Register translations.
+     *
+     * @return $this
+     */
+    public function registerTranslations(): self
+    {
+        $this->loadJsonTranslationsFrom(realpath(PRESS_PATH.'/resources/lang/'));
+
+        return $this;
+    }
+
+    /**
+     * Register orchid.
+     *
+     * @return $this
+     */
+    protected function registerOrchid(): self
+    {
+        $this->publishes([
+            realpath(PRESS_PATH.'/install-stubs/Orchid/Entities') => app_path('Orchid/Entities'),
+        ], 'press-stubs');
+
+        return $this;
+    }
 }

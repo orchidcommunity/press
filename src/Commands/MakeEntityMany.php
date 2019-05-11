@@ -6,7 +6,7 @@ namespace Orchid\Press\Commands;
 
 use Illuminate\Console\GeneratorCommand;
 
-class MakeManyBehavior extends GeneratorCommand
+class MakeEntityMany extends GeneratorCommand
 {
     /**
      * The console command name.
@@ -36,7 +36,7 @@ class MakeManyBehavior extends GeneratorCommand
      */
     protected function getStub(): string
     {
-        return PRESS_PATH.'/resources/stubs/many.stub';
+        return PLATFORM_PATH.'/resources/stubs/many.stub';
     }
 
     /**

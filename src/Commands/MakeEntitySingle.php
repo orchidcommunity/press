@@ -6,7 +6,7 @@ namespace Orchid\Press\Commands;
 
 use Illuminate\Console\GeneratorCommand;
 
-class MakeSingleBehavior extends GeneratorCommand
+class MakeEntitySingle extends GeneratorCommand
 {
     /**
      * The console command name.
@@ -36,7 +36,7 @@ class MakeSingleBehavior extends GeneratorCommand
      */
     protected function getStub(): string
     {
-        return PRESS_PATH.'/resources/stubs/single.stub';
+        return PLATFORM_PATH.'/resources/stubs/single.stub';
     }
 
     /**

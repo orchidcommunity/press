@@ -42,57 +42,17 @@ class PressController extends Controller
     }
 
 
-	/**
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function category($category_slug)
-    {
-		
-		$category = Category::slug($category_slug)
-			->with(['posts' => function($query)	{
-				$query->type($this->type)
-					->status('publish')
-					->with('attachment')
-					->orderBy('publish_at','Desc')
-					->get();
-                }])
-            ->first();
-        $childcats = $category
-            ->allChildrenTerm()
-            ->with(['posts' => function($query)	{
-				$query->type($this->type)
-					->status('publish')
-					->with('attachment')
-					->orderBy('publish_at','Desc')
-					->get();
-                }])
-            ->get();
-        
-        $page = Post::type('cathead')
-			->whereSlug($category_slug)
-            ->with('attachment')
-            ->first();   
-            
-        return view(config('press.view').'pages.category', [
-            'category'  => $category,
-            'childcats'  => $childcats,
-            'page'      => $page,
-        ]);
-    }
-
-
-
     /**
      * @param Post $post
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function post($category_slug, Post $post)
+    public function post($categorySlug, Post $post)
     {
-        $category = Category::slug($category_slug)
+        $category = Category::slug($categorySlug)
                 ->first();
         $categorypage = Post::type('cathead')
-                ->whereSlug($category_slug)
+                ->whereSlug($categorySlug)
                 ->with('attachment')
                 ->first();  
 
@@ -117,7 +77,46 @@ class PressController extends Controller
 			'list'	   => $list,
         ]);
     }
-	
+
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function category($categorySlug)
+    {
+
+        $category = Category::slug($categorySlug)
+            ->with(['posts' => function($query)	{
+                $query->type($this->type)
+                    ->status('publish')
+                    ->with('attachment')
+                    ->orderBy('publish_at','Desc')
+                    ->get();
+            }])
+            ->first();
+        $childcats = $category
+            ->allChildrenTerm()
+            ->with(['posts' => function($query)	{
+                $query->type($this->type)
+                    ->status('publish')
+                    ->with('attachment')
+                    ->orderBy('publish_at','Desc')
+                    ->get();
+            }])
+            ->get();
+
+        $page = Post::type('cathead')
+            ->whereSlug($categorySlug)
+            ->with('attachment')
+            ->first();
+
+        return view(config('press.view').'pages.category', [
+            'category'  => $category,
+            'childcats'  => $childcats,
+            'page'      => $page,
+        ]);
+    }
+
 
     /**
      * @param Post $post

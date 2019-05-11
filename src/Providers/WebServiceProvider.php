@@ -26,13 +26,7 @@ class WebServiceProvider extends ServiceProvider
 
         $this->app->register(RouteServiceProvider::class);
 
-
-        $this->dashboard
-            ->addPublicDirectory('press',PRESS_PATH.'/public/');
-
         $this->registerDirectives();
-        $this->registerTranslations();
-
     }
 
 
@@ -49,18 +43,4 @@ class WebServiceProvider extends ServiceProvider
         });
     }
 
-
-    /**
-     * Register translations.
-     *
-     * @return $this
-     */
-    public function registerTranslations(): self
-    {
-        $this->loadJsonTranslationsFrom(realpath(PRESS_PATH.'/resources/lang/'));
-
-        return $this;
-    }
-
-
-    }
+}

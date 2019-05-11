@@ -5,18 +5,33 @@ declare(strict_types=1);
 namespace Orchid\Press\Http\Filters;
 
 use Orchid\Screen\Field;
-use Orchid\Platform\Filters\Filter;
+use Orchid\Filters\Filter;
 use Orchid\Screen\Fields\DateRange;
 use Illuminate\Database\Eloquent\Builder;
 
 class CreatedFilter extends Filter
 {
     /**
+     * The value delimiter.
+     *
+     * @var string
+     */
+    protected static $delimiter = ':';
+
+    /**
      * @var array
      */
     public $parameters = [
         'created_at',
     ];
+
+    /**
+     * @return string
+     */
+    public function name(): string
+    {
+        return __('Date of creation');
+    }
 
     /**
      * @param Builder $builder
@@ -30,15 +45,17 @@ class CreatedFilter extends Filter
     }
 
     /**
-     * @return Field
+     * @return Field[]
      */
-    public function display() : Field
+    public function display(): array
     {
-        return DateRange::make('created_at')
-            ->title(__('Date of creation'))
-            ->value([
-                'start' => $this->request->input('created_at.start'),
-                'end'   => $this->request->input('created_at.end'),
-            ]);
+        return [
+            DateRange::make('created_at')
+                ->title($this->name())
+                ->value([
+                    'start' => $this->request->input('created_at.start'),
+                    'end'   => $this->request->input('created_at.end'),
+                ]),
+        ];
     }
 }

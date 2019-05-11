@@ -19,6 +19,7 @@
     "laravel-mix": "4.0.14",
     "popper.js": "^1.15.0",
     "startbootstrap-clean-blog": "^5.0.5",
+    "stimulus": "^1.1.1",
     "turbolinks": "^5.2.0",
     "vue": "^2.5.7"
   },

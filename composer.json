@@ -1,7 +1,6 @@
 {
   "name": "orchid/press",
   "description": "Press package for Orchid Platform",
-  "type": "library",
   "keywords": [
     "press",
     "cms",
@@ -14,6 +13,10 @@
   "type": "library",
   "homepage": "https://orchid.software",
   "authors": [
+    {
+      "name": "Alexandr Chernyaev",
+      "email": "bliz48rus@gmail.com"
+    },
     {
       "name": "Pavel Salador",
       "email": "Salador2005@yandex.ru"
@@ -34,7 +37,10 @@
     "classmap": [
       "database/seeds",
       "database/factories"
-    ]
+    ],
+    "psr-4": {
+      "Orchid\\Tests\\": "tests/"
+    }
   },
   "extra": {
     "laravel": {
