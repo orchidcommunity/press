@@ -12,13 +12,12 @@ let mix = require('laravel-mix');
  */
 
 let theme = process.env.PRESS_THEME || 'clean-blog';
+//mix.setPublicPath(path.normalize('public/' + theme));
+mix.setPublicPath(path.normalize('public'));
 
 mix
-	.setPublicPath('public')
-    .js('resources/js/app.js', 'js/press.js');
-
-mix
-	.setPublicPath('public/' + theme)
+    .sass('resources/sass/app.scss', 'css/press.css')
+    .js('resources/js/app.js', 'js/press.js')
     .copyDirectory('./node_modules/startbootstrap-clean-blog/img', 'public/' + theme + '/img')
-    .js('resources/templates/'+ theme + '/js/app.js', 'js')
-	.sass('resources/templates/'+ theme + '/sass/app.scss', 'css');
+    .js('resources/templates/'+ theme + '/js/app.js', theme + '/js')
+	.sass('resources/templates/'+ theme + '/sass/app.scss', theme + '/css');

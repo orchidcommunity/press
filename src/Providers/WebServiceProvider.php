@@ -26,9 +26,25 @@ class WebServiceProvider extends ServiceProvider
 
         $this->app->register(RouteServiceProvider::class);
 
+        $this->registerViews();
         $this->registerDirectives();
     }
 
+    /**
+     * Register views & Publish views.
+     *
+     * @return $this
+     */
+    public function registerViews(): self
+    {
+        $this->loadViewsFrom(PRESS_PATH.'/resources/templates/'.config('press.theme').'/views', 'template');
+
+        $this->publishes([
+            PRESS_PATH.'/resources/templates/' => resource_path('views/vendor/press'),
+        ], 'views');
+
+        return $this;
+    }
 
     /**
      * Register directives.

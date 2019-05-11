@@ -58,9 +58,10 @@ class PressServiceProvider extends ServiceProvider
 
         $this->dashboard
             ->addPublicDirectory('press',PRESS_PATH.'/public/');
+
         \View::composer('platform::layouts.app', function () {
-            \Dashboard::registerResource('scripts', orchid_mix('/js/press.js', 'press'));
-            //->registerResource('stylesheets', orchid_mix('/css/press.css', 'press'));
+            \Dashboard::registerResource('scripts', orchid_mix('/js/press.js', 'press'))
+            ->registerResource('stylesheets', orchid_mix('/css/press.css', 'press'));
         });
 
         $this->app->register(WebServiceProvider::class);

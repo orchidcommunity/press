@@ -65,7 +65,7 @@
     <div class="wrapper">
         <div class="dd" data-lang="{{$currentLocale}}" data-name="{{$name}}">
             <ol class="dd-list">
-                @include('platform::partials.menu.item',[
+                @include('press::partials.menu.item',[
                     'menu'=>$menu
                 ])
             </ol>
