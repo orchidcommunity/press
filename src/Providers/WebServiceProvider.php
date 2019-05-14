@@ -7,7 +7,10 @@ use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 
-
+/**
+ * Class WebServiceProvider.
+ * After update run:  php artisan vendor:publish --provider="Orchid\Press\Providers\WebServiceProvider".
+ */
 class WebServiceProvider extends ServiceProvider
 {
     /**
@@ -24,9 +27,8 @@ class WebServiceProvider extends ServiceProvider
     {
         $this->dashboard = $dashboard;
 
-        $this->app->register(RouteServiceProvider::class);
-
-        $this->registerViews();
+        $this->registerViews()
+            ->registerRoute();
         $this->registerDirectives();
     }
 
@@ -57,6 +59,22 @@ class WebServiceProvider extends ServiceProvider
         Blade::directive('menu', function ($expression) {
             return "<?php echo (new Orchid\Press\Http\Widgets\MenuWidget)->get($expression); ?>";
         });
+    }
+
+    /**
+     * Register route.
+     *
+     * @return $this
+     */
+    protected function registerRoute(): self
+    {
+        $this->app->register(RouteServiceProvider::class);
+
+        $this->publishes([
+            realpath(PRESS_PATH.'/install-stubs/routes/') => base_path('routes'),
+        ], 'press-routes');
+
+        return $this;
     }
 
 }

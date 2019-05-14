@@ -27,7 +27,7 @@ export default class extends Controller {
                 cache: true,
                 ajax: {
                     url(params) {
-                        return platform.prefix(`/systems/tags/${params.term}`);
+                        return platform.prefix(`/press/tags/${params.term}`);
                     },
                     delay: 340,
                     processResults(data) {

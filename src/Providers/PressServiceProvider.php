@@ -21,6 +21,10 @@ use Orchid\Press\Commands\MakeEntitySingle;
 use Orchid\Press\Http\Composers\PressMenuComposer;
 use Orchid\Press\Http\Composers\SystemMenuComposer;
 
+/**
+ * Class PressServiceProvider.
+ * After update run:  php artisan vendor:publish --provider="Orchid\Press\Providers\PressServiceProvider".
+ */
 class PressServiceProvider extends ServiceProvider
 {
     /**
@@ -36,6 +40,7 @@ class PressServiceProvider extends ServiceProvider
     protected $commands = [
         MakeEntityMany::class,
         MakeEntitySingle::class,
+        TemplateCommand::class,
     ];
 
     /**
@@ -64,7 +69,7 @@ class PressServiceProvider extends ServiceProvider
             ->registerResource('stylesheets', orchid_mix('/css/press.css', 'press'));
         });
 
-        $this->app->register(WebServiceProvider::class);
+        //$this->app->register(WebServiceProvider::class);
 
         $this->registerDatabase()
             ->registerOrchid()

@@ -9,6 +9,7 @@ use Orchid\Press\Http\Screens\Comment\CommentEditScreen;
 use Orchid\Press\Http\Screens\Comment\CommentListScreen;
 use Orchid\Press\Http\Screens\Category\CategoryEditScreen;
 use Orchid\Press\Http\Screens\Category\CategoryListScreen;
+use Orchid\Press\Http\Controllers\Systems\TagsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,3 +49,6 @@ $this->router->resource('menu', MenuController::class, [
         'destroy' => 'systems.menu.destroy',
     ],
 ]);
+
+$this->router->get('tags/{tags?}', [TagsController::class, 'show'])
+    ->name('systems.tag.search');
