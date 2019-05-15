@@ -19,7 +19,6 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
 		$this->binding();
 		//$this->filters();
 		
@@ -46,7 +45,7 @@ class RouteServiceProvider extends ServiceProvider
     
     public function filters()
     {
-		$category = Category::with('allChildrenTerm')
+        $category = Category::with('allChildrenTerm')
 		 ->with('term')
 		 ->get()         
           ->map(function ($item,$key) {
@@ -65,16 +64,18 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function map()
     {
+        /*
         if ($this->app->routesAreCached()) {
             return;
         }
-
-
-        Route::domain((string) config('press.domain'))
-            ->prefix(config('press.prefix'))
-            ->as('press.')
-            ->middleware(config('press.middleware.public'))
-            ->group(realpath(PRESS_PATH.'/routes/web.php'));
+        */
+        if (file_exists(base_path('routes/platform.php'))) {
+            Route::domain((string)config('press.domain'))
+                ->prefix(config('press.prefix'))
+                ->as('press.')
+                ->middleware(config('press.middleware.public'))
+                ->group(base_path('routes/press.php'));
+        }
     }
 
 

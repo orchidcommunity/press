@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Orchid\Press\Commands\MakeEntityMany;
 use Orchid\Press\Commands\MakeEntitySingle;
+use Orchid\Press\Commands\TemplateCommand;
 use Orchid\Press\Http\Composers\PressMenuComposer;
 use Orchid\Press\Http\Composers\SystemMenuComposer;
 
@@ -69,8 +70,6 @@ class PressServiceProvider extends ServiceProvider
             ->registerResource('stylesheets', orchid_mix('/css/press.css', 'press'));
         });
 
-        //$this->app->register(WebServiceProvider::class);
-
         $this->registerDatabase()
             ->registerOrchid()
             ->registerConfig()
@@ -81,6 +80,10 @@ class PressServiceProvider extends ServiceProvider
 
         View::composer('platform::layouts.dashboard', PressMenuComposer::class);
         View::composer('platform::container.systems.index', SystemMenuComposer::class);
+
+        if (!is_null(env('PRESS_TEMPLATE'))) {
+            $this->app->register(WebServiceProvider::class);
+        }
     }
 
     /**

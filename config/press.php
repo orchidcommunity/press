@@ -9,7 +9,7 @@ return [
     | Template of site
     |
     */
-    'theme'		=> env('PRESS_THEME', 'clean-blog'),
+    'theme'		=> env('PRESS_TEMPLATE', 'clean-blog'),
 
     /*
     |--------------------------------------------------------------------------

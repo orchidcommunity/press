@@ -84,7 +84,6 @@ class PressController extends Controller
      */
     public function category($categorySlug)
     {
-
         $category = Category::slug($categorySlug)
             ->with(['posts' => function($query)	{
                 $query->type($this->type)
@@ -94,6 +93,7 @@ class PressController extends Controller
                     ->get();
             }])
             ->first();
+
         $childcats = $category
             ->allChildrenTerm()
             ->with(['posts' => function($query)	{

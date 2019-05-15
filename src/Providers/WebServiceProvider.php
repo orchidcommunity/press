@@ -30,6 +30,8 @@ class WebServiceProvider extends ServiceProvider
         $this->registerViews()
             ->registerRoute();
         $this->registerDirectives();
+
+        $this->app->register(RouteServiceProvider::class);
     }
 
     /**
@@ -68,8 +70,6 @@ class WebServiceProvider extends ServiceProvider
      */
     protected function registerRoute(): self
     {
-        $this->app->register(RouteServiceProvider::class);
-
         $this->publishes([
             realpath(PRESS_PATH.'/install-stubs/routes/') => base_path('routes'),
         ], 'press-routes');
