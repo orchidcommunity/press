@@ -6,12 +6,12 @@ namespace Orchid\Press\Models;
 
 use Orchid\Platform\Dashboard;
 use Illuminate\Database\Eloquent\Model;
-use Orchid\Platform\Traits\MultiLanguageTrait;
+use Orchid\Screen\AsMultiSource;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Term extends Model
 {
-    use MultiLanguageTrait;
+    use AsMultiSource;
 
     /**
      * @var string

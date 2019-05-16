@@ -90,7 +90,7 @@ class EntityEditScreen extends Screen
                 ->method('save')
                 ->canSee($this->exist),
 
-            Link::view('platform::container.posts.menu'),
+            Link::view('press::container.posts.menu'),
         ];
     }
 
@@ -102,7 +102,7 @@ class EntityEditScreen extends Screen
     public function layout(): array
     {
         return [
-            Layout::view('platform::container.posts.edit'),
+            Layout::view('press::container.posts.edit'),
         ];
     }
 

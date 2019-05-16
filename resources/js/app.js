@@ -1,6 +1,8 @@
 import ComponentsMenu from "./controllers/components/menu_controller";
 import FieldsTag from "./controllers/fields/tag_controller";
 
+require('nestable');
+
 //We can work with this only when we already have an application
 if (typeof window.application !== 'undefined') {
     window.application.register('components--menu', ComponentsMenu);

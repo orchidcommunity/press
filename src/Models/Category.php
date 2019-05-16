@@ -6,12 +6,12 @@ namespace Orchid\Press\Models;
 
 use Orchid\Filters\Filterable;
 use Orchid\Attachment\Attachable;
-use Orchid\Platform\Traits\MultiLanguageTrait;
+use Orchid\Screen\AsMultiSource;
 
 class Category extends Taxonomy
 {
     use Attachable,
-        MultiLanguageTrait,
+        AsMultiSource,
         Filterable;
 
     /**

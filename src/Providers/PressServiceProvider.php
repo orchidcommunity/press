@@ -65,7 +65,7 @@ class PressServiceProvider extends ServiceProvider
         $this->dashboard
             ->addPublicDirectory('press',PRESS_PATH.'/public/');
 
-        \View::composer('platform::layouts.app', function () {
+        \View::composer('platform::app', function () {
             \Dashboard::registerResource('scripts', orchid_mix('/js/press.js', 'press'))
             ->registerResource('stylesheets', orchid_mix('/css/press.css', 'press'));
         });
@@ -78,8 +78,8 @@ class PressServiceProvider extends ServiceProvider
 
         $this->registerTranslations();
 
-        View::composer('platform::layouts.dashboard', PressMenuComposer::class);
-        View::composer('platform::container.systems.index', SystemMenuComposer::class);
+        View::composer('platform::dashboard', PressMenuComposer::class);
+        View::composer('platform::systems', SystemMenuComposer::class);
 
         if (!is_null(env('PRESS_TEMPLATE'))) {
             $this->app->register(WebServiceProvider::class);

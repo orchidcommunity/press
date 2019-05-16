@@ -94,7 +94,7 @@ class EntityListScreen extends Screen
     public function layout(): array
     {
         return [
-            Layout::view('platform::container.posts.restore'),
+            Layout::view('press::container.posts.restore'),
             new EntitiesSelection($this->filters),
             new EntitiesLayout($this->grid),
         ];

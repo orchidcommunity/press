@@ -17,7 +17,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Orchid\Platform\Traits\MultiLanguageTrait;
+use Orchid\Screen\AsMultiSource;
 use Orchid\Press\Exceptions\EntityTypeException;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Cviebrock\EloquentSluggable\Services\SlugService;
@@ -32,7 +32,7 @@ class Post extends Model
     use Taggable,
         SoftDeletes,
         Sluggable,
-        MultiLanguageTrait,
+        AsMultiSource,
         Searchable,
         Attachable,
         Filterable;

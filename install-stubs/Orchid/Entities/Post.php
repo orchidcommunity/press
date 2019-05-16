@@ -9,7 +9,7 @@ use Orchid\Screen\Field;
 use Orchid\Screen\Fields\Map;
 use Orchid\Screen\Fields\UTM;
 use Orchid\Screen\Fields\Code;
-use Orchid\Screen\Fields\Tags;
+use Orchid\Press\Screen\Fields\Tags;
 use Orchid\Press\Entities\Many;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Quill;

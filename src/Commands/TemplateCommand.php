@@ -45,7 +45,7 @@ class TemplateCommand extends Command
      * @param string $constant
      * @param string $value
      *
-     * @return \Orchid\Platform\Commands\InstallCommand
+     * @return \Orchid\Platform\Commands\TemplateCommand
      */
     private function setValueEnv($constant, $value = 'null'): self
     {
