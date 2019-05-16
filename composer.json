@@ -25,8 +25,15 @@
   "require": {
     "php": "^7.1",
     "cviebrock/eloquent-sluggable": "^4.8",
-	"orchid/platform": "*",
+	"orchid/platform": "dev-del_press",
     "orchids/xsetting": "dev-master"
+  },
+  "require-dev": {
+    "fzaninotto/faker": "^1.4",
+    "mockery/mockery": "~1.0",
+    "orchestra/testbench": "~3.8.0",
+    "phpunit/php-code-coverage": "^6.0|^7.0",
+    "phpunit/phpunit": "^7.5|^8.0"
   },
   "autoload": {
     "psr-4": {
