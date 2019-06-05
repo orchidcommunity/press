@@ -108,13 +108,15 @@ class Tags extends Field
      *
      * @return \Orchid\Screen\Field|void
      */
-    public function modifyName($name)
+    public function modifyName($name) :Field
     {
         if (substr($name, -1) !== '.') {
             $this->attributes['name'] = $name.'[]';
         }
 
         parent::modifyName($this->attributes['name']);
+
+        return $this;
     }
 
     /**

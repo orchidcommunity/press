@@ -4,7 +4,7 @@ namespace DummyNamespace;
 
 use Orchid\Screen\Field;
 use Orchid\Press\Entities\Many;
-use Orchid\Platform\Filters\Filter;
+use Orchid\Filters\Filter;
 
 class DummyClass extends Many
 {
