@@ -25,7 +25,7 @@
   "require": {
     "php": "^7.1",
     "cviebrock/eloquent-sluggable": "^4.8",
-	"orchid/platform": "~5.0.0|dev-master",
+    "orchid/platform": "~5.0.0|dev-master",
     "orchids/xsetting": "dev-master"
   },
   "require-dev": {
