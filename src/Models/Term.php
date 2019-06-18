@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Orchid\Press\Models;
 
-use Orchid\Platform\Dashboard;
 use Illuminate\Database\Eloquent\Model;
-use Orchid\Screen\AsMultiSource;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Orchid\Platform\Dashboard;
+use Orchid\Screen\AsMultiSource;
 
 class Term extends Model
 {

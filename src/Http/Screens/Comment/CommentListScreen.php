@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Orchid\Press\Http\Screens\Comment;
 
-use Orchid\Screen\Screen;
-use Orchid\Press\Models\Comment;
 use Orchid\Press\Http\Layouts\Comment\CommentListLayout;
+use Orchid\Press\Models\Comment;
+use Orchid\Screen\Screen;
 
 class CommentListScreen extends Screen
 {

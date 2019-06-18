@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Orchid\Press\Http\Controllers\Systems;
 
-use Orchid\Press\Models\Tag;
 use Orchid\Platform\Http\Controllers\Controller;
+use Orchid\Press\Models\Tag;
 
 /**
  * Class TagsController.

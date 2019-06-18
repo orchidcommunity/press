@@ -2,10 +2,10 @@
 
 namespace Orchid\Press\Providers;
 
-use Orchid\Platform\Dashboard;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
+use Orchid\Platform\Dashboard;
 
 /**
  * Class WebServiceProvider.
@@ -53,7 +53,8 @@ class WebServiceProvider extends ServiceProvider
     /**
      * Register directives.
      */
-    public function registerDirectives() {
+    public function registerDirectives()
+    {
         Blade::directive('category', function ($expression) {
             return "<?php echo (new Orchid\Press\Http\Widgets\CategoryWidget)->get($expression); ?>";
         });
@@ -76,5 +77,4 @@ class WebServiceProvider extends ServiceProvider
 
         return $this;
     }
-
 }

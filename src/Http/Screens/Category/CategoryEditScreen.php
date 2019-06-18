@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace Orchid\Press\Http\Screens\Category;
 
+use Illuminate\Http\Request;
+use Orchid\Press\Http\Layouts\Category\CategoryEditLayout;
+use Orchid\Press\Models\Category;
+use Orchid\Press\Models\Term;
 use Orchid\Screen\Link;
 use Orchid\Screen\Screen;
-use Illuminate\Http\Request;
-use Orchid\Press\Models\Term;
-use Orchid\Press\Models\Category;
 use Orchid\Support\Facades\Alert;
-use Orchid\Press\Http\Layouts\Category\CategoryEditLayout;
 
 class CategoryEditScreen extends Screen
 {
@@ -36,7 +36,7 @@ class CategoryEditScreen extends Screen
      */
     public function query(Category $category = null): array
     {
-        if (! $category->exists) {
+        if (!$category->exists) {
             $category->setRelation('term', [new Term()]);
         }
 
@@ -86,7 +86,7 @@ class CategoryEditScreen extends Screen
     {
         $attributes = $request->get('category');
 
-        if (! $category->exists) {
+        if (!$category->exists) {
             $category->newWithCreateTerm($attributes['term']);
         }
 

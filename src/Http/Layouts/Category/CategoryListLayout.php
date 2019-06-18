@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Orchid\Press\Http\Layouts\Category;
 
-use Orchid\Screen\TD;
 use Orchid\Screen\Layouts\Table;
+use Orchid\Screen\TD;
 
 class CategoryListLayout extends Table
 {

@@ -8,7 +8,6 @@ use Orchid\Tests\TestFeatureCase;
 
 class SystemTest extends TestFeatureCase
 {
-
     public function testRoutePlatformSystemsMenuIndex()
     {
         $response = $this->actingAs($this->createAdminUser())

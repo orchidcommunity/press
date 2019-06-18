@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Orchid\Press\Http\Screens\Category;
 
+use Orchid\Press\Http\Layouts\Category\CategoryListLayout;
+use Orchid\Press\Models\Category;
 use Orchid\Screen\Link;
 use Orchid\Screen\Screen;
-use Orchid\Press\Models\Category;
-use Orchid\Press\Http\Layouts\Category\CategoryListLayout;
 
 class CategoryListScreen extends Screen
 {
@@ -55,7 +55,7 @@ class CategoryListScreen extends Screen
         $category->delimiter = $delimiter;
         $result->push($category);
 
-        if (! $category->allChildrenTerm()->count()) {
+        if (!$category->allChildrenTerm()->count()) {
             return $result;
         }
 

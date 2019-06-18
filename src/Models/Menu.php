@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Orchid\Press\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Menu extends Model
 {
@@ -58,19 +58,19 @@ class Menu extends Model
     }
 
     /**
-     * @return String
+     * @return string
      */
-    public function getRoute() :String
+    public function getRoute() :string
     {
-        if ((strpos($this->slug,",")>0) && (is_array($routearray=explode(",",$this->slug)))) {
-            $routearray = array_filter($routearray, function($element) {
+        if ((strpos($this->slug, ',') > 0) && (is_array($routearray = explode(',', $this->slug)))) {
+            $routearray = array_filter($routearray, function ($element) {
                 return !empty($element);
             });
-            $path=route(array_shift($routearray),$routearray ?? []);
+            $path = route(array_shift($routearray), $routearray ?? []);
         } else {
-            $path=url($this->slug);
+            $path = url($this->slug);
         }
+
         return $path;
     }
-
 }

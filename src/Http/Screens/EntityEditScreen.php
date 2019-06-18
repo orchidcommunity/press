@@ -4,15 +4,15 @@ declare(strict_types=1);
 
 namespace Orchid\Press\Http\Screens;
 
-use Orchid\Screen\Link;
-use Orchid\Screen\Layout;
-use Orchid\Screen\Screen;
-use Illuminate\Http\Request;
-use Orchid\Press\Models\Post;
-use Orchid\Press\Entities\Many;
-use Orchid\Support\Facades\Alert;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Orchid\Press\Entities\EntityContract;
+use Orchid\Press\Entities\Many;
+use Orchid\Press\Models\Post;
+use Orchid\Screen\Layout;
+use Orchid\Screen\Link;
+use Orchid\Screen\Screen;
+use Orchid\Support\Facades\Alert;
 
 class EntityEditScreen extends Screen
 {
@@ -78,7 +78,7 @@ class EntityEditScreen extends Screen
             Link::name(__('Create'))
                 ->icon('icon-check')
                 ->method('save')
-                ->canSee(! $this->exist),
+                ->canSee(!$this->exist),
 
             Link::name(__('Remove'))
                 ->icon('icon-trash')

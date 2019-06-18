@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Orchid\Press\Commands;
 
-use Orchid\Platform\Dashboard;
 use Illuminate\Console\Command;
+use Orchid\Platform\Dashboard;
 use Orchid\Press\Providers\PressServiceProvider;
 
 class TemplateCommand extends Command
@@ -33,7 +33,7 @@ class TemplateCommand extends Command
      */
     public function handle(Dashboard $dashboard)
     {
-        $this->setValueEnv('PRESS_TEMPLATE','clean-blog');
+        $this->setValueEnv('PRESS_TEMPLATE', 'clean-blog');
 
         $this->call('vendor:publish', [
             '--provider' => PressServiceProvider::class,
@@ -65,7 +65,7 @@ class TemplateCommand extends Command
      */
     private function fileGetContent(string $file)
     {
-        if (! is_file($file)) {
+        if (!is_file($file)) {
             return '';
         }
 

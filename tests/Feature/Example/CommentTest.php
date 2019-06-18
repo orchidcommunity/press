@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Orchid\Tests\Feature\Example;
 
-use Orchid\Press\Models\Post;
 use Orchid\Press\Models\Comment;
+use Orchid\Press\Models\Post;
 use Orchid\Tests\TestFeatureCase;
 
 class CommentTest extends TestFeatureCase

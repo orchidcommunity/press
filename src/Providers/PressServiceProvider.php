@@ -4,24 +4,24 @@ declare(strict_types=1);
 
 namespace Orchid\Press\Providers;
 
-use Orchid\Screen\TD;
-use Illuminate\Support\Str;
-use Orchid\Press\Models\Page;
-use Orchid\Press\Models\Post;
-use Orchid\Platform\Dashboard;
-use Orchid\Press\Entities\Many;
-use Orchid\Press\Entities\Single;
-use Orchid\Press\Models\Category;
-use Orchid\Platform\ItemPermission;
-use Illuminate\Support\Facades\View;
-use Symfony\Component\Finder\Finder;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Str;
+use Orchid\Platform\Dashboard;
+use Orchid\Platform\ItemPermission;
 use Orchid\Press\Commands\MakeEntityMany;
 use Orchid\Press\Commands\MakeEntitySingle;
 use Orchid\Press\Commands\TemplateCommand;
+use Orchid\Press\Entities\Many;
+use Orchid\Press\Entities\Single;
 use Orchid\Press\Http\Composers\PressMenuComposer;
 use Orchid\Press\Http\Composers\SystemMenuComposer;
+use Orchid\Press\Models\Category;
+use Orchid\Press\Models\Page;
+use Orchid\Press\Models\Post;
+use Orchid\Screen\TD;
+use Symfony\Component\Finder\Finder;
 
 /**
  * Class PressServiceProvider.
@@ -64,7 +64,7 @@ class PressServiceProvider extends ServiceProvider
         });
 
         $this->dashboard
-            ->addPublicDirectory('press',PRESS_PATH.'/public/');
+            ->addPublicDirectory('press', PRESS_PATH.'/public/');
 
         View::composer('platform::app', function () {
             \Dashboard::registerResource('scripts', orchid_mix('/js/press.js', 'press'))
@@ -93,15 +93,13 @@ class PressServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        if (! defined('PRESS_PATH')) {
+        if (!defined('PRESS_PATH')) {
             /*
              * Get the path to the ORCHID Press folder.
              */
             define('PRESS_PATH', realpath(__DIR__.'/../../'));
         }
     }
-
-
 
     /**
      * Register views & Publish views.
@@ -174,7 +172,7 @@ class PressServiceProvider extends ServiceProvider
         $directory = app_path('Orchid/Entities');
         $resources = [];
 
-        if (! is_dir($directory)) {
+        if (!is_dir($directory)) {
             return [];
         }
 
@@ -278,7 +276,7 @@ class PressServiceProvider extends ServiceProvider
      */
     public function registerCommands()
     {
-        if (! $this->app->runningInConsole()) {
+        if (!$this->app->runningInConsole()) {
             return $this;
         }
 
@@ -325,17 +323,17 @@ class PressServiceProvider extends ServiceProvider
         });
 
         TD::macro('column', function (string $column = null) {
-            if (! is_null($column)) {
+            if (!is_null($column)) {
                 $this->column = $column;
             }
-            if ($this->locale && ! is_null($column)) {
+            if ($this->locale && !is_null($column)) {
                 $locale = '.'.app()->getLocale().'.';
                 $this->column = preg_replace('/'.preg_quote('.', '/').'/', $locale, $column);
             }
+
             return $this;
         });
 
         return $this;
     }
-
 }

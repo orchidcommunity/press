@@ -1,4 +1,5 @@
 <?php
+
 return [
 
     /*
@@ -42,11 +43,9 @@ return [
     |
     */
 
-
     'post' => [
         'prefix'	=> 'press',
     ],
-
 
     'middleware' => [
         'public'  => ['web'],
@@ -85,6 +84,5 @@ return [
         'sidebar' => 'Sidebar menu',
         'footer'  => 'Footer menu',
     ],
-
 
 ];

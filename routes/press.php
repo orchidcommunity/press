@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-use Orchid\Press\Http\Screens\EntityEditScreen;
-use Orchid\Press\Http\Screens\EntityListScreen;
 use Orchid\Press\Http\Controllers\MenuController;
-use Orchid\Press\Http\Screens\Comment\CommentEditScreen;
-use Orchid\Press\Http\Screens\Comment\CommentListScreen;
+use Orchid\Press\Http\Controllers\Systems\TagsController;
 use Orchid\Press\Http\Screens\Category\CategoryEditScreen;
 use Orchid\Press\Http\Screens\Category\CategoryListScreen;
-use Orchid\Press\Http\Controllers\Systems\TagsController;
+use Orchid\Press\Http\Screens\Comment\CommentEditScreen;
+use Orchid\Press\Http\Screens\Comment\CommentListScreen;
+use Orchid\Press\Http\Screens\EntityEditScreen;
+use Orchid\Press\Http\Screens\EntityListScreen;
 
 /*
 |--------------------------------------------------------------------------
