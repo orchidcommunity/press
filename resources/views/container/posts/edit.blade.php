@@ -24,11 +24,64 @@
             <div class="vbox">
                 <div class="row-row">
                     <div class="wrapper">
+                        <div
+                                data-controller="screen--tabs"
+                                data-screen--tabs-slug="entyti-tab"
+                        >
+                            <div class="nav-tabs-alt">
+                                <ul class="nav nav-tabs" role="tablist">
+                                        <li class="nav-item">
+                                            <a class="nav-link active "
+                                               data-action="screen--tabs#setActiveTab"
+                                               data-target="#tab-main"
+                                               id="button-tab-main"
+                                               role="tab"
+                                               data-toggle="tab">
+                                                {!! _('Main') !!}
+                                            </a>
+                                        </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link"
+                                           data-action="screen--tabs#setActiveTab"
+                                           data-target="#tab-options"
+                                           id="button-tab-options"
+                                           role="tab"
+                                           data-toggle="tab">
+                                            {!! _('Options') !!}
+                                        </a>
+                                    </li>
 
-                        {!! generate_form($type->main(), $post->toArray()) !!}
-                        {!! generate_form($type->options(), $post->toArray(), null, 'options') !!}
+                                </ul>
+                            </div>
 
-                        @include('press::container.posts.locale')
+                            <!-- main content -->
+                            <section>
+                                <div class="no-border-xs">
+                                    <div class="tab-content">
+                                        <div role="tabpanel" class="tab-pane active"
+                                             id="tab-main">
+
+                                            <div class="padder-v">
+                                                {!! generate_form($type->main(), $post->toArray()) !!}
+
+                                                @include('press::container.posts.locale')
+                                            </div>
+
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane @if ($loop->first) active @endif"
+                                             id="tab-options">
+
+                                            <div class="padder-v">
+                                                {!! generate_form($type->options(), $post->toArray(), null, 'options') !!}
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                        </div>
+
                     </div>
                 </div>
             </div>

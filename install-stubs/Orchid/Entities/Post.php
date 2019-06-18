@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Orchid\Entities;
 
-use Orchid\Press\Screen\TD;
+use Orchid\Screen\TD;
 use Orchid\Screen\Field;
 use Orchid\Screen\Fields\Map;
 use Orchid\Screen\Fields\UTM;

@@ -69,7 +69,7 @@ class RouteServiceProvider extends ServiceProvider
             return;
         }
         */
-        if (file_exists(base_path('routes/platform.php'))) {
+        if (file_exists(base_path('routes/press.php'))) {
             Route::domain((string)config('press.domain'))
                 ->prefix(config('press.prefix'))
                 ->as('press.')

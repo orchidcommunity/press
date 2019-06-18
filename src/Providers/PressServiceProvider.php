@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Orchid\Press\Providers;
 
+use Orchid\Screen\TD;
 use Illuminate\Support\Str;
 use Orchid\Press\Models\Page;
 use Orchid\Press\Models\Post;
@@ -74,7 +75,8 @@ class PressServiceProvider extends ServiceProvider
             ->registerOrchid()
             ->registerConfig()
             ->registerViews()
-            ->registerCommands();
+            ->registerCommands()
+            ->addMacros();
 
         $this->registerTranslations();
 
@@ -277,12 +279,14 @@ class PressServiceProvider extends ServiceProvider
     public function registerCommands()
     {
         if (! $this->app->runningInConsole()) {
-            return;
+            return $this;
         }
 
         foreach ($this->commands as $command) {
             $this->commands($command);
         }
+
+        return $this;
     }
 
     /**
@@ -310,4 +314,28 @@ class PressServiceProvider extends ServiceProvider
 
         return $this;
     }
+
+    /**
+     * @return array
+     */
+    public function addMacros()
+    {
+        TD::macro('linkPost', function (string $text = null) {
+            return $this->link('platform.entities.type.edit', ['type', 'slug'], $text);
+        });
+
+        TD::macro('column', function (string $column = null) {
+            if (! is_null($column)) {
+                $this->column = $column;
+            }
+            if ($this->locale && ! is_null($column)) {
+                $locale = '.'.app()->getLocale().'.';
+                $this->column = preg_replace('/'.preg_quote('.', '/').'/', $locale, $column);
+            }
+            return $this;
+        });
+
+        return $this;
+    }
+
 }

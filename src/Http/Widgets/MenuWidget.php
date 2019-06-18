@@ -29,7 +29,7 @@ class MenuWidget {
             ->with('children')
             ->get();
         //dd($menu);
-            
+
         return view(config('press.view').'widgets.menu.menu-'.$type, [
             'menu'  => $menu,
         ]);

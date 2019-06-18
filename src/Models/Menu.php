@@ -56,4 +56,21 @@ class Menu extends Model
     {
         return $this->hasOne(static::class, 'id', 'parent');
     }
+
+    /**
+     * @return String
+     */
+    public function getRoute() :String
+    {
+        if ((strpos($this->slug,",")>0) && (is_array($routearray=explode(",",$this->slug)))) {
+            $routearray = array_filter($routearray, function($element) {
+                return !empty($element);
+            });
+            $path=route(array_shift($routearray),$routearray ?? []);
+        } else {
+            $path=url($this->slug);
+        }
+        return $path;
+    }
+
 }
