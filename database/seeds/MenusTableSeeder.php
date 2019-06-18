@@ -2,8 +2,8 @@
 
 namespace Orchid\Database\Press\Seeds;
 
-use Orchid\Press\Models\Menu;
 use Illuminate\Database\Seeder;
+use Orchid\Press\Models\Menu;
 
 class MenusTableSeeder extends Seeder
 {

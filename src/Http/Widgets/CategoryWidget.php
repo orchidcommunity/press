@@ -4,9 +4,8 @@ namespace Orchid\Press\Http\Widgets;
 
 use Orchid\Press\Models\Category;
 
-
-class CategoryWidget {
-
+class CategoryWidget
+{
     /**
      * @param null $arg
      *
@@ -20,17 +19,16 @@ class CategoryWidget {
     /**
      * @return mixed
      */
-     public function handler($type = 'main'){
-		 
-		 $category = Category::with('allChildrenTerm')
-		 ->with('term')
-		 ->get();
-		 
-		 //dd($category);
-		 
+    public function handler($type = 'main')
+    {
+        $category = Category::with('allChildrenTerm')
+         ->with('term')
+         ->get();
+
+        //dd($category);
+
         return view(config('press.view').'widgets.category.'.$type, [
             'category'  => $category,
         ]);
-     }
-
+    }
 }

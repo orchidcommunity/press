@@ -68,7 +68,6 @@ Breadcrumbs::for('platform.entities.type.page', function ($trail, $page) {
     $trail->push(__('Pages'), route('platform.entities.type.page', $page));
 });
 
-
 // Home
 Breadcrumbs::for('home', function ($trail) {
     $trail->push('Home', route('home'));

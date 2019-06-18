@@ -2,8 +2,8 @@
 
 namespace Orchid\Database\Press\Seeds;
 
-use Orchid\Press\Models\Post;
 use Illuminate\Database\Seeder;
+use Orchid\Press\Models\Post;
 
 class PagesTableSeeder extends Seeder
 {

@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Orchid\Press\Models;
 
-use Orchid\Filters\Filterable;
 use Orchid\Attachment\Attachable;
+use Orchid\Filters\Filterable;
 use Orchid\Screen\AsMultiSource;
 
 class Category extends Taxonomy

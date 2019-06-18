@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Orchid\Press\Entities;
 
 use Exception;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Pagination\Paginator;
+use Illuminate\Database\Eloquent\Model;
 
 trait Actions
 {

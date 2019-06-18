@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Orchid\Tests\Feature\Example;
 
-use Orchid\Press\Models\Term;
 use Orchid\Press\Models\Taxonomy;
+use Orchid\Press\Models\Term;
 use Orchid\Tests\TestFeatureCase;
 
 class CategoryTest extends TestFeatureCase

@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace Orchid\Press\Http\Layouts\Category;
 
 use Orchid\Screen\Fields\Input;
-use Orchid\Screen\Layouts\Rows;
 use Orchid\Screen\Fields\Select;
 use Orchid\Screen\Fields\TinyMCE;
+use Orchid\Screen\Layouts\Rows;
 
 class CategoryEditLayout extends Rows
 {

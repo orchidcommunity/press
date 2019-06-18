@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Orchid\Press\Http\Layouts\Comment;
 
-use Orchid\Screen\TD;
 use Orchid\Screen\Layouts\Table;
+use Orchid\Screen\TD;
 
 class CommentListLayout extends Table
 {
@@ -37,7 +37,7 @@ class CommentListLayout extends Table
 
             TD::set('post_id', __('Recording'))
                 ->render(function ($comment) {
-                    if (! is_null($comment->post)) {
+                    if (!is_null($comment->post)) {
                         return '<a href="'.route('platform.entities.type.edit', [
                                 $comment->post->type,
                                 $comment->post->id,

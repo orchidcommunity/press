@@ -2,9 +2,9 @@
 
 namespace Orchid\Database\Press\Seeds;
 
-use Orchid\Press\Models\Term;
 use Illuminate\Database\Seeder;
 use Orchid\Press\Models\Taxonomy;
+use Orchid\Press\Models\Term;
 
 class TermsTableSeeder extends Seeder
 {

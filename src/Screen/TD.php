@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Orchid\Press\Screen;
 
-use Closure;
 use Orchid\Screen\TD as BaseTD;
 
 class TD extends BaseTD
@@ -26,16 +25,15 @@ class TD extends BaseTD
      */
     public function column(string $column = null): self
     {
-        if (! is_null($column)) {
+        if (!is_null($column)) {
             $this->column = $column;
         }
 
-        if ($this->locale && ! is_null($column)) {
+        if ($this->locale && !is_null($column)) {
             $locale = '.'.app()->getLocale().'.';
             $this->column = preg_replace('/'.preg_quote('.', '/').'/', $locale, $column);
         }
 
         return $this;
     }
-
 }

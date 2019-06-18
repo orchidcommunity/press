@@ -1,8 +1,8 @@
 <?php
 
+use Cviebrock\EloquentSluggable\Services\SlugService;
 use Faker\Generator as Faker;
 use Orchid\Press\Models\Post;
-use Cviebrock\EloquentSluggable\Services\SlugService;
 
 /*
 |--------------------------------------------------------------------------
