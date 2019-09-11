@@ -53,14 +53,13 @@ class PressMenuComposer
                     ItemMenu::label($page->name)
                         ->slug($page->slug)
                         ->icon($page->icon)
-                        ->title(/* property groupname id @deprecated */ $page->groupname ?? $page->title)
+                        ->title($page->groupname ?? $page->title)
                         ->route($route, $params)
                         ->permission('platform.entities.type.'.$page->slug)
                         ->sort($page->sort)
-                        ->show($page->display)
+                        ->canSee($page->display)
                 );
             });
-
         return $this;
     }
 }

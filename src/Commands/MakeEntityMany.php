@@ -36,7 +36,7 @@ class MakeEntityMany extends GeneratorCommand
      */
     protected function getStub(): string
     {
-        return PLATFORM_PATH.'/resources/stubs/many.stub';
+        return PRESS_PATH.'/resources/stubs/many.stub';
     }
 
     /**

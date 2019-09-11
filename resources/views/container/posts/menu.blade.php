@@ -1,3 +1,4 @@
+{{dd($type->locale())}}
 @if($locales->count() > 1)
     <button class="btn btn-link dropdown-item text-uppercase" data-toggle="dropdown" aria-expanded="false">
         <i class="icon-globe m-r-xs"></i> <span id="code-local">{{ key(reset($locales)) }}</span>
@@ -10,10 +11,10 @@
                role="tab"
                data-toggle="tab"
                onclick="document.getElementById('code-local').innerHTML = '{{$code}}';this.classList.remove('active')"
+               id="link-{{$code}}"
                aria-controls="local-{{$code}}"
                aria-expanded="@if ($loop->first)true @else false @endif">{{$lang['native']}}
             </a>
         @endforeach
     </div>
-
 @endif

@@ -1,7 +1,7 @@
 import ComponentsMenu from "./controllers/components/menu_controller";
 import FieldsTag from "./controllers/fields/tag_controller";
 
-require('nestable');
+require('nestable2');
 
 //We can work with this only when we already have an application
 if (typeof window.application !== 'undefined') {

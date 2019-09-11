@@ -24,8 +24,8 @@
   ],
   "require": {
     "php": "^7.1",
-    "cviebrock/eloquent-sluggable": "^4.8",
-    "orchid/platform": "^5.1",
+    "cviebrock/eloquent-sluggable": "^6.0",
+    "orchid/platform": "^6.0|dev-master",
     "orchids/xsetting": "dev-master"
   },
   "require-dev": {
@@ -39,7 +39,10 @@
     "psr-4": {
         "Orchid\\Database\\Press\\Seeds\\": "database/seeds/",
         "Orchid\\Press\\": "src/"
-    }
+    },
+    "files": [
+      "src/Support/helpers.php"
+    ]
   },
   "autoload-dev": {
     "classmap": [

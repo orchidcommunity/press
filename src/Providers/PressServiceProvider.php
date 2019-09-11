@@ -58,9 +58,12 @@ class PressServiceProvider extends ServiceProvider
             $this->registerDashboardRoutes();
             $this->registerBinding();
             $this->dashboard
-                ->registerEntities($this->findEntities())
+                //->registerEntities($this->findEntities())
+                //->macro($this->findEntities())
+                ->registerResource('entities',$this->findEntities())
                 ->registerPermissions($this->registerPermissionsEntities())
                 ->registerPermissions($this->registerPermissions());
+
         });
 
         $this->dashboard
@@ -188,7 +191,6 @@ class PressServiceProvider extends ServiceProvider
                 $resources[] = $resource;
             }
         }
-
         return collect($resources)->sort()->all();
     }
 
@@ -198,9 +200,13 @@ class PressServiceProvider extends ServiceProvider
     protected function registerPermissionsEntities(): ItemPermission
     {
         $permissions = new ItemPermission();
-
-        $posts = $this->dashboard
-            ->getEntities()
+        /*
+        $posts = collect($this->dashboard->getResource('entities'))
+            ->transform(function ($value) {
+                return is_object($value) ? $value : new $value();
+            })
+        */
+        $posts = $this->dashboard->getEntities()
             ->each(function ($post) use ($permissions) {
                 $permissions->addPermission('platform.entities.type.'.$post->slug, $post->name);
             });
@@ -332,6 +338,12 @@ class PressServiceProvider extends ServiceProvider
             }
 
             return $this;
+        });
+
+        Dashboard::macro('getEntities', function () {
+            return collect($this->getResource('entities'))->transform(function ($value) {
+                return is_object($value) ? $value : new $value();
+            });
         });
 
         return $this;

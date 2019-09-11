@@ -12,12 +12,12 @@ class CommentListLayout extends Table
     /**
      * @var string
      */
-    public $data = 'comments';
+    public $target = 'comments';
 
     /**
      * @return array
      */
-    public function fields(): array
+    public function columns(): array
     {
         return [
             TD::set('approved', __('Status'))
@@ -32,7 +32,7 @@ class CommentListLayout extends Table
             TD::set('content', __('Content'))
                 ->render(function ($comment) {
                     return '<a href="'.route('platform.systems.comments.edit',
-                            $comment->id).'">'.str_limit($comment->content, 70).'</a>';
+                            $comment->id).'">'.\Str::limit($comment->content, 70).'</a>';
                 }),
 
             TD::set('post_id', __('Recording'))

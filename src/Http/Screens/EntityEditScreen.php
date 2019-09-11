@@ -10,7 +10,9 @@ use Orchid\Press\Entities\EntityContract;
 use Orchid\Press\Entities\Many;
 use Orchid\Press\Models\Post;
 use Orchid\Screen\Layout;
-use Orchid\Screen\Link;
+use Orchid\Press\Screen\Actions\Link;
+use Orchid\Screen\Actions\Button;
+use Orchid\Screen\Actions\DropDown;
 use Orchid\Screen\Screen;
 use Orchid\Support\Facades\Alert;
 
@@ -45,6 +47,8 @@ class EntityEditScreen extends Screen
      */
     protected $exist = false;
 
+    protected $locales = false;
+
     /**
      * Query data.
      *
@@ -59,6 +63,7 @@ class EntityEditScreen extends Screen
         $this->description = $type->description;
         $this->entity = $type;
         $this->exist = $post->exists;
+        $this->locales = collect($type->locale());
 
         $this->checkPermission(Post::POST_PERMISSION_PREFIX.$type->slug);
 
@@ -75,22 +80,22 @@ class EntityEditScreen extends Screen
     public function commandBar(): array
     {
         return [
-            Link::name(__('Create'))
+            Button::make(__('Create'))
                 ->icon('icon-check')
                 ->method('save')
                 ->canSee(!$this->exist),
 
-            Link::name(__('Remove'))
+            Button::make(__('Remove'))
                 ->icon('icon-trash')
                 ->method('destroy')
                 ->canSee($this->exist && is_a($this->entity, Many::class)),
 
-            Link::name(__('Save'))
+            Button::make(__('Save'))
                 ->icon('icon-check')
                 ->method('save')
                 ->canSee($this->exist),
 
-            Link::view('press::container.posts.menu'),
+            //Link::make('Locales')->view('press::container.posts.menu'),
         ];
     }
 

@@ -11,7 +11,7 @@ class EntitiesLayout extends Table
     /**
      * @var string
      */
-    public $data = 'data';
+    public $target = 'data';
 
     /**
      * @var array

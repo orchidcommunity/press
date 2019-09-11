@@ -36,7 +36,7 @@ class MakeEntitySingle extends GeneratorCommand
      */
     protected function getStub(): string
     {
-        return PLATFORM_PATH.'/resources/stubs/single.stub';
+        return PRESS_PATH.'/resources/stubs/single.stub';
     }
 
     /**

@@ -11,7 +11,7 @@ use Orchid\Press\Http\Layouts\EntitiesLayout;
 use Orchid\Press\Http\Layouts\EntitiesSelection;
 use Orchid\Press\Models\Post;
 use Orchid\Screen\Layout;
-use Orchid\Screen\Link;
+use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Screen;
 use Orchid\Support\Facades\Alert;
 
@@ -80,7 +80,7 @@ class EntityListScreen extends Screen
     public function commandBar(): array
     {
         return [
-            Link::name(__('Create'))
+            Link::make(__('Create'))
                 ->icon('icon-check')
                 ->link(route('platform.entities.type.create', $this->entity->slug)),
         ];

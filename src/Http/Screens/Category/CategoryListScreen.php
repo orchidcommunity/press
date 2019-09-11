@@ -6,7 +6,7 @@ namespace Orchid\Press\Http\Screens\Category;
 
 use Orchid\Press\Http\Layouts\Category\CategoryListLayout;
 use Orchid\Press\Models\Category;
-use Orchid\Screen\Link;
+use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Screen;
 
 class CategoryListScreen extends Screen
@@ -74,7 +74,7 @@ class CategoryListScreen extends Screen
     public function commandBar() : array
     {
         return [
-            Link::name(__('Add'))
+            Link::make(__('Add'))
                 ->icon('icon-plus')
                 ->link(route('platform.systems.category.create')),
         ];

@@ -108,13 +108,14 @@ class Tags extends Field
      *
      * @return \Orchid\Screen\Field|void
      */
-    public function modifyName($name) :Field
+    public function modifyName()
     {
+        $name = $this->get('name');
         if (substr($name, -1) !== '.') {
             $this->attributes['name'] = $name.'[]';
         }
 
-        parent::modifyName($this->attributes['name']);
+        parent::modifyName();
 
         return $this;
     }
@@ -124,8 +125,9 @@ class Tags extends Field
      *
      * @return self
      */
-    public function modifyValue($value) : Field
+    public function modifyValue()
     {
+        $value = $this->getOldValue() ?: $this->get('value');
         if (is_string($value)) {
             $this->attributes['value'] = explode(',', $value);
         }

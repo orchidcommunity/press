@@ -12,7 +12,7 @@ class CategoryListLayout extends Table
     /**
      * @var string
      */
-    public $data = 'category';
+    public $target = 'category';
 
     /**
      * HTTP data filters.
@@ -27,7 +27,7 @@ class CategoryListLayout extends Table
     /**
      * @return array
      */
-    public function fields(): array
+    public function columns(): array
     {
         return [
             TD::set('name', __('Name'))
