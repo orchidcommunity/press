@@ -60,6 +60,7 @@ class PressMenuComposer
                         ->canSee($page->display)
                 );
             });
+
         return $this;
     }
 }

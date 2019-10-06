@@ -10,8 +10,8 @@ use Orchid\Press\Entities\Many;
 use Orchid\Press\Http\Layouts\EntitiesLayout;
 use Orchid\Press\Http\Layouts\EntitiesSelection;
 use Orchid\Press\Models\Post;
-use Orchid\Screen\Layout;
 use Orchid\Screen\Actions\Link;
+use Orchid\Screen\Layout;
 use Orchid\Screen\Screen;
 use Orchid\Support\Facades\Alert;
 

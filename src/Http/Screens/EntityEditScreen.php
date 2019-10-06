@@ -9,10 +9,9 @@ use Illuminate\Http\Request;
 use Orchid\Press\Entities\EntityContract;
 use Orchid\Press\Entities\Many;
 use Orchid\Press\Models\Post;
-use Orchid\Screen\Layout;
 use Orchid\Press\Screen\Actions\Link;
 use Orchid\Screen\Actions\Button;
-use Orchid\Screen\Actions\DropDown;
+use Orchid\Screen\Layout;
 use Orchid\Screen\Screen;
 use Orchid\Support\Facades\Alert;
 
