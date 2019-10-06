@@ -6,10 +6,8 @@ namespace Orchid\Press\Screen\Actions;
 
 use Orchid\Screen\Actions\Link as BaseLink;
 
-
 class Link extends BaseLink
 {
-
     /**
      * @param string $view
      *
@@ -20,6 +18,7 @@ class Link extends BaseLink
         $link = new static();
         $link->name('Locale');
         $link->view = $view;
+
         return $link;
     }
 }

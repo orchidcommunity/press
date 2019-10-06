@@ -60,10 +60,9 @@ class PressServiceProvider extends ServiceProvider
             $this->dashboard
                 //->registerEntities($this->findEntities())
                 //->macro($this->findEntities())
-                ->registerResource('entities',$this->findEntities())
+                ->registerResource('entities', $this->findEntities())
                 ->registerPermissions($this->registerPermissionsEntities())
                 ->registerPermissions($this->registerPermissions());
-
         });
 
         $this->dashboard
@@ -191,6 +190,7 @@ class PressServiceProvider extends ServiceProvider
                 $resources[] = $resource;
             }
         }
+
         return collect($resources)->sort()->all();
     }
 

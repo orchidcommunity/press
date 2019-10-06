@@ -4,17 +4,10 @@ declare(strict_types=1);
 
 use Orchid\Alert\Alert;
 use Orchid\Screen\Builder;
-use Illuminate\Support\Str;
 use Orchid\Screen\Repository;
-use Orchid\Filters\HttpFilter;
-use Orchid\Support\Facades\Setting;
-use Symfony\Component\Finder\Finder;
-use Orchid\Support\Facades\Dashboard;
 
-
-if (! function_exists('generate_form')) {
+if (!function_exists('generate_form')) {
     /**
-     *
      * Generate a ready-made html form for display to the user.
      *
      * @param array                 $fields
@@ -39,16 +32,16 @@ if (! function_exists('generate_form')) {
     }
 }
 
-if (! function_exists('theme_path')) {
+if (!function_exists('theme_path')) {
     /**
      * Helper function to send an alert.
      *
      * @param  $img
-     * @param string      $level
+     * @param string $level
      *
      * @return Alert
      */
-    function theme_path( $path='')
+    function theme_path($path = '')
     {
         return '/dashboard/resources/press/'.config('press.theme').'/'.$path;
     }
