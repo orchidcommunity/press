@@ -14,7 +14,6 @@ use Orchid\Support\Facades\Dashboard;
 
 if (! function_exists('generate_form')) {
     /**
-     * @deprecated
      *
      * Generate a ready-made html form for display to the user.
      *
@@ -37,5 +36,20 @@ if (! function_exists('generate_form')) {
             ->setLanguage($language)
             ->setPrefix($prefix)
             ->generateForm();
+    }
+}
+
+if (! function_exists('theme_path')) {
+    /**
+     * Helper function to send an alert.
+     *
+     * @param  $img
+     * @param string      $level
+     *
+     * @return Alert
+     */
+    function theme_path( $path='')
+    {
+        return '/dashboard/resources/press/'.config('press.theme').'/'.$path;
     }
 }

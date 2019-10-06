@@ -81,5 +81,6 @@ document.addEventListener('turbolinks:load', function() {
 
 
 require('startbootstrap-clean-blog/js/clean-blog.js');
+require('startbootstrap-creative/js/creative.js');
 require('startbootstrap-clean-blog/js/contact_me.js');
 require('startbootstrap-clean-blog/js/jqBootstrapValidation.js');

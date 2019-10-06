@@ -19,5 +19,7 @@ mix
     .sass('resources/sass/app.scss', 'css/press.css')
     .js('resources/js/app.js', 'js/press.js')
     .copyDirectory('./node_modules/startbootstrap-clean-blog/img', 'public/' + theme + '/img')
+    .copyDirectory('./node_modules/startbootstrap-creative/img', 'public/' + theme + '/img')
     .js('resources/templates/'+ theme + '/js/app.js', theme + '/js')
-	.sass('resources/templates/'+ theme + '/sass/app.scss', theme + '/css');
+	.sass('resources/templates/'+ theme + '/sass/app.scss', theme + '/css')
+    .copyDirectory('public/fonts', 'public/' + theme + '/fonts');

@@ -33,7 +33,7 @@ class EntitiesLayout extends Table
      *
      * @return array
      */
-    public function fields($data = null): array
+    public function columns($data = null): array
     {
         return $this->fields;
     }

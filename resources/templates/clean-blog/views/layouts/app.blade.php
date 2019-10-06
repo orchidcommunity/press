@@ -9,8 +9,8 @@
     <meta name="description" content="@yield('description',setting('site_description'))">
     <meta name="keywords" content="@yield('keywords',setting('site_keywords'))">
     @php $theme_path = '/dashboard/resources/press/'.config('press.theme'); @endphp
-    <link href="{{$theme_path.'/css/app.css'}}" rel="stylesheet">
-    <script src="{{$theme_path.'/js/app.js'}}"></script>
+    <link href="{{theme_path().'css/app.css'}}" rel="stylesheet">
+    <script src="{{theme_path('js/app.js')}}"></script>
 
 
   </head>

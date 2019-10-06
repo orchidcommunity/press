@@ -38,16 +38,14 @@ class SystemMenuComposer
                     ->permission('platform.systems')
                     ->sort(1000)
             )
-            /*
             ->add('CMS',
                 ItemMenu::label(__('Menu'))
                     ->icon('icon-menu')
                     ->route('platform.systems.menu.index')
                     ->permission('platform.systems.menu')
-                    ->show(count(config('press.menu', [])) > 0)
+                    ->canSee(count(config('press.menu', [])) > 0)
                     ->title(__('Editing of a custom menu (navigation) using drag & drop and localization support.'))
             )
-            */
             ->add('CMS',
                 ItemMenu::label(__('Categories'))
                     ->icon('icon-briefcase')
