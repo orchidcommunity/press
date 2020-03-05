@@ -20,6 +20,7 @@ use Orchid\Press\Http\Composers\SystemMenuComposer;
 use Orchid\Press\Models\Category;
 use Orchid\Press\Models\Page;
 use Orchid\Press\Models\Post;
+use Orchid\Screen\Actions\Link;
 use Orchid\Screen\TD;
 use Symfony\Component\Finder\Finder;
 
@@ -50,7 +51,7 @@ class PressServiceProvider extends ServiceProvider
      *
      * @param Dashboard $dashboard
      */
-    public function boot(Dashboard $dashboard)
+    public function boot(Dashboard $dashboard): void
     {
         $this->dashboard = $dashboard;
 
@@ -70,7 +71,7 @@ class PressServiceProvider extends ServiceProvider
 
         View::composer('platform::app', function () {
             \Dashboard::registerResource('scripts', orchid_mix('/js/press.js', 'press'))
-            ->registerResource('stylesheets', orchid_mix('/css/press.css', 'press'));
+                ->registerResource('stylesheets', orchid_mix('/css/press.css', 'press'));
         });
 
         $this->registerDatabase()
@@ -78,14 +79,14 @@ class PressServiceProvider extends ServiceProvider
             ->registerConfig()
             ->registerViews()
             ->registerCommands()
-            ->addMacros();
+            ->registerMacros();
 
         $this->registerTranslations();
 
         View::composer('platform::dashboard', PressMenuComposer::class);
         View::composer('platform::systems', SystemMenuComposer::class);
 
-        if (!is_null(env('PRESS_TEMPLATE'))) {
+        if (env('PRESS_TEMPLATE') !== null) {
             $this->app->register(WebServiceProvider::class);
         }
     }
@@ -93,7 +94,7 @@ class PressServiceProvider extends ServiceProvider
     /**
      * Register the Press service provider.
      */
-    public function register()
+    public function register(): void
     {
         if (!defined('PRESS_PATH')) {
             /*
@@ -122,7 +123,7 @@ class PressServiceProvider extends ServiceProvider
     /**
      * Register dashboard routes.
      */
-    public function registerDashboardRoutes()
+    public function registerDashboardRoutes(): void
     {
         if ($this->app->routesAreCached()) {
             return;
@@ -140,7 +141,7 @@ class PressServiceProvider extends ServiceProvider
      *
      * @return $this
      */
-    protected function registerConfig()
+    protected function registerConfig(): self
     {
         $this->publishes([
             realpath(PRESS_PATH.'/config/press.php') => config_path('press.php'),
@@ -158,7 +159,7 @@ class PressServiceProvider extends ServiceProvider
      *
      * @return $this
      */
-    protected function registerDatabase()
+    protected function registerDatabase(): self
     {
         $this->loadMigrationsFrom(realpath(PRESS_PATH.'/database/migrations/press'));
 
@@ -234,13 +235,12 @@ class PressServiceProvider extends ServiceProvider
      *
      * @return $this
      */
-    public function registerBinding()
+    public function registerBinding(): self
     {
         Route::bind('category', function ($value) {
             $category = Dashboard::modelClass(Category::class);
 
-            return $category->where('id', $value)
-                ->firstOrFail();
+            return $category->where('id', $value)->firstOrFail();
         });
 
         Route::bind('type', function ($value) {
@@ -256,7 +256,7 @@ class PressServiceProvider extends ServiceProvider
                 ->orWhere('slug', $value)
                 ->first();
 
-            if (is_null($page)) {
+            if ($page === null) {
                 $model->slug = $value;
                 $page = $model;
             }
@@ -278,9 +278,9 @@ class PressServiceProvider extends ServiceProvider
     /**
      * Register console commands.
      *
-     * @return void
+     * @return $this
      */
-    public function registerCommands()
+    public function registerCommands(): self
     {
         if (!$this->app->runningInConsole()) {
             return $this;
@@ -320,19 +320,27 @@ class PressServiceProvider extends ServiceProvider
     }
 
     /**
-     * @return array
+     * @return $this
      */
-    public function addMacros()
+    public function registerMacros(): self
     {
-        TD::macro('linkPost', function (string $text = null) {
-            return $this->link('platform.entities.type.edit', ['type', 'slug'], $text);
+        TD::macro('linkPost', function (string $text = '') {
+            $this->render(static function (Post $post) use ($text) {
+                return (string) Link::make($text)
+                    ->href(route('platform.entities.type.edit', [
+                        'type' => $post->type,
+                        'post' => $post,
+                    ]));
+            });
+
+            return $this;
         });
 
         TD::macro('column', function (string $column = null) {
-            if (!is_null($column)) {
+            if ($column !== null) {
                 $this->column = $column;
             }
-            if ($this->locale && !is_null($column)) {
+            if ($this->locale && $column !== null) {
                 $locale = '.'.app()->getLocale().'.';
                 $this->column = preg_replace('/'.preg_quote('.', '/').'/', $locale, $column);
             }

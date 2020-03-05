@@ -72,7 +72,7 @@
                         @endif
                         <div class="tab-content">
                             <div role="tabpanel" class="tab-pane active" id="tab-main">
-                                <div class="padder-v">
+                                <div @if($hasOptions)class="padder-v"@endif>
                                     {!! generate_form($type->main(), $post->toArray()) !!}
                                 </div>
                             </div>

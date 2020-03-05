@@ -96,7 +96,7 @@ class EntityListScreen extends Screen
         return [
             Layout::view('press::container.posts.restore'),
             new EntitiesSelection($this->filters),
-            new EntitiesLayout($this->grid),
+            Layout::table('data', $this->grid),
         ];
     }
 
