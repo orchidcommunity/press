@@ -82,7 +82,7 @@ class EntityListScreen extends Screen
         return [
             Link::make(__('Create'))
                 ->icon('icon-check')
-                ->link(route('platform.entities.type.create', $this->entity->slug)),
+                ->href(route('platform.entities.type.create', $this->entity->slug)),
         ];
     }
 
