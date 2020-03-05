@@ -6,7 +6,25 @@
             <div class="hbox-col">
                 <div class="vbox">
                     <div class="wrapper">
-                        <div class="tab-content">
+                        @if($hasLocales = ($locales->count() > 1))
+                            <div class="nav-tabs-alt">
+                                <ul class="nav nav-tabs" role="tablist">
+                                    @foreach($locales as $code => $lang)
+                                    <li class="nav-item">
+                                        <a class="nav-link @if($loop->first)active @endif"
+                                           data-action="screen--tabs#setActiveTab"
+                                           data-target="#local-{{$code}}"
+                                           id="button-tab-options"
+                                           role="tab"
+                                           data-toggle="tab">
+                                            {{ $lang['native'] }}
+                                        </a>
+                                    </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+                        <div class="tab-content @if($hasLocales)padder-v @endif">
                             @foreach($locales as $code => $lang)
                                 <div class="tab-pane @if($loop->first) active @endif" id="local-{{$code}}"
                                      role="tabpanel">
