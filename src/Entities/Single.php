@@ -10,8 +10,8 @@ use Orchid\Screen\Fields\Select;
 
 abstract class Single implements EntityContract, UrlRoutable
 {
-    use Structure, Actions;
-
+    use Structure;
+    use Actions;
     /**
      * Registered fields for main.
      *

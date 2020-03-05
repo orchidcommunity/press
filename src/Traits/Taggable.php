@@ -69,7 +69,7 @@ trait Taggable
     /**
      * @return string
      */
-    public static function getSlugGenerator() : string
+    public static function getSlugGenerator(): string
     {
         return static::$slugGenerator;
     }
@@ -273,7 +273,7 @@ trait Taggable
      *
      * @return array
      */
-    public function prepareTags($tags) : array
+    public function prepareTags($tags): array
     {
         if (is_null($tags)) {
             return [];
@@ -305,7 +305,7 @@ trait Taggable
      *
      * @return string
      */
-    protected function generateTagSlug(string $name) : string
+    protected function generateTagSlug(string $name): string
     {
         return call_user_func(static::$slugGenerator, $name);
     }
@@ -315,7 +315,7 @@ trait Taggable
      *
      * @return string
      */
-    protected function getEntityClassName() : string
+    protected function getEntityClassName(): string
     {
         return $this->tags()->getMorphClass();
     }

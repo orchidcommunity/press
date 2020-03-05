@@ -39,9 +39,9 @@ class CommentListLayout extends Table
                 ->render(function ($comment) {
                     if (!is_null($comment->post)) {
                         return '<a href="'.route('platform.entities.type.edit', [
-                                $comment->post->type,
-                                $comment->post->id,
-                            ]).'"><i class="icon-text-center mx-3"></i></a>';
+                            $comment->post->type,
+                            $comment->post->id,
+                        ]).'"><i class="icon-text-center mx-3"></i></a>';
                     }
 
                     return '<i class="icon-close mx-3"></i>';

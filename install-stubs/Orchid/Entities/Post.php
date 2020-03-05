@@ -63,7 +63,7 @@ class Post extends Many
      *
      * @return \Illuminate\Database\Eloquent\Model
      */
-    public function create(Model $model) : Model
+    public function create(Model $model): Model
     {
         return $model->load(['attachment', 'tags', 'taxonomies'])
             ->setAttribute('category', $model->taxonomies->map(function ($item) {
