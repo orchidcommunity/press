@@ -9,7 +9,6 @@ use Illuminate\Http\Request;
 use Orchid\Press\Entities\EntityContract;
 use Orchid\Press\Entities\Many;
 use Orchid\Press\Models\Post;
-use Orchid\Press\Screen\Actions\Link;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Layout;
 use Orchid\Screen\Screen;
@@ -93,8 +92,6 @@ class EntityEditScreen extends Screen
                 ->icon('icon-check')
                 ->method('save')
                 ->canSee($this->exist),
-
-            //Link::make('Locales')->view('press::container.posts.menu'),
         ];
     }
 
