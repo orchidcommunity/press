@@ -14,8 +14,8 @@ use Orchid\Screen\Fields\Select;
 
 abstract class Many implements EntityContract, UrlRoutable
 {
-    use Structure, Actions;
-
+    use Structure;
+    use Actions;
     /**
      * Eloquent Eager Loading.
      *

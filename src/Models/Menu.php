@@ -60,7 +60,7 @@ class Menu extends Model
     /**
      * @return string
      */
-    public function getRoute() :string
+    public function getRoute(): string
     {
         if ((strpos($this->slug, ',') > 0) && (is_array($routearray = explode(',', $this->slug)))) {
             $routearray = array_filter($routearray, function ($element) {

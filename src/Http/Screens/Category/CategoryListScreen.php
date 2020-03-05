@@ -29,7 +29,7 @@ class CategoryListScreen extends Screen
      *
      * @return array
      */
-    public function query() : array
+    public function query(): array
     {
         $categories = Category::where('parent_id', null)->with('allChildrenTerm')->get();
         $allCategories = collect();
@@ -71,7 +71,7 @@ class CategoryListScreen extends Screen
      *
      * @return Link[]
      */
-    public function commandBar() : array
+    public function commandBar(): array
     {
         return [
             Link::make(__('Add'))
@@ -85,7 +85,7 @@ class CategoryListScreen extends Screen
      *
      * @return Layout[]
      */
-    public function layout() : array
+    public function layout(): array
     {
         return [
             CategoryListLayout::class,

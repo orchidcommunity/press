@@ -10,9 +10,9 @@ use Orchid\Screen\AsMultiSource;
 
 class Category extends Taxonomy
 {
-    use Attachable,
-        AsMultiSource,
-        Filterable;
+    use Attachable;
+    use AsMultiSource;
+    use Filterable;
 
     /**
      * Used to set the post's type.
@@ -24,7 +24,7 @@ class Category extends Taxonomy
      *
      * @return self
      */
-    public function setTaxonomy() : self
+    public function setTaxonomy(): self
     {
         $this['taxonomy'] = $this->taxonomy;
 

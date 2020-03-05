@@ -38,7 +38,7 @@ class TemplateCommand extends Command
         $this->call('vendor:publish', [
             '--provider' => PressServiceProvider::class,
             '--force'    => true,
-            ]);
+        ]);
     }
 
     /**

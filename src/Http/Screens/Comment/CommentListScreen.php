@@ -47,7 +47,7 @@ class CommentListScreen extends Screen
      *
      * @return Link[]
      */
-    public function commandBar() : array
+    public function commandBar(): array
     {
         return [];
     }

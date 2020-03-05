@@ -29,13 +29,13 @@ use Orchid\Support\Facades\Dashboard;
  */
 class Post extends Model
 {
-    use Taggable,
-        SoftDeletes,
-        Sluggable,
-        AsMultiSource,
-        Searchable,
-        Attachable,
-        Filterable;
+    use Taggable;
+    use SoftDeletes;
+    use Sluggable;
+    use AsMultiSource;
+    use Searchable;
+    use Attachable;
+    use Filterable;
 
     /**
      * Prefix for permission.
@@ -461,14 +461,14 @@ class Post extends Model
             Dashboard::modelClass(self::class),
             'slug',
             $slug, [
-            'includeTrashed' => true,
-        ]));
+                'includeTrashed' => true,
+            ]));
     }
 
     /**
      * @return string
      */
-    public function getRouteKeyName() : string
+    public function getRouteKeyName(): string
     {
         return 'slug';
     }
