@@ -109,14 +109,14 @@ class EntityEditScreen extends Screen
 
     /**
      * @param EntityContract $type
-     * @param Request        $request
      * @param Post           $post
+     * @param Request        $request
      *
      * @throws \Illuminate\Validation\ValidationException
      *
      * @return RedirectResponse
      */
-    public function save(EntityContract $type, Request $request, Post $post): RedirectResponse
+    public function save(EntityContract $type, Post $post, Request $request): RedirectResponse
     {
         $this->checkPermission(Post::POST_PERMISSION_PREFIX.$type->slug);
         $type->isValid();

@@ -3,7 +3,6 @@
 namespace Orchid\Press\Providers;
 
 use Illuminate\Support\Facades\Blade;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Orchid\Platform\Dashboard;
 
@@ -21,6 +20,7 @@ class WebServiceProvider extends ServiceProvider
     /**
      * Boot the application events.
      *
+     * @param  Dashboard  $dashboard
      * @return void
      */
     public function boot(Dashboard $dashboard): void
@@ -53,7 +53,7 @@ class WebServiceProvider extends ServiceProvider
     /**
      * Register directives.
      */
-    public function registerDirectives()
+    public function registerDirectives(): void
     {
         Blade::directive('category', function ($expression) {
             return "<?php echo (new Orchid\Press\Http\Widgets\CategoryWidget)->get($expression); ?>";

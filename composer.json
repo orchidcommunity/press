@@ -24,8 +24,7 @@
   ],
   "require": {
     "cviebrock/eloquent-sluggable": "^6.0",
-    "orchid/platform": "^6.0|dev-master",
-    "orchids/xsetting": "^1.4"
+    "orchid/platform": "^6.0|dev-master"
   },
   "require-dev": {
     "fzaninotto/faker": "^1.4",
