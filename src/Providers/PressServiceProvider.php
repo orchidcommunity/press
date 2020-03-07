@@ -17,11 +17,6 @@ use Orchid\Press\Entities\Many;
 use Orchid\Press\Entities\Single;
 use Orchid\Press\Http\Composers\PressMenuComposer;
 use Orchid\Press\Http\Composers\SystemMenuComposer;
-use Orchid\Press\Models\Category;
-use Orchid\Press\Models\Page;
-use Orchid\Press\Models\Post;
-use Orchid\Screen\Actions\Link;
-use Orchid\Screen\TD;
 use Symfony\Component\Finder\Finder;
 
 /**
@@ -30,15 +25,10 @@ use Symfony\Component\Finder\Finder;
  */
 class PressServiceProvider extends ServiceProvider
 {
-    /**
-     * @var Dashboard
-     */
     protected $dashboard;
 
     /**
-     * The available command shortname.
-     *
-     * @var array
+     * Console commands.
      */
     protected $commands = [
         MakeEntityMany::class,
@@ -49,7 +39,7 @@ class PressServiceProvider extends ServiceProvider
     /**
      * Boot the application events.
      *
-     * @param Dashboard $dashboard
+     * @param  Dashboard  $dashboard
      */
     public function boot(Dashboard $dashboard): void
     {
@@ -57,7 +47,7 @@ class PressServiceProvider extends ServiceProvider
 
         $this->app->booted(function () {
             $this->registerDashboardRoutes();
-            $this->registerBinding();
+            $this->registerBindings();
             $this->dashboard
                 //->registerEntities($this->findEntities())
                 //->macro($this->findEntities())
@@ -66,48 +56,41 @@ class PressServiceProvider extends ServiceProvider
                 ->registerPermissions($this->registerPermissions());
         });
 
-        $this->dashboard
-            ->addPublicDirectory('press', PRESS_PATH.'/public/');
+        $this->dashboard->addPublicDirectory('press', PRESS_PATH.'/public/');
 
-        View::composer('platform::app', function () {
-            \Dashboard::registerResource('scripts', orchid_mix('/js/press.js', 'press'))
+        View::composer('platform::app', function () use ($dashboard) {
+            $dashboard
+                ->registerResource('scripts', orchid_mix('/js/press.js', 'press'))
                 ->registerResource('stylesheets', orchid_mix('/css/press.css', 'press'));
         });
 
-        $this->registerDatabase()
-            ->registerOrchid()
+        $this->registerMigrations()
+            ->registerStubs()
             ->registerConfig()
             ->registerViews()
             ->registerCommands()
-            ->registerMacros();
-
-        $this->registerTranslations();
+            ->registerMacros()
+            ->registerTranslations();
 
         View::composer('platform::dashboard', PressMenuComposer::class);
         View::composer('platform::systems', SystemMenuComposer::class);
-
-        if (env('PRESS_TEMPLATE') !== null) {
-            $this->app->register(WebServiceProvider::class);
-        }
     }
 
     /**
-     * Register the Press service provider.
+     * Register any application services.
      */
     public function register(): void
     {
+        /**
+         * Define package path
+         */
         if (!defined('PRESS_PATH')) {
-            /*
-             * Get the path to the ORCHID Press folder.
-             */
-            define('PRESS_PATH', realpath(__DIR__.'/../../'));
+            define('PRESS_PATH', dirname(__DIR__, 2));
         }
     }
 
     /**
      * Register views & Publish views.
-     *
-     * @return $this
      */
     public function registerViews(): self
     {
@@ -136,11 +119,6 @@ class PressServiceProvider extends ServiceProvider
             ->group(realpath(PRESS_PATH.'/routes/press.php'));
     }
 
-    /**
-     * Register config.
-     *
-     * @return $this
-     */
     protected function registerConfig(): self
     {
         $this->publishes([
@@ -154,21 +132,13 @@ class PressServiceProvider extends ServiceProvider
         return $this;
     }
 
-    /**
-     * Register migrate.
-     *
-     * @return $this
-     */
-    protected function registerDatabase(): self
+    protected function registerMigrations(): self
     {
-        $this->loadMigrationsFrom(realpath(PRESS_PATH.'/database/migrations/press'));
+        $this->loadMigrationsFrom(PRESS_PATH.'/database/migrations/press');
 
         return $this;
     }
 
-    /**
-     * @return array
-     */
     public function findEntities(): array
     {
         $namespace = app()->getNamespace();
@@ -195,9 +165,6 @@ class PressServiceProvider extends ServiceProvider
         return collect($resources)->sort()->all();
     }
 
-    /**
-     * @return ItemPermission
-     */
     protected function registerPermissionsEntities(): ItemPermission
     {
         $permissions = new ItemPermission();
@@ -219,9 +186,6 @@ class PressServiceProvider extends ServiceProvider
         return $permissions;
     }
 
-    /**
-     * @return ItemPermission
-     */
     protected function registerPermissions(): ItemPermission
     {
         return ItemPermission::group(__('Systems'))
@@ -230,56 +194,14 @@ class PressServiceProvider extends ServiceProvider
             ->addPermission('platform.systems.category', __('Category'));
     }
 
-    /**
-     * Route binding.
-     *
-     * @return $this
-     */
-    public function registerBinding(): self
+
+    public function registerBindings(): self
     {
-        Route::bind('category', function ($value) {
-            $category = Dashboard::modelClass(Category::class);
-
-            return $category->where('id', $value)->firstOrFail();
-        });
-
-        Route::bind('type', function ($value) {
-            $post = Dashboard::modelClass(Post::class);
-
-            return $post->getEntity($value)->getEntityObject();
-        });
-
-        Route::bind('page', function ($value) {
-            $model = Dashboard::modelClass(Page::class);
-
-            $page = $model->where('id', $value)
-                ->orWhere('slug', $value)
-                ->first();
-
-            if ($page === null) {
-                $model->slug = $value;
-                $page = $model;
-            }
-
-            return $page;
-        });
-
-        Route::bind('post', function ($value) {
-            $post = Dashboard::modelClass(Post::class);
-
-            return $post->where('id', $value)
-                ->orWhere('slug', $value)
-                ->firstOrFail();
-        });
+        require PRESS_PATH.'/routes/bindings.php';
 
         return $this;
     }
 
-    /**
-     * Register console commands.
-     *
-     * @return $this
-     */
     public function registerCommands(): self
     {
         if (!$this->app->runningInConsole()) {
@@ -293,11 +215,6 @@ class PressServiceProvider extends ServiceProvider
         return $this;
     }
 
-    /**
-     * Register translations.
-     *
-     * @return $this
-     */
     public function registerTranslations(): self
     {
         $this->loadJsonTranslationsFrom(realpath(PRESS_PATH.'/resources/lang/'));
@@ -305,12 +222,7 @@ class PressServiceProvider extends ServiceProvider
         return $this;
     }
 
-    /**
-     * Register orchid.
-     *
-     * @return $this
-     */
-    protected function registerOrchid(): self
+    protected function registerStubs(): self
     {
         $this->publishes([
             realpath(PRESS_PATH.'/install-stubs/Orchid/Entities') => app_path('Orchid/Entities'),
@@ -319,40 +231,9 @@ class PressServiceProvider extends ServiceProvider
         return $this;
     }
 
-    /**
-     * @return $this
-     */
     public function registerMacros(): self
     {
-        TD::macro('linkPost', function (string $text = '') {
-            $this->render(static function (Post $post) use ($text) {
-                return (string) Link::make($text)
-                    ->href(route('platform.entities.type.edit', [
-                        'type' => $post->type,
-                        'post' => $post,
-                    ]));
-            });
-
-            return $this;
-        });
-
-        TD::macro('column', function (string $column = null) {
-            if ($column !== null) {
-                $this->column = $column;
-            }
-            if ($this->locale && $column !== null) {
-                $locale = '.'.app()->getLocale().'.';
-                $this->column = preg_replace('/'.preg_quote('.', '/').'/', $locale, $column);
-            }
-
-            return $this;
-        });
-
-        Dashboard::macro('getEntities', function () {
-            return collect($this->getResource('entities'))->transform(function ($value) {
-                return is_object($value) ? $value : new $value();
-            });
-        });
+        require PRESS_PATH.'/src/Support/macros.php';
 
         return $this;
     }
