@@ -76,7 +76,7 @@ class CategoryListScreen extends Screen
         return [
             Link::make(__('Add'))
                 ->icon('icon-plus')
-                ->link(route('platform.systems.category.create')),
+                ->href(route('platform.systems.category.create')),
         ];
     }
 

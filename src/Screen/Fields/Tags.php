@@ -45,7 +45,7 @@ class Tags extends Field
     /**
      * @var string
      */
-    public $view = 'platform::fields.tags';
+    public $view = 'press::fields.tags';
 
     /**
      * Default attributes value.

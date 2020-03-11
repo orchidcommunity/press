@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Orchid\Press\Http\Layouts\Category\CategoryEditLayout;
 use Orchid\Press\Models\Category;
 use Orchid\Press\Models\Term;
+use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Screen;
 use Orchid\Support\Facades\Alert;
@@ -54,11 +55,11 @@ class CategoryEditScreen extends Screen
     public function commandBar(): array
     {
         return [
-            Link::make(__('Save'))
+            Button::make(__('Save'))
                 ->icon('icon-check')
                 ->method('save'),
 
-            Link::make(__('Remove'))
+            Button::make(__('Remove'))
                 ->icon('icon-trash')
                 ->method('remove'),
         ];

@@ -98,7 +98,7 @@ class PressServiceProvider extends ServiceProvider
 
         $this->publishes([
             PRESS_PATH.'/resources/views' => resource_path('views/vendor/press'),
-        ], 'views');
+        ], 'press-views');
 
         return $this;
     }
@@ -225,7 +225,8 @@ class PressServiceProvider extends ServiceProvider
     protected function registerStubs(): self
     {
         $this->publishes([
-            realpath(PRESS_PATH.'/install-stubs/Orchid/Entities') => app_path('Orchid/Entities'),
+            PRESS_PATH.'/install-stubs/Orchid/Entities' => app_path('Orchid/Entities'),
+            PRESS_PATH.'/install-stubs/Controllers' => app_path('Http/Controllers')
         ], 'press-stubs');
 
         return $this;

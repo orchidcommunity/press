@@ -45,6 +45,11 @@ abstract class Many implements EntityContract, UrlRoutable
         return [];
     }
 
+    public function options(): array
+    {
+        return [];
+    }
+
     /**
      * @return \Illuminate\Contracts\Pagination\Paginator
      */

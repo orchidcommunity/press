@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Orchid\Entities;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Arr;
 use Orchid\Press\Entities\Many;
 use Orchid\Press\Http\Filters\CreatedFilter;
 use Orchid\Press\Http\Filters\SearchFilter;
@@ -42,7 +43,7 @@ class Post extends Many
     /**
      * @var string
      */
-    public $slug = 'example-post';
+    public $slug = 'post';
 
     /**
      * Slug url /news/{name}.
@@ -78,7 +79,7 @@ class Post extends Many
     {
         $model->save();
 
-        $model->taxonomies()->sync(array_flatten(request(['category'])));
+        $model->taxonomies()->sync(Arr::flatten(request(['category'])));
         $model->setTags(request('tags', []));
         $model->attachment()->syncWithoutDetaching(request('attachment', []));
     }
@@ -248,24 +249,20 @@ class Post extends Many
                 ->width('100px')
                 ->filter('numeric')
                 ->sort()
-                ->linkPost(),
+                ->linkPost('View'),
 
             TD::set('name', 'Name')
                 ->width('250px')
-                ->locale()
                 ->column('content.name')
                 ->filter('text')
-                ->sort()
-                ->linkPost('name'),
+                ->sort(),
 
             TD::set('status')
                 ->sort(),
 
             TD::set('phone', 'Phone')
-                ->locale()
                 ->column('content.phone')
-                ->filter('text')
-                ->linkPost('phone'),
+                ->filter('text'),
 
             TD::set('publish_at', 'Date of publication')
                 ->filter('date')
