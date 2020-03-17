@@ -1,7 +1,7 @@
 @extends('platform::dashboard')
 
-@section('title',__('Menu'))
-@section('description',$name)
+@section('title', __('Menu'))
+@section('description', __($availableMenus[$name]))
 @section('controller','components--menu')
 @section('controller-data',"
          data-content-loader-url='$name'
@@ -18,13 +18,14 @@
                        aria-haspopup="true"
                        aria-expanded="false">
                         <i class="icon-globe m-r-xs"></i>
-                        {{$locales[$currentLocale]['native']}}
+                        {{ $locales[$currentLocale] }}
                     </a>
                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
                         @foreach($locales as $code => $locale)
-                            <a class="dropdown-item" href="?lang={{$code}}"
+                            <a class="dropdown-item" href="?lang={{ $code }}"
                                data-turbolinks-action="replace">
-                                {{$locale['native']}}</a>
+                                {{ $locale }}
+                            </a>
                         @endforeach
                     </div>
                 </li>
@@ -63,10 +64,10 @@
 @section('content')
 
     <div class="wrapper">
-        <div class="dd" data-lang="{{$currentLocale}}" data-name="{{$name}}">
+        <div class="dd" data-lang="{{ $currentLocale }}" data-name="{{ $name }}">
             <ol class="dd-list">
                 @include('press::partials.menu.item',[
-                    'menu'=>$menu
+                    'menu' => $menu
                 ])
             </ol>
         </div>

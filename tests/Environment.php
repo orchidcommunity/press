@@ -6,6 +6,7 @@ namespace Orchid\Tests;
 
 use DaveJamesMiller\Breadcrumbs\Facades\Breadcrumbs;
 use Illuminate\Database\Eloquent\Factory;
+use Illuminate\Foundation\Application;
 use Illuminate\Support\Str;
 use Orchid\Database\Seeds\OrchidDatabaseSeeder;
 use Orchid\Platform\Models\User;
@@ -15,16 +16,8 @@ use Orchid\Support\Facades\Alert;
 use Orchid\Support\Facades\Dashboard;
 use Watson\Active\Active;
 
-/**
- * Trait Environment.
- */
 trait Environment
 {
-    /**
-     * Setup the test environment.
-     * Run test: php vendor/bin/phpunit --coverage-html ./logs/coverage ./tests
-     * Run 1 test:  php vendor/bin/phpunit  --filter= UserTest tests\\Unit\\Platform\\UserTest --debug.
-     */
     protected function setUp(): void
     {
         parent::setUp();
@@ -52,7 +45,7 @@ trait Environment
     }
 
     /**
-     * @param \Illuminate\Foundation\Application $app
+     * @param Application $app
      */
     protected function getEnvironmentSetUp($app)
     {
@@ -111,12 +104,7 @@ trait Environment
         ]);
     }
 
-    /**
-     * @param \Illuminate\Foundation\Application $app
-     *
-     * @return array
-     */
-    protected function getPackageProviders($app)
+    protected function getPackageProviders(Application $app): array
     {
         return [
             FoundationServiceProvider::class,
@@ -124,12 +112,7 @@ trait Environment
         ];
     }
 
-    /**
-     * @param \Illuminate\Foundation\Application $app
-     *
-     * @return array
-     */
-    protected function getPackageAliases($app)
+    protected function getPackageAliases(Application $app): array
     {
         return [
             'Alert'       => Alert::class,

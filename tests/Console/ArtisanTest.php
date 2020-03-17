@@ -8,19 +8,14 @@ use Orchid\Tests\TestConsoleCase;
 
 class ArtisanTest extends TestConsoleCase
 {
-    /**
-     * debug: php vendor/bin/phpunit  --filter= ArtisanTest tests\\Feature\\ArtisanTest --debug.
-     *
-     * @var
-     */
-    public function testArtisanOrchidEntityMany()
+    public function testArtisanOrchidEntityMany(): void
     {
         $this->artisan('orchid:entity-many', ['name' => $this->generateNameFromMethod()])
             ->expectsOutput('Behavior created successfully.')
             ->assertExitCode(0);
     }
 
-    public function testArtisanOrchidEntitySingle()
+    public function testArtisanOrchidEntitySingle(): void
     {
         $this->artisan('orchid:entity-single', ['name' => $this->generateNameFromMethod()])
             ->expectsOutput('Behavior created successfully.')

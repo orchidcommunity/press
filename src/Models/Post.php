@@ -25,7 +25,14 @@ use Orchid\Screen\AsMultiSource;
 use Orchid\Support\Facades\Dashboard;
 
 /**
- * Class Post.
+ * @property int $user_id
+ * @property string $type
+ * @property string $status
+ * @property array $content
+ * @property array $options
+ * @property string $slug
+ * @property string $publish_at
+ * @property string $created_at
  */
 class Post extends Model
 {
