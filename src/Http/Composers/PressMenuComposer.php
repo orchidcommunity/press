@@ -16,11 +16,6 @@ class PressMenuComposer
      */
     private $dashboard;
 
-    /**
-     * MenuComposer constructor.
-     *
-     * @param Dashboard $dashboard
-     */
     public function __construct(Dashboard $dashboard)
     {
         $this->dashboard = $dashboard;
@@ -29,31 +24,26 @@ class PressMenuComposer
     /**
      * Registering the main menu items.
      */
-    public function compose()
+    public function compose(): void
     {
-        $this
-            ->registerMenuPost($this->dashboard);
+        $this->registerMenuPost();
     }
 
-    /**
-     * @param Dashboard $kernel
-     *
-     * @return $this
-     */
-    protected function registerMenuPost(Dashboard $kernel): self
+
+    protected function registerMenuPost(): self
     {
         $this->dashboard->getEntities()
             ->where('display', true)
             ->sortBy('sort')
-            ->each(function ($page) use ($kernel) {
+            ->each(function ($page) {
                 $route = is_a($page, Single::class) ? 'platform.entities.type.page' : 'platform.entities.type';
                 $params = is_a($page, Single::class) ? [$page->slug, $page->slug] : [$page->slug];
 
-                $kernel->menu->add(Menu::MAIN,
+                $this->dashboard->menu->add(Menu::MAIN,
                     ItemMenu::label($page->name)
                         ->slug($page->slug)
                         ->icon($page->icon)
-                        ->title($page->groupname ?? $page->title)
+                        ->title($page->title)
                         ->route($route, $params)
                         ->permission('platform.entities.type.'.$page->slug)
                         ->sort($page->sort)

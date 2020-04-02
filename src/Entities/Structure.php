@@ -51,15 +51,6 @@ trait Structure
     public $title;
 
     /**
-     * @deprecated use `title` property
-     *
-     * Menu group name.
-     *
-     * @var null
-     */
-    public $groupname;
-
-    /**
      * Show the data to the user.
      *
      * @var bool

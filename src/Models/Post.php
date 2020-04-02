@@ -435,7 +435,7 @@ class Post extends Model
      */
     public function scopeFiltersApplyDashboard(Builder $query, $entity = null): Builder
     {
-        if (!is_null($entity)) {
+        if ($entity !== null) {
             $this->getEntity($entity);
         }
 

@@ -26,7 +26,7 @@ trait Environment
         $this->loadMigrationsFrom(realpath('./database/migrations'));
         $this->artisan('migrate', ['--database' => 'orchid']);
 
-        $this->withFactories(realpath(PLATFORM_PATH.'/database/factories'));
+        $this->withFactories(realpath(PRESS_PATH.'/database/factories'));
 
         $this->artisan('db:seed', [
             '--class' => OrchidDatabaseSeeder::class,
