@@ -17,6 +17,7 @@ TD::macro('linkPost', function (string $text = '') {
     return $this;
 });
 
+/** FIXME: Uses deprecated in Orchid 6 and removed in Orchid 7 TD attribute 'locale' */
 TD::macro('column', function (string $column = null) {
     if ($column !== null) {
         $this->column = $column;
