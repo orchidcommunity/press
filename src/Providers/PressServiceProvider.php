@@ -70,7 +70,8 @@ class PressServiceProvider extends ServiceProvider
             ->registerViews()
             ->registerCommands()
             ->registerMacros()
-            ->registerTranslations();
+            ->registerTranslations()
+            ->registerProviders();
 
         View::composer('platform::dashboard', PressMenuComposer::class);
         View::composer('platform::systems', SystemMenuComposer::class);
@@ -238,4 +239,19 @@ class PressServiceProvider extends ServiceProvider
 
         return $this;
     }
+
+
+    /**
+     * Register provider.
+     */
+    public function registerProviders(): self
+    {
+        if (env('PRESS_WEB')) {
+            $this->app->register(WebServiceProvider::class);
+        }
+
+        return $this;
+    }
+
+
 }

@@ -11,7 +11,7 @@ use Orchid\Press\Http\Layouts\EntitiesLayout;
 use Orchid\Press\Http\Layouts\EntitiesSelection;
 use Orchid\Press\Models\Post;
 use Orchid\Screen\Actions\Link;
-use Orchid\Screen\Layout;
+use Orchid\Screen\LayoutFactory;
 use Orchid\Screen\Screen;
 use Orchid\Support\Facades\Alert;
 
@@ -94,9 +94,9 @@ class EntityListScreen extends Screen
     public function layout(): array
     {
         return [
-            Layout::view('press::container.posts.restore'),
+            LayoutFactory::view('press::container.posts.restore'),
             new EntitiesSelection($this->filters),
-            Layout::table('data', $this->grid),
+            LayoutFactory::table('data', $this->grid),
         ];
     }
 

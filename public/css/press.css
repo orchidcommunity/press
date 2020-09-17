@@ -13,6 +13,12 @@
   list-style: none;
   font-size: 13px;
   line-height: 20px;
+  /**
+   * Nestable Extras
+   */
+  /**
+   * Nestable Draggable Handles
+   */
 }
 
 .dd .edit {
@@ -45,7 +51,7 @@
   font-weight: normal;
 }
 
-.dd-list {
+.dd .dd-list {
   display: block;
   position: relative;
   margin: 0;
@@ -53,21 +59,17 @@
   list-style: none;
 }
 
-.dd-list .dd-list {
+.dd .dd-list .dd-list {
   padding-left: 30px;
 }
 
-.dd-dragel .edit {
+.dd .dd-dragel .edit {
   display: none;
 }
 
-.dd-collapsed .dd-list {
-  display: none;
-}
-
-.dd-item,
-.dd-empty,
-.dd-placeholder {
+.dd .dd-item,
+.dd .dd-empty,
+.dd .dd-placeholder {
   display: block;
   position: relative;
   margin: 0;
@@ -77,8 +79,17 @@
   line-height: 20px;
 }
 
-.dd-handle,
-.dd3-content {
+.dd .dd-item.dd-collapsed .dd-list,
+.dd .dd-item.dd-collapsed .dd-collapse {
+  display: none;
+}
+
+.dd .dd-item.dd-collapsed .dd-expand {
+  display: block;
+}
+
+.dd .dd-handle,
+.dd .dd3-content {
   display: block;
   margin: 5px 0;
   padding: 10px 10px;
@@ -88,16 +99,16 @@
   border-radius: 3px;
 }
 
-.dd-handle:hover,
-.dd3-content:hover {
+.dd .dd-handle:hover,
+.dd .dd3-content:hover {
   background: #ffffff;
 }
 
-.dd3-content {
+.dd .dd3-content {
   padding: 10px 10px 10px 50px;
 }
 
-.dd-item > button {
+.dd .dd-item > button {
   display: block;
   position: relative;
   cursor: pointer;
@@ -117,7 +128,11 @@
   font-weight: bold;
 }
 
-.dd-item > button:before {
+.dd .dd-item > button.dd-expand {
+  display: none;
+}
+
+.dd .dd-item > button:before {
   content: "+";
   display: block;
   position: absolute;
@@ -126,11 +141,11 @@
   text-indent: 0;
 }
 
-.dd-item > button[data-action=collapse]:before {
+.dd .dd-item > button[data-action=collapse]:before {
   content: "-";
 }
 
-.dd-placeholder {
+.dd .dd-placeholder {
   margin: 5px 0;
   padding: 0;
   min-height: 30px;
@@ -140,7 +155,7 @@
   -moz-box-sizing: border-box;
 }
 
-.dd-empty {
+.dd .dd-empty {
   margin: 5px 0;
   padding: 0;
   box-sizing: border-box;
@@ -151,25 +166,21 @@
   background: #e5e5e5 0 0, 30px 30px;
 }
 
-.dd-dragel {
+.dd .dd-dragel {
   position: absolute;
   pointer-events: none;
   z-index: 9999;
 }
 
-.dd-dragel > .dd-item .dd-handle {
+.dd .dd-dragel > .dd-item .dd-handle {
   margin-top: 0;
 }
 
-.dd-dragel .dd-handle {
+.dd .dd-dragel .dd-handle {
   box-shadow: 2px 4px 6px 0 rgba(0, 0, 0, 0.1);
 }
 
-/**
- * Nestable Extras
- */
-
-.nestable-lists {
+.dd .nestable-lists {
   display: block;
   clear: both;
   padding: 30px 0;
@@ -180,28 +191,24 @@
 }
 
 @media only screen and (min-width: 700px) {
-  .dd + .dd {
+  .dd .dd + .dd {
     margin-left: 2%;
   }
 }
 
-.dd-hover > .dd-handle {
+.dd .dd-hover > .dd-handle {
   background: #2ea8e5 !important;
 }
 
-/**
- * Nestable Draggable Handles
- */
-
-.dd-dragel > .dd3-item > .dd3-content {
+.dd .dd-dragel > .dd3-item > .dd3-content {
   margin: 0;
 }
 
-.dd3-item > button {
+.dd .dd3-item > button {
   margin-left: 40px;
 }
 
-.dd3-handle {
+.dd .dd3-handle {
   position: absolute;
   margin: 0;
   left: 0;
@@ -218,7 +225,7 @@
   border-bottom-right-radius: 0;
 }
 
-.dd3-handle:before {
+.dd .dd3-handle:before {
   content: "\2261";
   display: block;
   position: absolute;
@@ -232,7 +239,7 @@
   font-weight: normal;
 }
 
-.dd3-handle:hover {
+.dd .dd3-handle:hover {
   background: #f7f7f7;
 }
 

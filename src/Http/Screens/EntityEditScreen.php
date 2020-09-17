@@ -10,7 +10,7 @@ use Orchid\Press\Entities\EntityContract;
 use Orchid\Press\Entities\Many;
 use Orchid\Press\Models\Post;
 use Orchid\Screen\Actions\Button;
-use Orchid\Screen\Layout;
+use Orchid\Screen\LayoutFactory;
 use Orchid\Screen\Screen;
 use Orchid\Support\Facades\Alert;
 
@@ -103,7 +103,7 @@ class EntityEditScreen extends Screen
     public function layout(): array
     {
         return [
-            Layout::view('press::container.posts.edit'),
+            LayoutFactory::view('press::container.posts.edit'),
         ];
     }
 

@@ -6,7 +6,7 @@
     >
         <div class="dd-handle dd3-handle">{{ __('Drag') }}</div>
         <div class="dd3-content">{{$item->label}}</div>
-        <div class="edit icon-pencil"></div>
+        <x-orchid-icon class="edit" path="note" />
         @if($item->children->count() > 0)
             <ol class="dd-list">
                 @include('press::partials.menu.item',[

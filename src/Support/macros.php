@@ -7,11 +7,11 @@ use Orchid\Screen\TD;
 
 TD::macro('linkPost', function (string $text = '') {
     $this->render(static function (Post $post) use ($text) {
-        return (string) Link::make($text)
-            ->href(route('platform.entities.type.edit', [
+        return (string) Link::make($post->getContent($text))
+            ->route('platform.entities.type.edit', [
                 'type' => $post->type,
                 'post' => $post,
-            ]));
+            ]);
     });
 
     return $this;
