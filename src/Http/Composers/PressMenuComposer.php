@@ -38,6 +38,7 @@ class PressMenuComposer
             ->each(function ($page) {
                 $route = is_a($page, Single::class) ? 'platform.entities.type.page' : 'platform.entities.type';
                 $params = is_a($page, Single::class) ? [$page->slug, $page->slug] : [$page->slug];
+                $active = [route($route, $params), route($route, $params) . '/*'];
 
                 $this->dashboard->menu->add(Menu::MAIN,
                     ItemMenu::label($page->name)
@@ -48,6 +49,7 @@ class PressMenuComposer
                         ->permission('platform.entities.type.'.$page->slug)
                         ->sort($page->sort)
                         ->canSee($page->display)
+                        ->active($active)
                 );
             });
 
