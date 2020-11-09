@@ -201,7 +201,7 @@ If you choose to create a new class for your custom post type, you can return th
 
 The definition of write behavior is based on the specified `type`.
 ```php
-//Все объекты в коллекции $videos будут экземплярами Post
+//All objects in the $videos collection will be Post instances
 $videos = Post::type('video')->status('publish')->get();
 ```
 
