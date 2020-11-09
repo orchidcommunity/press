@@ -258,7 +258,7 @@ $category->posts->each(function($post) {
 ```
 
 
-## Вложения
+## Attachments
 
 Attachments are files related to a recording.
 These files can be of different formats and resolutions.
@@ -460,7 +460,7 @@ $comment = $comment->author();
 ```
 
 
-## Проверки
+## Checks
 
 ```php
 $comment = Comment::find(1);
