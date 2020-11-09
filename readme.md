@@ -14,7 +14,7 @@
 </p>
 
 
-> **This package is not looking for a maintainer!** If you want to be one, write to the mail bliz48rus@gmail.com
+> **This package is looking for a maintainer!** If you want to be one, write to the mail bliz48rus@gmail.com
 
 
 ## Content Management System Entities
