@@ -1,10 +1,7 @@
-## CMS package for Orchid Platform
+## CMS package for Laravel Orchid Platform
 
 
-<p align="center">
-  <a href="https://travis-ci.org/orchidsoftware/press/">
-    <img src="https://travis-ci.org/orchidsoftware/press.svg?branch=master">
-  </a>
+<p align="left">
   <a href="https://packagist.org/packages/orchid/press">
     <img src="https://poser.pugx.org/orchid/press/v/stable"/>
   </a>
@@ -18,7 +15,7 @@
 
 ## Install
 
-
+> **This package is not looking for a maintainer!** If you want to be one, write to the mail bliz48rus@gmail.com
 
 
 ## Content Management System Entities
